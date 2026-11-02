@@ -1,0 +1,29 @@
+# Local research documents, reference material, and previous work
+/reference_papers/
+/previous_iteration/
+/docs/
+/SUMMARY.md
+
+# Local Python environments and generated caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local datasets and generated experiment outputs
+/data/
+/results/
+*.dng
+*.DNG
