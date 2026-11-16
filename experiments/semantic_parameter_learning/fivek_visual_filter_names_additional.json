@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "method": "Assistant-authored filter-style names based on visual observations; not Instagram filter names, presets, or verified equivalents.",
+  "names": {
+    "a1924-IMG_0226": {"A": "Deep Shelter", "B": "Open Shade", "C": "Bright Play", "D": "Window Silhouette", "E": "Blue Shelter"},
+    "a0235-DSC_0193": {"A": "Coastal Blue", "B": "Quiet Horizon", "C": "Coastal Adventure", "D": "Soft Shore", "E": "Radiant Rocks"},
+    "a0137-IMG_4565": {"A": "Clear Parade", "B": "Golden Square", "C": "Soft Daylight", "D": "Golden Canopy", "E": "Sunlit Gathering"},
+    "a0186-IMG_4587": {"A": "Blue Harbor", "B": "Quiet Marina", "C": "Sunlit Marina", "D": "Pale Harbor", "E": "Open Horizon"},
+    "a0367-IMG_0338": {"A": "Deep Reflection", "B": "Warm Skyline", "C": "Vivid Reflection", "D": "City Spark", "E": "Clear Heights"},
+    "a0551-DSC_0008": {"A": "Woodland Contrast", "B": "Autumn Shade", "C": "Vivid Forest", "D": "Golden Woods", "E": "Soft Woodland"}
+  }
+}

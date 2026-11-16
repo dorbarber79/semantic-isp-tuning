@@ -1,0 +1,761 @@
+{
+  "schema_version": 1,
+  "method": "Assistant-authored manual visual review. Text describes each fitted ISP render relative to Default ISP; it is not human-annotated ground truth.",
+  "limitations": "Descriptions are subjective visual notes, not validated ground truth. Unreviewed scenes have no generated descriptors.",
+  "annotation_process": {
+    "snapshot_date": "2026-11-14",
+    "annotator_surface": "GitHub Copilot Chat",
+    "underlying_model_identifier": "Not exposed in session metadata; unavailable for exact attribution.",
+    "model_name_reported_by_user": "GPT-5.6 Luna; visible in a user-provided screenshot labeling a report-verification execution, so not independently confirmed for the original annotation turns.",
+    "annotation_mode": "Assistant-authored visual review; no batch vision-language model generated the committed descriptions.",
+    "visual_inputs": "The comparison sheets displayed Expert TIFF, Default ISP, and fitted ISP panels. The text was intended to describe the fitted render relative to Default ISP, not the Expert TIFF. The Expert TIFF was visible as context, so this was not a blinded study.",
+    "prompt_record": "No fixed per-image model prompt or command was used to generate these descriptions. They were written interactively in chat; the guidance below is a reconstruction, not a verbatim prompt.",
+    "reconstructed_guidance": "For each fit, compare Default ISP with the fitted ISP render. Write short, natural, image-specific lines about the processing effect, perceived mood, concrete scene details as rendered, and a cautious style association. Do not write commands, infer hidden camera settings or photographer intent, name expert letters, or compare with other experts. Avoid reusing wording for distinct fits in the same scene.",
+    "groups": {
+      "D1": "Visible fit effect such as light, warmth, color, contrast, or detail.",
+      "D2": "Perceptual mood of the fitted output.",
+      "D3": "Concrete scene elements as they appear in the fitted output.",
+      "D4": "Cautious style or cinematic association for the fitted output."
+    },
+    "local_vlm_pilot": "Qwen2.5-VL-3B-Instruct was tested separately on Default-versus-expert pairs and was not used for these labels. It reversed a known brightness difference and missed warmth; its captions were rejected.",
+    "snapshot_counts": {"fit_source_images": 105, "reviewed_images": 105, "reviewed_fits": 525, "unreviewed_images": 0, "unreviewed_fits": 0},
+    "validation": "The loader checks five fits per scene, nonempty D1-D4 fields, and no repeated phrase within a scene and descriptor group. Tests enforce concise D1/D3 lines and pending-state behavior for unreviewed fits."
+  },
+  "images": {
+    "a0015-DSC_0081": {
+      "A": {"D1": "Cooler light keeps the beach subdued.", "D2": "The boy and toy sit in a quiet, low-key summer frame.", "D3": "Pale blue sea; shaded child and sand.", "D4": "A restrained coastal-film look, with cool daylight and deep foreground shade."},
+      "B": {"D1": "A slight lift keeps beach colors natural.", "D2": "The beach feels open and calm rather than glossy.", "D3": "Child and yellow toy stay clear against sand and water.", "D4": "A clean family-snapshot look, gentle and natural."},
+      "C": {"D1": "More saturation sharpens blue, green, and red.", "D2": "The output feels lively and sunlit.", "D3": "Vivid sea and toy; skin and sand stay balanced.", "D4": "A punchy vacation-film look with crisp summer color."},
+      "D": {"D1": "Warmth and light brighten the sand.", "D2": "The scene has a cheerful, golden-hour warmth.", "D3": "Bright child and sand against blue water.", "D4": "A warm family-holiday treatment, bright without losing the coastal blues."},
+      "E": {"D1": "Strong golden warmth lights skin and sand.", "D2": "The fitted frame feels sun-soaked and nostalgic.", "D3": "Golden foreground highlights meet cooler blue sea.", "D4": "A glowing summer-memory look, closer to warm film than neutral daylight."}
+    },
+    "a0017-050710_031618__MG_3496": {
+      "A": {"D1": "More color and contrast define the shaded shelter.", "D2": "The forest feels crisp, shaded, and close to natural daylight.", "D3": "Dark timber beneath vivid green canopy and floor.", "D4": "A documentary woodland look with restrained light and defined timber."},
+      "B": {"D1": "Warm light turns the foliage golden-green.", "D2": "The clearing feels sunny and welcoming.", "D3": "Golden light reaches shelter and ground; roof stays shaded.", "D4": "A warm afternoon-in-the-woods treatment, softly cinematic."},
+      "C": {"D1": "Cooler, darker tones deepen forest shadows.", "D2": "The output feels quiet and cool, like a shaded woodland.", "D3": "Shelter in blue-green shade; brighter gaps between trees.", "D4": "A cool, atmospheric forest frame with a subdued filmic finish."},
+      "D": {"D1": "A bright, vivid lift warms the woods.", "D2": "The clearing feels vivid and sunlit.", "D3": "Golden leaves and bright grass around dark timber.", "D4": "A lush, high-energy woodland look with a golden cinematic cast."},
+      "E": {"D1": "A teal-green cast brightens and saturates the floor.", "D2": "The forest feels cool, vivid, and slightly stylized.", "D3": "Glowing foliage around dark shelter timber.", "D4": "A moody teal-green film treatment for a shaded forest scene."}
+    },
+    "a0865-20080515_075226__MG_9983": {
+      "A": {"D1": "Warm contrast brightens the pink flowers.", "D2": "The garden feels sunny and energetic.", "D3": "Pink petals against richer green, with firm detail.", "D4": "A bright botanical-editorial look with warm spring light."},
+      "B": {"D1": "Strong warmth and saturation add coral to blossoms.", "D2": "The flower bed feels vivid and warmly lit.", "D3": "Coral petals glow against yellow-green foliage.", "D4": "A romantic, golden garden treatment with rich floral color."},
+      "C": {"D1": "Magenta-green color and high contrast dramatize blooms.", "D2": "The image feels bold and slightly theatrical.", "D3": "Magenta petals against deep green leaves and shadow.", "D4": "A cinematic botanical look, saturated and high-contrast."},
+      "D": {"D1": "More light and softer contrast pale the petals.", "D2": "The garden feels airy and delicate.", "D3": "Pale pink tulips on a light green background.", "D4": "A pastel floral-film mood with a light, diffused finish."},
+      "E": {"D1": "Warm contrast deepens foliage around blossoms.", "D2": "The garden feels lush and warmly saturated.", "D3": "Bright petals framed by dark green leaves.", "D4": "A rich spring-garden look with a polished, cinematic finish."}
+    },
+    "a2456-IMG_1681": {
+      "A": {"D1": "Cool contrast keeps mountain shadows deep.", "D2": "The valley feels quiet and cool beneath the clouded sky.", "D3": "Blue-gray clouds and dark slopes over the meadow.", "D4": "A crisp alpine-film look with a cool, restrained palette."},
+      "B": {"D1": "Warm light lifts the field and cloud breaks.", "D2": "The landscape feels open and welcoming.", "D3": "Bright meadow beneath a warm sky; blue range beyond.", "D4": "A gentle travel-photography treatment with late-afternoon warmth."},
+      "C": {"D1": "Contrast and color enrich blue sky and golden field.", "D2": "The valley feels vivid and clear.", "D3": "Blue peaks, bright clouds, golden-green meadow.", "D4": "A vivid alpine-postcard look with cinematic color separation."},
+      "D": {"D1": "A mild lift keeps color muted and soft.", "D2": "The valley feels calm and unhurried.", "D3": "Pale clouds and muted grass soften the valley.", "D4": "A quiet landscape-film treatment, natural and understated."},
+      "E": {"D1": "A strong lift opens the field and cools peaks.", "D2": "The scene feels luminous and spacious.", "D3": "Bright meadow and sky around cool blue-violet peaks.", "D4": "An airy alpine look with a polished, high-key feel."}
+    },
+    "a3768-IMG_1641": {
+      "A": {"D1": "Cool low light keeps the portrait subdued.", "D2": "The room feels quiet and introspective.", "D3": "Cool window light across glasses, curls, and burgundy seat.", "D4": "A low-key portrait-film look with cool shadows."},
+      "B": {"D1": "A gentle lift opens the face and room.", "D2": "The portrait feels relaxed and natural.", "D3": "Clear face, dark curls, and red chair against bright window.", "D4": "A soft, familiar indoor portrait with clean daylight."},
+      "C": {"D1": "Magenta-green color and contrast tint the portrait.", "D2": "The image feels vivid and slightly theatrical.", "D3": "Violet shadows deepen hair and chair; window stays cool.", "D4": "A stylized portrait-film treatment with bold color contrast."},
+      "D": {"D1": "Magenta-green color and crisp detail reshape the room.", "D2": "The portrait feels vivid, polished, and more graphic.", "D3": "Defined face and curls against tinted window and chair.", "D4": "A dramatic color-grade look with a sharp editorial finish."},
+      "E": {"D1": "Muted teal-green color comes with a slight lift.", "D2": "The room feels soft and contemplative.", "D3": "Teal shadows around face, window, and red seat.", "D4": "A subdued, cinematic indoor portrait with a cool color wash."}
+    },
+    "a1924-IMG_0226": {
+      "A": {"D1": "Low light and contrast keep the shelter shadowed.", "D2": "The scene feels dramatic and enclosed.", "D3": "Person behind bright window grid above deep blue wall.", "D4": "A moody, high-contrast urban-film frame."},
+      "B": {"D1": "A broad lift opens the shaded interior.", "D2": "The shelter feels calmer and more visible.", "D3": "Silhouette, roof beams, and blue wall separate from window.", "D4": "A natural documentary look with soft daylight."},
+      "C": {"D1": "More brightness and color open shadows and greenery.", "D2": "The image feels lively and sunlit.", "D3": "Bright foliage beyond blue wall; seated figure is clearer.", "D4": "A vivid urban snapshot with a fresh, colorful tone."},
+      "D": {"D1": "Deep shadows and high contrast push shelter to silhouette.", "D2": "The frame feels stark and dramatic.", "D3": "Bright window over shadowed person, roof, and blue wall.", "D4": "A cinematic silhouette treatment with a dark, graphic finish."},
+      "E": {"D1": "The fit lifts the room and enriches blue-green.", "D2": "The shelter feels open but still shaded.", "D3": "Visible face and roof against bright window and blue wall.", "D4": "A balanced urban-film look with a fresh blue-green cast."}
+    },
+    "a0235-DSC_0193": {
+      "A": {"D1": "Cooler balance and a color lift clarify sea.", "D2": "The coast feels crisp and quietly cool.", "D3": "Figure and dark rocks beneath clean blue horizon.", "D4": "A cool coastal-documentary frame with a fresh morning feel."},
+      "B": {"D1": "Warmth rises as contrast and color stay gentle.", "D2": "The shoreline feels muted and reflective.", "D3": "Warm horizon light over a shaded person and rocks.", "D4": "A nostalgic seaside-film mood with soft, earthy color."},
+      "C": {"D1": "Dark contrast, vivid color, and crisp detail shape coast.", "D2": "The coast feels bold and adventurous.", "D3": "Deep blue water and warm rocks frame the ridge figure.", "D4": "A dramatic travel-film look with rich blue-and-amber color."},
+      "D": {"D1": "Soft contrast and detail lift the bright shoreline.", "D2": "The beach feels airy and serene.", "D3": "Clear figure and rocks beneath pale open sky.", "D4": "A soft-focus coastal photograph with a quiet, natural mood."},
+      "E": {"D1": "A brighter, sharper foreground under cool sky.", "D2": "The scene feels warm, open, and sunlit.", "D3": "Defined figure and ridge against light sea and sky.", "D4": "A radiant outdoor-travel look with crisp foreground detail."}
+    },
+    "a0137-IMG_4565": {
+      "A": {"D1": "A small lift and firmer detail stay near default.", "D2": "The square feels lively but still natural.", "D3": "Skater crosses shaded plaza beneath trees and crowd.", "D4": "A clean street-documentary frame in balanced daylight."},
+      "B": {"D1": "Warmth and a gentle lift turn leaves golden.", "D2": "The plaza feels welcoming and sunlit.", "D3": "Warm canopy and pavement around shaded skater.", "D4": "A relaxed city-afternoon look with a nostalgic golden tone."},
+      "C": {"D1": "Bright, saturated light softens the crowd.", "D2": "The moment feels airy and cheerful.", "D3": "Skater and onlookers under a bright green canopy.", "D4": "A luminous, slightly dreamy street-festival frame."},
+      "D": {"D1": "Strong warmth makes foliage golden and reds vivid.", "D2": "The plaza feels festive and energetic.", "D3": "Skater among vivid clothes and glowing trees.", "D4": "A cinematic golden-hour city scene with rich color."},
+      "E": {"D1": "Warm light with softer color than vivid looks.", "D2": "The gathering feels open and friendly.", "D3": "Clear crowd beneath golden-green leaves on paved square.", "D4": "A natural travel-photo mood with gentle afternoon warmth."}
+    },
+    "a0186-IMG_4587": {
+      "A": {"D1": "Cooling and saturation turn water and sky vivid blue.", "D2": "The marina feels crisp and breezy.", "D3": "Masts and dock lines cut across bright harbor sky.", "D4": "A bold nautical-editorial look with cool, clean color."},
+      "B": {"D1": "Warmth mutes blue while lifting the harbor.", "D2": "The harbor feels calm and understated.", "D3": "Sailboats and dock above softly colored water.", "D4": "A quiet, warm-toned travel frame with low-key color."},
+      "C": {"D1": "A large lift opens the marina; colors change little.", "D2": "The waterfront feels sunny and relaxed.", "D3": "Boats and masts against pale sky and water.", "D4": "A luminous coastal-day look with gentle warmth."},
+      "D": {"D1": "High brightness and low color create a pale scene.", "D2": "The marina feels quiet and airy.", "D3": "Sailboats and dock lightly defined against washed sky.", "D4": "A hazy seaside-film treatment with restrained color."},
+      "E": {"D1": "A bright lift keeps the cool palette restrained.", "D2": "The harbor feels clear and spacious.", "D3": "Crisp masts and dock beneath a broad blue sky.", "D4": "A fresh, clean travel-photography look."}
+    },
+    "a0367-IMG_0338": {
+      "A": {"D1": "Low light and contrast deepen skyline and water.", "D2": "The city feels dramatic and low-key.", "D3": "Tower windows and reflections rise from dark water.", "D4": "A cinematic city-at-dusk treatment with deep shadows."},
+      "B": {"D1": "Warmth touches the pale tower; waterfront lifts softly.", "D2": "The skyline feels calm and sunlit.", "D3": "Golden building light above quiet reflections.", "D4": "A nostalgic urban-travel look with a gentle warm cast."},
+      "C": {"D1": "Color and contrast enrich blue sky and reflections.", "D2": "The city feels vivid and energetic.", "D3": "Clouds, towers, and reflections form clear color layers.", "D4": "A polished cityscape frame with punchy blue-and-gold color."},
+      "D": {"D1": "Brightness and contrast sharpen the blue-white palette.", "D2": "The skyline feels bold and crisp.", "D3": "White clouds above bright towers and sharp reflections.", "D4": "A striking urban-postcard treatment with graphic clarity."},
+      "E": {"D1": "A broad lift opens towers and water without strong cast.", "D2": "The city feels clear and optimistic.", "D3": "Balanced skyline and reflections beneath bright blue sky.", "D4": "A clean daytime cityscape with a luminous travel-photo finish."}
+    },
+    "a0551-DSC_0008": {
+      "A": {"D1": "Contrast and color rise; brightness stays near default.", "D2": "The woodland portrait feels crisp and grounded.", "D3": "Person balancing on log amid trunks and leaves.", "D4": "A natural outdoor-documentary frame with defined detail."},
+      "B": {"D1": "Darker warmth colors the jacket and forest floor.", "D2": "The woods feel earthy and introspective.", "D3": "Figure and fallen log under a pale canopy.", "D4": "A muted autumn-film look with deep woodland shadows."},
+      "C": {"D1": "Vivid color lifts jacket, jeans, and woodland floor.", "D2": "The portrait feels lively and expressive.", "D3": "Moving figure against brighter leaves and colorful ground.", "D4": "A saturated outdoor-editorial look with a lively autumn palette."},
+      "D": {"D1": "Warmth and a moderate lift golden the woods.", "D2": "The forest feels golden and familiar.", "D3": "Brown jacket and log in warm light between pale trunks.", "D4": "A gentle golden-woods treatment with a relaxed film mood."},
+      "E": {"D1": "Slight warmth and low saturation keep color natural.", "D2": "The woods feel calm and understated.", "D3": "Jacket and log against softly colored trees and leaves.", "D4": "A subtle, reflective woodland portrait with soft daylight."}
+    },
+    "a1389-IMG_4831": {
+      "A": {"D1": "Lift and contrast reveal the flag from dark casing.", "D2": "The flag feels bold and graphic, almost spotlighted against the dim room.", "D3": "Red stripes and blue stars beneath round medallion.", "D4": "A crisp, high-contrast civic-display look with a subtle warm cast."},
+      "B": {"D1": "Warm lift brightens vivid fabric; contrast softens.", "D2": "The hanging flag feels warmly lit and familiar, like a keepsake in an old room.", "D3": "Bright stripes and amber fixture against dark casing.", "D4": "A nostalgic indoor-film treatment: warm highlights, rich color, and gentle contrast."},
+      "C": {"D1": "Moderate warmth and brightness open folds gently.", "D2": "The result feels calm and natural, with the flag easy to read in the dim setting.", "D3": "Red, white, and blue beneath round emblem; room stays shadowed.", "D4": "A restrained documentary look with soft warm light and clear fabric color."},
+      "D": {"D1": "Maximum warmth and tone gain brighten softened detail.", "D2": "The display glows with an aged, golden warmth and a slightly hazy finish.", "D3": "Ivory stripes and bright medallion against dark casing.", "D4": "A golden archival-print mood, luminous and softly diffused."},
+      "E": {"D1": "High warmth and light; color and contrast stay restrained.", "D2": "The scene feels warmly illuminated and reflective rather than punchy.", "D3": "Creamy stripes remain legible beneath glowing round fixture.", "D4": "A soft, cinematic keepsake look with warm light and moderated color."}
+    },
+    "a4002-IMG_4605": {
+      "A": {"D1": "Deep blue, higher saturation, and contrast sharpen the silhouette.", "D2": "The sky feels dramatic and saturated, with a graphic high-contrast mood.", "D3": "Tiny plane cuts across a cobalt sky.", "D4": "A punchy aviation-editorial look, cool and sharply defined."},
+      "B": {"D1": "Cool blue and modest brightness lift, with moderate saturation.", "D2": "The frame feels clear and airy, with a gentle blue cast.", "D3": "Dark aircraft over medium blue with a soft gradient.", "D4": "A calm blue-sky travel look with restrained contrast."},
+      "C": {"D1": "Maximum tone gain and saturation make cyan sky.", "D2": "The rendering feels vivid, open, and high-key.", "D3": "Dark plane against luminous turquoise sky.", "D4": "A bright summer-airline postcard look with bold cyan color."},
+      "D": {"D1": "Cool brightness and contrast, with little saturation increase.", "D2": "The image feels clean and sunlit, less intense in color than a vivid cyan treatment.", "D3": "Small silhouette on even pale-blue sky.", "D4": "A crisp high-altitude travel frame with cool daylight."},
+      "E": {"D1": "Bright, low-contrast treatment washes sky to pale blue.", "D2": "The scene feels hazy, quiet, and almost pastel.", "D3": "Airplane nearly fades into flat blue sky.", "D4": "A soft, faded aerial-memory look with an airy pastel finish."}
+    },
+    "a4540-Duggan_080411_5948": {
+      "A": {"D1": "More color and crisp detail brighten surf and sunset.", "D2": "The beach feels vivid, crisp, and bright.", "D3": "Gold reflection runs through waves beside dark hotels.", "D4": "A vivid sunset-travel look with crisp blue water."},
+      "B": {"D1": "Warm balance adds amber to sky and shoreline.", "D2": "The sunset feels warm and close to natural.", "D3": "Amber clouds and reflections above dark buildings.", "D4": "A warm evening-photo mood with soft amber light."},
+      "C": {"D1": "Cooler shadows and vivid color sharpen the sunset.", "D2": "The coast feels bold and cool beneath the glow.", "D3": "Blue water and dark towers contrast with the glowing horizon.", "D4": "A cinematic sunset frame with cool shadows."},
+      "D": {"D1": "High warmth and exposure wash out color and detail.", "D2": "The coast feels hazy, soft, and reflective.", "D3": "Silver water surrounds faint towers and a softened walker.", "D4": "A misty, faded sunset treatment with low contrast."},
+      "E": {"D1": "High exposure and warmth turn the sunset hazy.", "D2": "The beach feels glowy and nostalgic.", "D3": "The horizon glows; beach, towers, and people fade into mist.", "D4": "A dreamlike, soft-focus sunset print."}
+    },
+    "a0731-IMG_3972": {
+      "A": {"D1": "Brightness and contrast lift face and shirt.", "D2": "The portrait feels bright, crisp, and lively.", "D3": "Face and white shirt pop against green bokeh.", "D4": "A vivid outdoor portrait with defined detail."},
+      "B": {"D1": "Strong warmth and light turn foliage golden.", "D2": "The portrait feels sunlit and welcoming.", "D3": "Golden leaves frame his face and pale shirt.", "D4": "A warm afternoon portrait with a golden cast."},
+      "C": {"D1": "Warm saturation adds gold to leaves and skin.", "D2": "The image feels warm, vivid, and easygoing.", "D3": "Amber foliage and warm skin fill the frame.", "D4": "A rich family-photo look with sunny color."},
+      "D": {"D1": "Warm balance and light brighten face and trees.", "D2": "The portrait feels gently golden and natural.", "D3": "White shirt stays clear beneath green-gold leaves.", "D4": "A soft golden-daylight portrait."},
+      "E": {"D1": "A strong exposure lift; color stays controlled.", "D2": "The portrait feels open, airy, and natural.", "D3": "The young man stands against a pale, luminous canopy.", "D4": "A high-key outdoor portrait with soft color."}
+    },
+    "a4792-20090417_at_18h06m12__MG_1956": {
+      "A": {"D1": "High exposure and low color make the gallery near-monochrome.", "D2": "The room feels quiet and sculptural.", "D3": "Two visitors stand in shadow beneath a glowing ribbed sculpture.", "D4": "A high-key monochrome gallery look with dramatic light."},
+      "B": {"D1": "Cool balance and teal-orange color leave a muted finish.", "D2": "The gallery feels cool and subdued.", "D3": "A blue sculpture rises above dark visitors and a warm floor.", "D4": "A cool cinematic gallery look with teal and amber accents."},
+      "C": {"D1": "Cool light, muted color, and a large exposure lift.", "D2": "The space feels bright, quiet, and cool.", "D3": "Blue sculpture stands out in a bright gallery; figures stay dark.", "D4": "A cool, low-saturation museum-photo treatment."},
+      "D": {"D1": "Cool white balance and contrast separate sculpture from room.", "D2": "The gallery feels stark and reserved.", "D3": "Blue ridges and dark visitors against cool pale walls.", "D4": "A restrained architectural-film look with strong edges."},
+      "E": {"D1": "A cool bright lift drains color and deepens edges.", "D2": "The space feels pale and contemplative.", "D3": "The ribbed sculpture stays crisp above dark visitor silhouettes.", "D4": "A luminous, desaturated gallery-study look."}
+    },
+    "a1409-IMG_4840": {
+      "A": {"D1": "Bright warmth and contrast define steel trusses.", "D2": "The bridge feels sunny, busy, architectural.", "D3": "Rust-red beams cast long shadows across the walkway.", "D4": "A crisp urban-travel shot with warm steel."},
+      "B": {"D1": "A warm lift brightens steel and pavement.", "D2": "The bridge feels open and sunlit.", "D3": "Walkers and railings show against the blue sky.", "D4": "A natural architectural photo with warm daylight."},
+      "C": {"D1": "More saturation adds cyan sky and warm beams.", "D2": "The bridge looks vivid and energetic.", "D3": "Blue sky contrasts with orange-brown trusses and shadows.", "D4": "A punchy industrial travel look."},
+      "D": {"D1": "Bright warmth and color reveal the truss structure.", "D2": "The bridge feels vivid and sunlit.", "D3": "Sunlit beams cross blue sky over dark walkways.", "D4": "A warm, high-clarity architectural frame."},
+      "E": {"D1": "High exposure and low contrast wash the bridge pale.", "D2": "The structure feels airy and softened.", "D3": "Pale sky and softened steel fade walkway shadows.", "D4": "A hazy, high-key urban photograph."}
+    },
+    "a1032-IMG_1542": {
+      "A": {"D1": "Lower light and saturation deepen ocean blues.", "D2": "The sea feels moody, cool, and quiet.", "D3": "Two dark backs break the deep blue water.", "D4": "A low-key marine-documentary look."},
+      "B": {"D1": "More saturation warms the blue-green water.", "D2": "The sea looks lively and inviting.", "D3": "Two marine silhouettes stand out in turquoise waves.", "D4": "A vivid coastal-travel frame."},
+      "C": {"D1": "Warmth rises as exposure dips; contrast sharpens sea.", "D2": "The ocean feels dark, warm, and dramatic.", "D3": "Pale horizon above darker water and two marine shapes.", "D4": "A moody nature-film look with warm light."},
+      "D": {"D1": "A moderate lift and contrast define the waves.", "D2": "The water feels crisp and composed.", "D3": "Two dark shapes cut through blue water beneath clouds.", "D4": "A crisp ocean-documentary frame."},
+      "E": {"D1": "Warmth and a small lift soften the sea.", "D2": "The scene feels calm and gently warm.", "D3": "Two marine silhouettes in softly graded blue-green water.", "D4": "A calm travel-photo look with warm light."}
+    },
+    "a0568-_MG_1090": {
+      "A": {"D1": "A cool lift opens the meeting and mutes color.", "D2": "The room feels clear, calm, and low-color.", "D3": "Faces, papers, and plates emerge under cool light.", "D4": "A clean documentary meeting-room look."},
+      "B": {"D1": "Cool balance and low color subdue warm lighting.", "D2": "The group feels subdued and businesslike.", "D3": "People and papers sit in a muted blue-gray room.", "D4": "A quiet, desaturated documentary frame."},
+      "C": {"D1": "More color and exposure reveal faces and table.", "D2": "The meal feels lively and social.", "D3": "Food, papers, and people stand out under ceiling lights.", "D4": "A natural candid-meeting photograph."},
+      "D": {"D1": "Strong warmth and brightness create a sepia cast.", "D2": "The room feels golden, nostalgic, and soft.", "D3": "The group and table turn amber under ceiling lights.", "D4": "A warm archival-film look."},
+      "E": {"D1": "High warmth and low saturation wash the room.", "D2": "The meeting looks pale and hushed.", "D3": "People and table fade into bright monochrome.", "D4": "A soft high-key documentary treatment."}
+    },
+    "a4237-20090417_at_18h06m01__MG_1955": {
+      "A": {"D1": "Cool balance and contrast lift fruit from dark surround.", "D2": "The arrangement feels bold and jewel-like.", "D3": "Red apple, citrus, lime, and plum fill a black plate.", "D4": "A crisp still-life with jewel-tone color."},
+      "B": {"D1": "Brightness and saturation warm the fruit.", "D2": "The bowl looks lively and inviting.", "D3": "Orange citrus and red fruit glow on a pale tabletop.", "D4": "A warm, vivid food-editorial look."},
+      "C": {"D1": "Cool balance and contrast deepen the shadows.", "D2": "The display feels dramatic and cool.", "D3": "Bright fruit sits in a dark plate and blue-black surround.", "D4": "A dramatic studio-still-life treatment."},
+      "D": {"D1": "A cool brightness lift opens the tabletop.", "D2": "The arrangement feels clear and softly lit.", "D3": "Citrus, apple, and lime stand out on a pale square.", "D4": "A clean catalog-style still life."},
+      "E": {"D1": "Cool light and contrast keep colors restrained.", "D2": "The fruit looks calm and polished.", "D3": "Pale tabletop frames glossy fruit and dark plate.", "D4": "A cool, controlled studio look."}
+    },
+    "a0606-051002_152054__I2E8779": {
+      "A": {"D1": "A brightness and contrast lift clarifies face and camera.", "D2": "The portrait feels crisp and quietly focused.", "D3": "Camera hangs against a white shirt and pale siding.", "D4": "A clean, high-clarity outdoor portrait."},
+      "B": {"D1": "Warm light softens the face and siding.", "D2": "The scene feels mellow and sun-warmed.", "D3": "Warm wall tones surround the photographer and camera.", "D4": "A golden casual-photo mood."},
+      "C": {"D1": "Higher saturation adds blue to shirt and strap.", "D2": "The portrait feels vivid and cool.", "D3": "Blue fabric and dark camera against pale siding.", "D4": "A vivid, cool editorial portrait."},
+      "D": {"D1": "Near-maximum exposure and sharper detail open the portrait.", "D2": "The scene feels bright and clean.", "D3": "Face and camera details stand out in the light.", "D4": "A crisp high-key portrait."},
+      "E": {"D1": "A warm, bright lift comes with reduced color.", "D2": "The portrait feels soft and faded.", "D3": "Face and shirt lighten as siding color drains.", "D4": "A washed, warm-toned print."}
+    },
+    "a4955-_DGW0261": {
+      "A": {"D1": "A slight lift keeps skin and suits natural.", "D2": "The portrait feels clear and welcoming.", "D3": "Two men face camera against warm, softly lit bokeh.", "D4": "A polished, natural event portrait."},
+      "B": {"D1": "Cool balance and muted color soften the scene.", "D2": "The room feels subdued and quiet.", "D3": "Dark suits and pale shirts against low-contrast lights.", "D4": "A soft, cool documentary portrait."},
+      "C": {"D1": "Lower brightness and contrast darken the portrait.", "D2": "The scene feels moody and reserved.", "D3": "Faces and jackets recede into warm background shadow.", "D4": "A low-key, filmic event look."},
+      "D": {"D1": "More saturation and crispness define faces and suits.", "D2": "The portrait feels vivid without harsh contrast.", "D3": "Two faces stand out against softened amber lights.", "D4": "A clear editorial portrait with restrained contrast."},
+      "E": {"D1": "Cool color and saturation darken the frame.", "D2": "The portrait feels cool and intense.", "D3": "Blue tones deepen suits while faces remain bright.", "D4": "A cool cinematic event photograph."}
+    },
+    "a1173-IMG_1748": {
+      "A": {"D1": "Vivid blue and crisp contrast sharpen gull and roof.", "D2": "The roofline feels graphic beneath a saturated sky.", "D3": "White gull on terracotta tiles against deep blue.", "D4": "A crisp, high-contrast coastal still."},
+      "B": {"D1": "Cool blue and color gently lift the sky.", "D2": "The gull feels clear in a calm blue frame.", "D3": "Small white bird above dark terracotta tiles.", "D4": "A quiet, cool coastal photograph."},
+      "C": {"D1": "More color and contrast keep the sky vivid.", "D2": "The roof and bird feel crisp against blue.", "D3": "Blue sky around white gull and warm roof tiles.", "D4": "A vivid but restrained seaside look."},
+      "D": {"D1": "Warm light brightens the bird and roof.", "D2": "The scene feels sunny and softly warm.", "D3": "White gull above orange-red roof tiles.", "D4": "A golden daylight travel frame."},
+      "E": {"D1": "Strong exposure lifts sky, bird, and roof.", "D2": "The image feels airy and high-key.", "D3": "Pale sky behind a bright gull and roof.", "D4": "A bright, crisp coastal postcard."}
+    },
+    "a3312-IMG_1063": {
+      "A": {"D1": "A slight lift brightens taxi roofs and street.", "D2": "The street feels warm and natural.", "D3": "Yellow cabs sit against dark city windows.", "D4": "A candid city-street frame."},
+      "B": {"D1": "Warm light lifts the yellow cars.", "D2": "The street feels sunlit and mellow.", "D3": "Golden taxis fill the foreground under dark windows.", "D4": "A warm urban-travel look."},
+      "C": {"D1": "Vivid color and brightness energize the taxis.", "D2": "The street feels colorful and lively.", "D3": "Yellow cabs cut across dark storefronts.", "D4": "A punchy city snapshot."},
+      "D": {"D1": "Strong exposure and warmth wash the taxis in gold.", "D2": "The street feels bright and golden.", "D3": "Yellow cars glow against dark windows.", "D4": "A luminous city snapshot."},
+      "E": {"D1": "High exposure and soft detail blur the cars.", "D2": "The scene feels pale and hazy.", "D3": "Yellow taxis soften against the storefronts.", "D4": "A soft, high-key urban print."}
+    },
+    "a3248-DSC_0023-2": {
+      "A": {"D1": "Warm, saturated color deepens the blue car.", "D2": "The close-up feels dark and dramatic.", "D3": "Chrome headlight catches glare across the glossy hood.", "D4": "A moody vintage-car editorial."},
+      "B": {"D1": "Warm highlights and strong color brighten the paint.", "D2": "The car feels rich and polished.", "D3": "Blue bodywork and chrome reflect bright window light.", "D4": "A warm classic-car photo."},
+      "C": {"D1": "Moderate warmth and vivid blue make the paint pop.", "D2": "The rendering feels bright and natural.", "D3": "Chrome and glossy blue paint catch soft highlights.", "D4": "A clean vintage-auto look."},
+      "D": {"D1": "Low light and high saturation enrich the car's blue.", "D2": "The close-up feels intense and moody.", "D3": "Navy hood and bright headlight against subdued surroundings.", "D4": "A deep-blue retro-street treatment."},
+      "E": {"D1": "Gentle light keeps the blue paint restrained.", "D2": "The close-up feels calm and balanced.", "D3": "Polished hood and round headlight in even light.", "D4": "An understated classic-car photograph."}
+    },
+    "a1401-DSC_0034-1": {
+      "A": {"D1": "A small saturation lift enriches blue sky and ochre stone.", "D2": "The desert feels crisp and sun-warmed.", "D3": "Rough granite stays detailed beneath deep blue.", "D4": "A natural high-desert look with cool sky and warm rock."},
+      "B": {"D1": "Strong warmth and light turn the boulders golden.", "D2": "The formation feels like late-afternoon desert light.", "D3": "Amber granite beneath a softened, lighter blue sky.", "D4": "A warm travel-print look, bright and inviting."},
+      "C": {"D1": "High saturation and contrast sharpen the blue-and-ochre palette.", "D2": "The rocks feel vivid against a punchy sky.", "D3": "Deep cobalt sky over richly colored granite.", "D4": "A bold, saturated desert postcard."},
+      "D": {"D1": "A large brightness lift opens rock shadows.", "D2": "The scene feels bright, airy, and clear.", "D3": "Pale blue sky and sunlit granite fill the frame.", "D4": "A high-key outdoor look with clean light."},
+      "E": {"D1": "Warm light brightens stone while easing color.", "D2": "The landscape feels soft and sun-warmed.", "D3": "Golden boulders beneath a pale, gentle sky.", "D4": "A restrained golden-hour landscape print."}
+    },
+    "a4724-Duggan_090319_5593": {
+      "A": {"D1": "Warm light brightens signage while color stays muted.", "D2": "The walkway feels calm and sunlit.", "D3": "A patterned shirt beside Palm Beach storefront signs.", "D4": "A soft, low-color street portrait."},
+      "B": {"D1": "Vivid color and contrast lift the storefront.", "D2": "The scene feels bright and punchy.", "D3": "Yellow signage and blue shirt pop against pale walls.", "D4": "A crisp, colorful travel snapshot."},
+      "C": {"D1": "A moderate lift adds color to signs and shirt.", "D2": "The portrait feels bright but natural.", "D3": "Storefront lettering and striped shirt stay clear.", "D4": "A relaxed, vivid street photograph."},
+      "D": {"D1": "Strong warmth and light soften colors.", "D2": "The street feels warm and open.", "D3": "Tan walls, red sign, and blue shirt in sunlight.", "D4": "A warm documentary travel frame."},
+      "E": {"D1": "High warmth and exposure wash the storefront.", "D2": "The image feels hazy and nostalgic.", "D3": "The man and signs fade into golden light.", "D4": "A soft, faded travel print."}
+    },
+    "a3303-_DSC0060": {
+      "A": {"D1": "More color and contrast reveal metal edges.", "D2": "The room stays dark and quiet.", "D3": "A pale folding chair sits below a rounded black machine.", "D4": "A moody industrial-documentary frame."},
+      "B": {"D1": "A cool lift opens the chair and panel.", "D2": "The dim room feels slightly clearer.", "D3": "Cool highlights separate the chair from the dark installation.", "D4": "A restrained, cool-toned interior study."},
+      "C": {"D1": "Strong saturation and contrast turn shadows blue.", "D2": "The installation feels vivid and dramatic.", "D3": "Cyan edges trace the dark machine above the pale chair.", "D4": "A stylized, high-contrast industrial frame."},
+      "D": {"D1": "A moderate color lift defines the dark structure.", "D2": "The scene feels crisp but remains low-key.", "D3": "Metal edges and chair stand out from the black interior.", "D4": "A cool architectural-documentary look."},
+      "E": {"D1": "Warm color and contrast brighten the metalwork.", "D2": "The room feels darker and slightly warmer.", "D3": "Warm highlights mark the machine frame and pale chair.", "D4": "A dramatic, warm-toned interior photograph."}
+    },
+    "a4745-Duggan_090330_6275": {
+      "A": {"D1": "A neutral brightness lift opens water and city.", "D2": "The marina feels bright and spacious.", "D3": "White yacht beneath clouds, skyline, and blue water.", "D4": "A clean, high-key harbor postcard."},
+      "B": {"D1": "Warmth softens the sky and highlights the yacht.", "D2": "The harbor feels warm and relaxed.", "D3": "Amber clouds hang above a white boat and turquoise water.", "D4": "A warm late-afternoon marina look."},
+      "C": {"D1": "Extra color and contrast deepen sky and sea.", "D2": "The harbor looks vivid and crisp.", "D3": "Blue sky, turquoise water, and white yacht separate sharply.", "D4": "A saturated coastal-travel frame."},
+      "D": {"D1": "High light opens the scene with restrained color.", "D2": "The marina feels airy and clear.", "D3": "Bright clouds and pale buildings over calm turquoise water.", "D4": "A soft, bright waterfront photograph."},
+      "E": {"D1": "High brightness and contrast sharpen the harbor.", "D2": "The yacht feels crisp against the open sky.", "D3": "White hull and blue water stand out below bright clouds.", "D4": "A polished, high-clarity marina look."}
+    },
+    "a4437-20090326_at_03h22m38__MG_0355": {
+      "A": {"D1": "Warm light lifts the child against the dark room.", "D2": "The portrait feels bright, warm, and lively.", "D3": "Pale blue shirt and red sofa stand out.", "D4": "A sunny family snapshot with clear detail."},
+      "B": {"D1": "A slight lift keeps skin and room gentle.", "D2": "The image feels familiar and soft.", "D3": "Child and small toy sit clearly on the red sofa.", "D4": "A natural indoor family portrait."},
+      "C": {"D1": "Vivid color and contrast sharpen the bright room.", "D2": "The portrait feels cheerful and graphic.", "D3": "Red seat and blue shirt pop against dark furniture.", "D4": "A lively, punchy home portrait."},
+      "D": {"D1": "High exposure and contrast open face and room.", "D2": "The portrait feels bright and crisp.", "D3": "Pale shirt and face stand out above red seat.", "D4": "A clear, high-key family portrait."},
+      "E": {"D1": "Warm exposure softens color and detail.", "D2": "The room feels glowing, pale, and gentle.", "D3": "Child and sofa fade into warm light.", "D4": "A hazy, nostalgic snapshot."}
+    },
+    "a2863-IMG_0090": {
+      "A": {"D1": "Brightness and contrast clarify sail and clouds.", "D2": "The boat feels crisp beneath a dramatic sky.", "D3": "White sail cuts through blue-gray clouds over water.", "D4": "A vivid, high-contrast sailing photograph."},
+      "B": {"D1": "A strong lift opens water, sail, and sky.", "D2": "The scene feels pale and sunlit.", "D3": "Bright clouds frame the clearly defined boat.", "D4": "A soft, bright coastal-day look."},
+      "C": {"D1": "Warm color tints sky and distant trees.", "D2": "The lake feels golden and calm.", "D3": "Warm clouds behind a white sail and dark treeline.", "D4": "A nostalgic, warm-toned sailing scene."},
+      "D": {"D1": "Saturation deepens blue and darkens the green shore.", "D2": "The sailboat looks bold against vivid water.", "D3": "Blue lake and green trees frame the white sail.", "D4": "A bright travel-poster treatment."},
+      "E": {"D1": "Cool balance and a light lift open the scene.", "D2": "The lake feels clear and refreshing.", "D3": "Cool sky and water surround a bright white sail.", "D4": "A clean, cool coastal rendering."}
+    },
+    "a4672-kme_0259": {
+      "A": {"D1": "Warm lift and contrast brighten blossoms and lawn.", "D2": "The garden feels sunlit and energetic.", "D3": "White blooms glow above vivid green grass.", "D4": "A crisp spring-garden photograph."},
+      "B": {"D1": "Soft contrast and warmth gently lift the tree.", "D2": "The flowers feel airy and delicate.", "D3": "White blossoms spread over soft grass and trees.", "D4": "A gentle, pastel spring look."},
+      "C": {"D1": "Strong saturation and contrast enrich the lawn.", "D2": "The garden feels vivid and playful.", "D3": "Bright white flowers above rich green ground.", "D4": "A punchy botanical-editorial style."},
+      "D": {"D1": "A bright lift and soft detail light the blossoms.", "D2": "The tree feels gentle and dreamlike.", "D3": "White flowers soften against dark green foliage.", "D4": "A soft-focus garden portrait."},
+      "E": {"D1": "Warm contrast deepens green around the blooms.", "D2": "The garden feels lush and sun-warmed.", "D3": "Bright blossoms rise above deep grass and shade.", "D4": "A rich, cinematic spring scene."}
+    },
+    "a4249-Duggan_090322_6001": {
+      "A": {"D1": "Vivid greens and contrast lift the woodland floor.", "D2": "The woods feel bright, crisp, and lively.", "D3": "Dark shapes sit among trunks above luminous greenery.", "D4": "A vivid forest-documentary look."},
+      "B": {"D1": "Strong warmth turns the green floor golden.", "D2": "The clearing feels sunlit and gentle.", "D3": "Warm light falls between pale trunks and grass.", "D4": "A warm spring-woods treatment."},
+      "C": {"D1": "Cool vivid color and a lift open the woods.", "D2": "The scene feels bright and fresh.", "D3": "Cool shadows frame saturated grass and slender trunks.", "D4": "A crisp, cool woodland frame."},
+      "D": {"D1": "A modest warm shift softens the clearing.", "D2": "The forest feels quiet and natural.", "D3": "Warm bark and green ground stay gently lit.", "D4": "A subtle, natural woodland look."},
+      "E": {"D1": "Warmth, color, and light brighten the woods.", "D2": "The clearing feels sunny and vivid.", "D3": "Golden-green grass and tree trunks fill the frame.", "D4": "A warm, lively nature photograph."}
+    },
+    "a3648-07-06-01-at-12h59m03-s_MG_1251": {
+      "A": {"D1": "Contrast and color define the bicycle and street.", "D2": "The scene feels crisp and documentary.", "D3": "Two riders cross a dim street beneath bright umbrellas.", "D4": "A sharp urban-reportage frame."},
+      "B": {"D1": "Warmth and a light lift soften the street.", "D2": "The ride feels sunny and relaxed.", "D3": "Red umbrella and storefront glow above the bicycle.", "D4": "A warm everyday-street photograph."},
+      "C": {"D1": "Strong color brings blue-green awning and bright clothes.", "D2": "The street feels vivid and energetic.", "D3": "Bicycle and riders stand out beneath a saturated canopy.", "D4": "A colorful city snapshot."},
+      "D": {"D1": "Warm contrast adds graphic weight to the street.", "D2": "The ride feels bold and sunlit.", "D3": "Two riders and bicycle cross beneath red and green awnings.", "D4": "A punchy urban-travel look."},
+      "E": {"D1": "Brightness opens faces while colors stay restrained.", "D2": "The street feels clear and natural.", "D3": "Riders and bicycle emerge from the shaded storefront.", "D4": "A clean, candid street photograph."}
+    },
+    "a3077-IMG_4837": {
+      "A": {"D1": "Warm contrast and color deepen the brick.", "D2": "The close-up feels bold and tactile.", "D3": "White 400 numerals cast shadows on rough red brick.", "D4": "A crisp architectural-detail photograph."},
+      "B": {"D1": "Warmth and light soften the brick and numerals.", "D2": "The surface feels sunlit and approachable.", "D3": "Pale numerals lift against warm terracotta blocks.", "D4": "A warm, gently aged print."},
+      "C": {"D1": "Saturation and contrast enrich the blue-white numbers.", "D2": "The detail feels vivid and graphic.", "D3": "Bright 400 lettering stands out from rust-red masonry.", "D4": "A punchy urban-detail look."},
+      "D": {"D1": "Warm light raises the numerals and brick texture.", "D2": "The wall feels bright and clear.", "D3": "Cream-colored 400 figures sit on sunlit brick.", "D4": "A warm, high-clarity architectural crop."},
+      "E": {"D1": "Warmth, contrast, and color give brick a red glow.", "D2": "The close-up feels rich and polished.", "D3": "White numerals gleam against richly colored masonry.", "D4": "A saturated vintage-sign treatment."}
+    },
+    "a1425-IMG_0885": {
+      "A": {"D1": "Dim, muted color keeps the meadow subdued.", "D2": "The clouded field feels still and heavy.", "D3": "Shallow water glints before a dark treeline.", "D4": "A quiet landscape under unsettled skies."},
+      "B": {"D1": "A gentle lift opens the grass and clouds.", "D2": "The meadow looks clearer, though still overcast.", "D3": "Water patches cross open grass below dense trees.", "D4": "A soft countryside photograph on a gray day."},
+      "C": {"D1": "Richer greens and blues add punch to the scene.", "D2": "The field feels lively beneath the heavy clouds.", "D3": "Bright grass surrounds shallow puddles and low trees.", "D4": "A saturated outdoor documentary look."},
+      "D": {"D1": "Warm light brightens the clouds and field.", "D2": "The landscape feels sunlit despite the gray sky.", "D3": "Golden grass edges the water and distant trees.", "D4": "A warm, pastoral film still."},
+      "E": {"D1": "A cool lift brightens grass and cloud detail.", "D2": "The open field feels crisp and freshly lit.", "D3": "Blue breaks in the sky above bright grass and water.", "D4": "A clear, vivid landscape print."}
+    },
+    "a1765-_DSC0073": {
+      "A": {"D1": "Monochrome light lifts the hanging garments.", "D2": "The small clothes feel quiet and delicate.", "D3": "Printed onesies hang in two uneven rows.", "D4": "A restrained black-and-white still life."},
+      "B": {"D1": "Soft grayscale keeps folds and prints understated.", "D2": "The display feels gentle and slightly hazy.", "D3": "Tiny shirts and bodysuits overlap on a clothesline.", "D4": "A soft monochrome documentary frame."},
+      "C": {"D1": "Brighter grayscale sharpens seams and shadows.", "D2": "The hanging garments look crisp and orderly.", "D3": "Dark print details mark the pale clothing.", "D4": "A clean, high-contrast domestic study."},
+      "D": {"D1": "Pale monochrome softens cloth against the dark wall.", "D2": "The scene feels bright, airy, and subdued.", "D3": "White garments arc across the shaded background.", "D4": "A high-key nursery keepsake image."},
+      "E": {"D1": "A muted color lift reveals the printed fabric.", "D2": "The clothesline feels calm and softly lit.", "D3": "Small colored emblems punctuate rows of white onesies.", "D4": "A gentle family-album photograph."}
+    },
+    "a0789-IMG_1659": {
+      "A": {"D1": "Cool light and contrast clarify the face.", "D2": "The close portrait feels clear and reserved.", "D3": "Round glasses frame the closed eyes and cheek.", "D4": "A cool, intimate editorial portrait."},
+      "B": {"D1": "Warm light softens shadows across the portrait.", "D2": "The face feels relaxed and warmly lit.", "D3": "Amber reflections cross the thin metal frames.", "D4": "A gentle, natural-light close-up."},
+      "C": {"D1": "Cool color deepens shadows around face and glasses.", "D2": "The crop feels vivid and dramatic.", "D3": "Cyan light edges the glasses and dark hair.", "D4": "A crisp, cool-toned film portrait."},
+      "D": {"D1": "Warm highlights lift skin and glass reflections.", "D2": "The close-up feels bright and softly personal.", "D3": "Pale reflections curve across the lenses and nose.", "D4": "A warm, candid portrait study."},
+      "E": {"D1": "Strong warmth and light flatten cheek shadows.", "D2": "The portrait feels glowing and gentle.", "D3": "Softly lit skin fills the frame behind oval glasses.", "D4": "A hazy, sun-warmed close-up."}
+    },
+    "a3923-_DSC0095": {
+      "A": {"D1": "Cool contrast sharpens the sky, trees, and snow.", "D2": "The airborne moment feels crisp and energetic.", "D3": "Orange jacket hangs above a pale snowy lip.", "D4": "A punchy winter-sports photograph."},
+      "B": {"D1": "A warm lift softens the blue sky and trees.", "D2": "The jump feels bright and open.", "D3": "Bare branches frame the rider and drifting snow.", "D4": "A clear, natural-action snapshot."},
+      "C": {"D1": "Saturated blue and contrast define the slope.", "D2": "The scene feels bold and sharply cold.", "D3": "Blue sky, dark woods, and orange clothing surround the jump.", "D4": "A vivid winter-action frame."},
+      "D": {"D1": "Muted light darkens woods and warms the snow.", "D2": "The jump feels subdued and wintry.", "D3": "An orange rider cuts across a shadowed treeline.", "D4": "A moody cold-weather sports image."},
+      "E": {"D1": "A clear lift brightens snow and bare branches.", "D2": "The outdoor scene feels fresh and lively.", "D3": "White slope and spindly trees frame the jumper.", "D4": "A bright, crisp action photograph."}
+    },
+    "a4646-DSC_0330": {
+      "A": {"D1": "Warm light lifts the figure from the doorway.", "D2": "The interior feels intimate and quietly animated.", "D3": "A mustard top and clasped hands catch the light.", "D4": "A warm candid indoor portrait."},
+      "B": {"D1": "Brighter color opens the dark room and clothing.", "D2": "The moment feels clearer and more immediate.", "D3": "A pale sleeve and yellow garment stand near the door.", "D4": "A clean, everyday documentary frame."},
+      "C": {"D1": "Greenish shadows cool the doorway and figure.", "D2": "The scene feels subdued and slightly distant.", "D3": "Dark trim borders the figure's hair and shoulder.", "D4": "A cool, low-key interior study."},
+      "D": {"D1": "Warm shadows deepen the room around the figure.", "D2": "The image feels dim and softly nostalgic.", "D3": "A hand rests near the bright yellow fabric.", "D4": "A muted family-album look."},
+      "E": {"D1": "High light washes the clothing and skin tones.", "D2": "The portrait feels pale and airy.", "D3": "Bright hands and yellow cloth emerge from the doorway.", "D4": "A soft, high-key candid."}
+    },
+    "a4248-DSC_0109": {
+      "A": {"D1": "A slight cool lift opens the face and wall.", "D2": "The street portrait feels calm and clear.", "D3": "Dark glasses and a small book stand out beside brick.", "D4": "A natural travel-documentary frame."},
+      "B": {"D1": "Warmth and light brighten the face and crowd.", "D2": "The scene feels sunny and welcoming.", "D3": "A turquoise shirt and pale book brighten the walkway.", "D4": "A warm, candid holiday photograph."},
+      "C": {"D1": "Green shadows tint the brick and hair.", "D2": "The crowd feels vivid but slightly cool.", "D3": "Colored shirts recede behind the child and open book.", "D4": "A lively, cool street snapshot."},
+      "D": {"D1": "Golden light warms the brick and foreground face.", "D2": "The close scene feels sunlit and nostalgic.", "D3": "Amber wall stones lead toward the shaded crowd.", "D4": "A warm European-street travel frame."},
+      "E": {"D1": "Cool shadows and contrast deepen the portrait.", "D2": "The image feels crisp and slightly dramatic.", "D3": "Dark hair and glasses contrast with a pale shirt.", "D4": "A cool, contrasty travel photograph."}
+    },
+    "a2949-IMG_3951": {
+      "A": {"D1": "A gentle lift clarifies the hands and table.", "D2": "The cooking scene feels casual and open.", "D3": "Two men work beside bowls, jars, and a black grill.", "D4": "A candid backyard gathering."},
+      "B": {"D1": "Warmth brings a golden cast to the siding.", "D2": "The gathering feels sunny and relaxed.", "D3": "A green bowl and orange jars brighten the table.", "D4": "A warm domestic documentary frame."},
+      "C": {"D1": "Added color and contrast sharpen shirts and condiments.", "D2": "The small gathering feels lively and crisp.", "D3": "Blue clothing stands out above the crowded tabletop.", "D4": "A punchy home-event photograph."},
+      "D": {"D1": "A cooler lift brightens the wall and faces.", "D2": "The scene feels clear but understated.", "D3": "A purple shirt and blue sleeve frame the grill.", "D4": "A restrained documentary snapshot."},
+      "E": {"D1": "Warm brightness enriches the food and clothing.", "D2": "The table feels bright and welcoming.", "D3": "Orange bottles and white dishes gather in front.", "D4": "A sunlit family-cookout look."}
+    },
+    "a4253-kme_0125": {
+      "A": {"D1": "Deep color keeps petals vivid against dark soil.", "D2": "The flower bed feels rich and shaded.", "D3": "Pink and white lilies rise among glossy leaves.", "D4": "A saturated garden close-up."},
+      "B": {"D1": "Warm lift softens petals and foliage.", "D2": "The blossoms feel gentle and sunlit.", "D3": "Pink petals and yellow centers brighten the greenery.", "D4": "A warm botanical snapshot."},
+      "C": {"D1": "A bright neutral lift opens leaves and blooms.", "D2": "The garden feels clear and fresh.", "D3": "White lilies spread over leafy stems and mulch.", "D4": "A clean, natural flower study."},
+      "D": {"D1": "Warm shadows deepen the mulch and stems.", "D2": "The flowers feel dramatic and earthy.", "D3": "Pale petals stand out against dark reddish soil.", "D4": "A moody garden detail."},
+      "E": {"D1": "Strong light brightens pink and white petals.", "D2": "The close-up feels vivid and cheerful.", "D3": "Bright blooms overlap dense leaves and brown ground.", "D4": "A lively spring-garden image."}
+    },
+    "a3431-_DSC0103-3": {
+      "A": {"D1": "A mild lift reveals detail in the shaded park.", "D2": "The park feels quiet and natural.", "D3": "A bear statue sits beneath trees near visitors.", "D4": "A relaxed park-documentary frame."},
+      "B": {"D1": "Warm light brightens lawn and sculpture.", "D2": "The scene feels sunny and welcoming.", "D3": "Golden foliage surrounds a statue and stroller.", "D4": "A warm family-outing photograph."},
+      "C": {"D1": "More color deepens foliage and brown stone.", "D2": "The park feels vivid but still shaded.", "D3": "Green canopy hangs above the bear and paved path.", "D4": "A crisp outdoor travel snapshot."},
+      "D": {"D1": "A warm lift opens the stroller and pathway.", "D2": "The gathering feels bright and easygoing.", "D3": "Visitors pause beside the statue and baby carriage.", "D4": "A sunlit candid park scene."},
+      "E": {"D1": "Cool brightness pales the statue and foreground.", "D2": "The image feels airy and slightly cool.", "D3": "Pale stone and blue-gray pavement frame the stroller.", "D4": "A cool, high-key park photograph."}
+    },
+    "a4834-Duggan_050710_1251": {
+      "A": {"D1": "A little contrast clarifies the figure and fabrics.", "D2": "The market scene feels lively and grounded.", "D3": "A seated vendor in a pale hat rests among colorful cloth.", "D4": "A crisp street-market documentary frame."},
+      "B": {"D1": "Warm light brightens the people and woven goods.", "D2": "The gathering feels sunny and welcoming.", "D3": "Turquoise sleeves and patterned textiles catch golden light.", "D4": "A warm travel-album photograph."},
+      "C": {"D1": "A brighter lift opens faces and market details.", "D2": "The busy corner feels clear and approachable.", "D3": "A hat, striped fabrics, and a bicycle fill the foreground.", "D4": "A natural candid street scene."},
+      "D": {"D1": "Strong color makes the textiles more vivid.", "D2": "The market feels bold and energetic.", "D3": "Blue and purple clothing stands out against woven rugs.", "D4": "A saturated cultural-travel frame."},
+      "E": {"D1": "Cool brightness lifts the shaded market stall.", "D2": "The portrait feels bright and slightly airy.", "D3": "A seated figure and layered fabrics emerge from shade.", "D4": "A cool, polished documentary image."}
+    },
+    "a0579-IMG_0825": {
+      "A": {"D1": "Cool contrast defines the ornament and leaves.", "D2": "The garden corner feels quiet and shaded.", "D3": "A carved owl stands among tall green blades.", "D4": "A restrained garden-detail photograph."},
+      "B": {"D1": "Warm light brings out the stone and foliage.", "D2": "The small display feels sunlit and calm.", "D3": "Golden highlights trace the owl's textured feathers.", "D4": "A warm, intimate garden study."},
+      "C": {"D1": "Vivid greens and contrast sharpen the leaves.", "D2": "The ornament feels bold against the plants.", "D3": "Bright stems cross the owl and dark window bars.", "D4": "A punchy botanical close-up."},
+      "D": {"D1": "A warm lift brightens the owl and brick wall.", "D2": "The scene feels open and gently lit.", "D3": "Pale stone feathers sit beside arching leaves.", "D4": "A clear, sun-warmed garden portrait."},
+      "E": {"D1": "A violet cast cools the shaded background.", "D2": "The corner feels moody and slightly unusual.", "D3": "The owl's bright eye contrasts with dark foliage.", "D4": "A cool, stylized still life."}
+    },
+    "a4802-DSC_0133": {
+      "A": {"D1": "Teal color brightens the water around the boat.", "D2": "The distant sail feels calm and clear.", "D3": "A small white sail crosses textured green water.", "D4": "A crisp aerial seascape."},
+      "B": {"D1": "Dark contrast deepens the water and wake.", "D2": "The lone boat feels quiet and remote.", "D3": "White sail and thin wake sit in dark water.", "D4": "A moody maritime photograph."},
+      "C": {"D1": "Cool brightness turns the sea vivid blue.", "D2": "The tiny boat feels striking and exposed.", "D3": "Bright sail cuts across blue-green ripples.", "D4": "A vivid coastal travel image."},
+      "D": {"D1": "Warm color darkens the green water.", "D2": "The wide water feels still and heavy.", "D3": "A pale sail moves through deep olive sea.", "D4": "A muted, atmospheric sailing frame."},
+      "E": {"D1": "Cool light lifts the blue water and sail.", "D2": "The open water feels fresh and spacious.", "D3": "White sail glides below a faint curved wake.", "D4": "A clean, cool-toned seascape."}
+    },
+    "a4461-_MG_7166": {
+      "A": {"D1": "Warm brightness lifts the shelves and aisle.", "D2": "The shop feels colorful and easy to browse.", "D3": "Rows of bottles lead toward a bright doorway.", "D4": "A lively neighborhood-store snapshot."},
+      "B": {"D1": "Cool balance dims the aisle's warm shelves.", "D2": "The narrow shop feels cool and subdued.", "D3": "Dark bottles and hanging signs line the passage.", "D4": "A muted documentary view of a small shop."},
+      "C": {"D1": "A cool lift opens the stocked shelves.", "D2": "The aisle feels clearer and more spacious.", "D3": "Bright labels recede beneath the curved ceiling lights.", "D4": "A crisp retail-interior photograph."},
+      "D": {"D1": "Cool contrast defines labels and shelf edges.", "D2": "The shop feels graphic and sharply organized.", "D3": "Colorful packages cluster below the hanging sign.", "D4": "A high-contrast urban-store frame."},
+      "E": {"D1": "Cool light raises detail in the deep aisle.", "D2": "The store feels clear but still low-key.", "D3": "Bottle rows frame a narrow path to daylight.", "D4": "A restrained, cool-toned interior study."}
+    },
+    "a4365-DSC_0104": {
+      "A": {"D1": "Cool shadows keep the field and runner subdued.", "D2": "The motion feels quiet and focused.", "D3": "A white-clad figure crosses dark green grass.", "D4": "A low-key sports-documentary frame."},
+      "B": {"D1": "Warm light brightens the uniform and lawn.", "D2": "The field feels sunny and welcoming.", "D3": "White clothing stands out against the grassy pitch.", "D4": "A natural outdoor-action photograph."},
+      "C": {"D1": "Green saturation and contrast sharpen the field.", "D2": "The runner feels crisp against vivid grass.", "D3": "A distant player watches from the tree-lined edge.", "D4": "A punchy sports snapshot."},
+      "D": {"D1": "High exposure opens the runner against bright grass.", "D2": "The moment feels clear and energetic.", "D3": "Sunlit white clothing crosses the open lawn.", "D4": "A bright, clean action frame."},
+      "E": {"D1": "Warm color lifts the field with gentle contrast.", "D2": "The scene feels easygoing and familiar.", "D3": "A moving figure passes beneath a dark tree line.", "D4": "A warm family-sports photograph."}
+    },
+    "a3848-DSC_0024": {
+      "A": {"D1": "A bright lift and contrast define the facades.", "D2": "The empty street feels crisp and orderly.", "D3": "Garage doors and balconies repeat along the block.", "D4": "A clean architectural street study."},
+      "B": {"D1": "Warmth deepens shadows along the street.", "D2": "The buildings feel quiet and slightly dusky.", "D3": "Tan walls lead toward distant pedestrians.", "D4": "A warm, subdued urban photograph."},
+      "C": {"D1": "A green-magenta cast colors the quiet row.", "D2": "The street feels vivid and gently unusual.", "D3": "Green window plants punctuate pale facades and orange trim.", "D4": "A stylized neighborhood travel frame."},
+      "D": {"D1": "Cool brightness opens the walls and sky.", "D2": "The block feels airy and uncluttered.", "D3": "Pale buildings recede beside a broad empty roadway.", "D4": "A bright, cool architectural view."},
+      "E": {"D1": "Warm light softens buildings and pavement.", "D2": "The street feels gentle and slightly hazy.", "D3": "Cream walls and terracotta details line the road.", "D4": "A soft, warm city snapshot."}
+    },
+    "a4915-20090321_at_18h47m58__MG_0200": {
+      "A": {"D1": "Golden light and contrast carve the surf.", "D2": "The sunset feels dramatic and glowing.", "D3": "White foam curls across dark wet sand.", "D4": "A bold, cinematic beach sunset."},
+      "B": {"D1": "Warm color softens the bright horizon and shore.", "D2": "The beach feels calm and nostalgic.", "D3": "Orange clouds glow above an incoming wave.", "D4": "A warm evening-seaside photograph."},
+      "C": {"D1": "Teal water deepens beneath a golden sky.", "D2": "The surf feels vivid and forceful.", "D3": "A blue-green breaker rolls toward reflective sand.", "D4": "A saturated coastal-film frame."},
+      "D": {"D1": "Cool brightness blurs the surf and shoreline.", "D2": "The beach feels soft and dreamlike.", "D3": "Blue-white foam spreads across pale wet sand.", "D4": "A hazy, cool-toned seascape."},
+      "E": {"D1": "Warm light lifts the foam and sunset clouds.", "D2": "The shore feels bright and gently inviting.", "D3": "A glowing sky meets rippled water and dark sand.", "D4": "A luminous, warm beach print."}
+    },
+    "a4578-DSC_0055": {
+      "A": {"D1": "A clear lift brightens harbor and skyline.", "D2": "The waterfront feels crisp and open.", "D3": "Tall rigging rises above a blue-gray ship and city.", "D4": "A clean maritime travel photograph."},
+      "B": {"D1": "Warm light softens blue water and buildings.", "D2": "The harbor feels sunny and relaxed.", "D3": "A tall ship rests beside the distant skyline.", "D4": "A warm waterfront postcard."},
+      "C": {"D1": "Muted color lowers the contrast across the harbor.", "D2": "The view feels hazy and unhurried.", "D3": "Pale sky hangs above the masts and low city blocks.", "D4": "A gentle, subdued harbor study."},
+      "D": {"D1": "Bright warmth lifts the sky and water.", "D2": "The scene feels luminous and airy.", "D3": "White sails and rigging stand out against blue sky.", "D4": "A bright, sunlit port scene."},
+      "E": {"D1": "A pale lift washes the masts and water.", "D2": "The harbor feels quiet and softly faded.", "D3": "The ship and skyline dissolve into light blue distance.", "D4": "A soft, high-key maritime image."}
+    },
+    "a1068-IMG_2536": {
+      "A": {"D1": "Cool light sharpens the press against pale walls.", "D2": "The empty room feels crisp and still.", "D3": "A black iron frame stands beside a small table.", "D4": "A cool, minimal interior study."},
+      "B": {"D1": "Warm brightness opens the room and metalwork.", "D2": "The old machine feels quietly inviting.", "D3": "Long levers and crossed legs silhouette against cream walls.", "D4": "A warm heritage-object photograph."},
+      "C": {"D1": "Warm contrast defines the dark press and floor.", "D2": "The room feels rich but uncluttered.", "D3": "A compact table sits beside the iron mechanism.", "D4": "A crisp, warm-toned still life."},
+      "D": {"D1": "Neutral light reveals the machine's metal edges.", "D2": "The room feels balanced and straightforward.", "D3": "Black rods and a broad base occupy the center.", "D4": "A restrained archival interior view."},
+      "E": {"D1": "Cool brightness pales the walls around the press.", "D2": "The object feels isolated in a quiet room.", "D3": "A dark press stands between white paneled walls.", "D4": "A spare, high-key museum photograph."}
+    },
+    "a3119-07-11-05-at-23h49m11s-_MG_4105": {
+      "A": {"D1": "Neutral light keeps skin soft against dark surroundings.", "D2": "The close portrait feels quiet and reflective.", "D3": "A shaved head and short beard emerge from shadow.", "D4": "A restrained, low-key portrait."},
+      "B": {"D1": "Amber warmth deepens the portrait's shadows.", "D2": "The face feels intimate and gently lit.", "D3": "Warm highlights fall across the cheek and brow.", "D4": "A warm studio-style headshot."},
+      "C": {"D1": "Monochrome contrast separates face from background.", "D2": "The portrait feels serious and timeless.", "D3": "Pale eyes and beard stand out against black.", "D4": "A classic black-and-white portrait."},
+      "D": {"D1": "Strong golden light brightens the face and shirt.", "D2": "The close-up feels vivid and direct.", "D3": "Orange highlights trace the scalp and dark collar.", "D4": "A bold, warm editorial portrait."},
+      "E": {"D1": "Cool grayscale darkens the backdrop around the face.", "D2": "The image feels subdued and contemplative.", "D3": "A pale face and dark shirt fill the crop.", "D4": "A cool, monochrome film portrait."}
+    },
+    "a2997-IMG_4851": {
+      "A": {"D1": "Cool contrast sharpens the tower against blue sky.", "D2": "The upward view feels imposing and crisp.", "D3": "Dark window grids converge toward the high-rise tip.", "D4": "A dramatic architectural study."},
+      "B": {"D1": "Muted light softens the building and sky.", "D2": "The tower feels quiet and slightly hazy.", "D3": "Pale clouds frame the dark lower stories.", "D4": "A subdued city-building photograph."},
+      "C": {"D1": "Warm brightness adds a green cast to the facade.", "D2": "The tower feels vivid and sunlit.", "D3": "Blue sky meets the building's shaded glass grid.", "D4": "A bright, stylized urban frame."},
+      "D": {"D1": "Warm muted tones soften the tower's edges.", "D2": "The view feels gentle and slightly aged.", "D3": "Light upper windows rise above the dark stone base.", "D4": "A warm architectural travel print."},
+      "E": {"D1": "Cool light brightens the glass and sky.", "D2": "The tower feels clear and monumental.", "D3": "Blue reflections run up the tall gridded facade.", "D4": "A crisp, cool cityscape."}
+    },
+    "a0329-_MG_1830": {
+      "A": {"D1": "Cool contrast deepens the road and car shadows.", "D2": "The moving car feels sleek and nocturnal.", "D3": "A blue compact car cuts through blurred street lights.", "D4": "A dark, cinematic panning shot."},
+      "B": {"D1": "Warm light opens the street around the car.", "D2": "The motion feels casual and lively.", "D3": "Amber lamps streak above the blue car and road.", "D4": "A warm urban-motion photograph."},
+      "C": {"D1": "Bright color makes the car and road vivid.", "D2": "The passing car feels energetic and sharp.", "D3": "Blue bodywork flashes across a pale blurred backdrop.", "D4": "A punchy street-action frame."},
+      "D": {"D1": "Warm contrast adds depth to the moving scene.", "D2": "The roadway feels swift and subdued.", "D3": "A small blue car passes dark rails and smeared lights.", "D4": "A restrained evening panning shot."},
+      "E": {"D1": "A bright lift reveals color in the motion blur.", "D2": "The car feels crisp against a flowing street.", "D3": "White headlights and blue paint cross gray pavement.", "D4": "A clear, high-energy motion study."}
+    },
+    "a0022-IMG_2380": {
+      "A": {"D1": "Deep teal color and contrast darken the pool.", "D2": "The lanes feel dramatic and enclosed.", "D3": "Black lane markers cross rippling blue water.", "D4": "A moody indoor-sports photograph."},
+      "B": {"D1": "Cool brightness opens the water and deck.", "D2": "The pool feels clear and spacious.", "D3": "Yellow lane dividers lead toward the far wall.", "D4": "A crisp aquatic-interior study."},
+      "C": {"D1": "Vivid blue-green color brightens the lanes.", "D2": "The water feels lively and energetic.", "D3": "Bright ripples cross parallel ropes and dark floor marks.", "D4": "A saturated swimming-pool frame."},
+      "D": {"D1": "Warm light softens the bright water and deck.", "D2": "The pool feels sunlit and calm.", "D3": "Pale blue lanes meet a warm-toned tiled edge.", "D4": "A warm, clean sports venue image."},
+      "E": {"D1": "Cool contrast adds crisp detail to the pool.", "D2": "The lanes feel bright and sharply defined.", "D3": "White reflections scatter across turquoise water.", "D4": "A cool, high-clarity aquatic view."}
+    },
+    "a1681-_I2E6943": {
+      "A": {"D1": "Golden contrast deepens the beach and clouds.", "D2": "The sunset feels intense and cinematic.", "D3": "Dark headland and surf silhouette against amber sky.", "D4": "A dramatic dusk seascape."},
+      "B": {"D1": "Warm light spreads softly across sky and shore.", "D2": "The beach feels gentle and nostalgic.", "D3": "Peach clouds hover above low waves and wet sand.", "D4": "A soft evening beach photograph."},
+      "C": {"D1": "A bright lift pales the horizon and surf.", "D2": "The sunset feels airy and quiet.", "D3": "Light pink sky reflects in a narrow strip of water.", "D4": "A delicate, high-key coastal image."},
+      "D": {"D1": "Vivid warmth deepens the waves and shoreline.", "D2": "The scene feels bold and richly colored.", "D3": "Golden light meets dark water and a low headland.", "D4": "A saturated sunset-film treatment."},
+      "E": {"D1": "Cool brightness shifts the sky toward blue.", "D2": "The beach feels fresh and expansive.", "D3": "Blue-gray surf runs beneath a pale open sky.", "D4": "A cool, clear coastal rendering."}
+    },
+    "a1737-IMG_4060": {
+      "A": {"D1": "Vivid blue sky sharpens the thistle's silhouette.", "D2": "The flower feels bold and sunlit.", "D3": "A magenta bloom rises above spiky leaves.", "D4": "A crisp botanical close-up."},
+      "B": {"D1": "Soft light keeps sky and stem gentle.", "D2": "The plant feels delicate and airy.", "D3": "Thin branches cross pale blue sky around the flower.", "D4": "A quiet, natural garden study."},
+      "C": {"D1": "Warm brightness lifts the bud and grasses.", "D2": "The bloom feels fresh and lively.", "D3": "Pink petals sit above a textured green thistle head.", "D4": "A sunny wildflower portrait."},
+      "D": {"D1": "Balanced light opens the sky and leaves.", "D2": "The composition feels clean and restrained.", "D3": "A single pink flower stands against soft clouds.", "D4": "A simple botanical print."},
+      "E": {"D1": "Warm contrast defines the stem against blue.", "D2": "The plant feels vivid and dimensional.", "D3": "Spines and narrow leaves frame the magenta bloom.", "D4": "A bright, detailed nature photograph."}
+    },
+    "a1333-IMG_4027": {
+      "A": {"D1": "Cool contrast defines the ball and shaded child.", "D2": "The portrait feels focused and playful.", "D3": "A child lifts a large blue ball overhead.", "D4": "A crisp outdoor family snapshot."},
+      "B": {"D1": "Warm light softens the child and foliage.", "D2": "The moment feels gentle and familiar.", "D3": "Turquoise sleeves frame the bright toy above.", "D4": "A warm candid portrait."},
+      "C": {"D1": "Vivid color enriches the ball and greenery.", "D2": "The scene feels lively and sunny.", "D3": "Pink graphics decorate the blue ball over dark leaves.", "D4": "A punchy childhood photograph."},
+      "D": {"D1": "Strong brightness pales the ball and face.", "D2": "The image feels open and high-energy.", "D3": "The child's raised hands touch the bright toy.", "D4": "A high-key outdoor portrait."},
+      "E": {"D1": "Warm color adds gold to the shaded background.", "D2": "The playful pose feels cozy and vivid.", "D3": "A blue ball fills the space above curly hair.", "D4": "A warm, intimate family frame."}
+    },
+    "a0825-_MG_7225": {
+      "A": {"D1": "Cool grayscale brightens the train and platform.", "D2": "The commute feels quiet and detached.", "D3": "A beanie-wearing figure faces a blurred train.", "D4": "A crisp monochrome transit study."},
+      "B": {"D1": "Amber warmth darkens the station and train.", "D2": "The platform feels subdued and nostalgic.", "D3": "A pale carriage streaks past the waiting passenger.", "D4": "A warm, cinematic station frame."},
+      "C": {"D1": "Muted teal and orange color the station interior.", "D2": "The scene feels urban and softly hazy.", "D3": "Teal train windows pass tiled walls and a dark jacket.", "D4": "A restrained city-documentary look."},
+      "D": {"D1": "Cool shadows deepen the moving train and platform.", "D2": "The station feels dim and reflective.", "D3": "A white train blurs behind the still figure.", "D4": "A moody commuter photograph."},
+      "E": {"D1": "Cool light lifts the carriage and tiled wall.", "D2": "The moment feels clear but subdued.", "D3": "Dark coat and gray beanie face bright windows.", "D4": "A clean, cool transit image."}
+    },
+    "a4611-09-05-19-at-17h52m02s-_MG_9528": {
+      "A": {"D1": "Grayscale contrast defines the shirt and room.", "D2": "The portrait feels quiet and straightforward.", "D3": "A young man stands beneath a sloped ceiling.", "D4": "A restrained monochrome room portrait."},
+      "B": {"D1": "Warm light brightens the face and pale shirt.", "D2": "The room feels intimate and welcoming.", "D3": "Books and small objects crowd the shelf behind him.", "D4": "A warm, casual interior portrait."},
+      "C": {"D1": "Cool color tints the walls and shadows.", "D2": "The portrait feels subdued and slightly distant.", "D3": "A white T-shirt stands against a dark chair and shelves.", "D4": "A cool, low-key snapshot."},
+      "D": {"D1": "Warm brightness softens the face and room.", "D2": "The moment feels relaxed and gently lit.", "D3": "A pale sloped wall meets a cluttered bookcase.", "D4": "A soft family-album portrait."},
+      "E": {"D1": "Cool light opens the shirt and bright wall.", "D2": "The figure feels clear and unposed.", "D3": "A dark-haired figure stands beside shelves and a chair.", "D4": "A clean, natural indoor portrait."}
+    },
+    "a4079-IMG_3495": {
+      "A": {"D1": "Warm contrast enriches the clustered petals.", "D2": "The plant feels lush and tightly composed.", "D3": "Pink-tipped buds crowd a bed of dark green leaves.", "D4": "A saturated botanical close-up."},
+      "B": {"D1": "Soft warmth brightens the buds and foliage.", "D2": "The cluster feels gentle and sunlit.", "D3": "Pale blossoms and green rosettes overlap throughout the frame.", "D4": "A warm, delicate garden study."},
+      "C": {"D1": "Monochrome contrast turns the petals bright white.", "D2": "The plant feels graphic and dramatic.", "D3": "Light flower heads scatter across black leaves.", "D4": "A bold black-and-white botanical print."},
+      "D": {"D1": "High brightness softens the pink and green detail.", "D2": "The flowers feel airy and pale.", "D3": "Cream buds spread across a softly lit ground.", "D4": "A high-key floral photograph."},
+      "E": {"D1": "Cool green color deepens the foliage.", "D2": "The close-up feels fresh and slightly cool.", "D3": "Small pink blooms punctuate dense blue-green leaves.", "D4": "A cool, vivid nature study."}
+    },
+    "a1540-JI2E3898": {
+      "A": {"D1": "Bright contrast defines the hillside buildings.", "D2": "The village feels crisp against the glowing sky.", "D3": "White houses climb toward a small blue dome.", "D4": "A bright Mediterranean hillside view."},
+      "B": {"D1": "Warm light softens the buildings and sunset.", "D2": "The slope feels quiet and golden.", "D3": "Pale homes step down toward dark scrub and shore.", "D4": "A warm, tranquil travel frame."},
+      "C": {"D1": "Green tones color the shaded hillside and walls.", "D2": "The scene feels vivid but subdued.", "D3": "A blue dome rises above clustered pale rooftops.", "D4": "A stylized coastal-town image."},
+      "D": {"D1": "Strong brightness opens the sky and white facades.", "D2": "The village feels airy and sunlit.", "D3": "The hillside houses stand out above a dark ridge.", "D4": "A luminous, high-key destination photograph."},
+      "E": {"D1": "Warm light lifts the pale sky and slope.", "D2": "The hillside feels soft and spacious.", "D3": "Orange dusk fades behind the clustered white buildings.", "D4": "A gentle sunset postcard."}
+    },
+    "a4783-20090321_at_19h16m32__MG_0220": {
+      "A": {"D1": "A bright lift opens the shaded terrace.", "D2": "The dining area feels lively and inviting.", "D3": "White tablecloths and wooden chairs sit beneath thatch.", "D4": "A crisp resort-dining photograph."},
+      "B": {"D1": "Warm color enriches the plants and timber deck.", "D2": "The patio feels relaxed and tropical.", "D3": "Palm trunks rise beside candlelit tables and chairs.", "D4": "A warm vacation snapshot."},
+      "C": {"D1": "Brighter contrast clarifies the tables and foliage.", "D2": "The terrace feels open and energetic.", "D3": "Orange chairs cluster around pale cloth-covered tables.", "D4": "A vivid outdoor-hospitality scene."},
+      "D": {"D1": "Strong warmth brightens the umbrellas and seating.", "D2": "The dining deck feels sunny and bustling.", "D3": "Thatched canopies shade tables among dense palms.", "D4": "A saturated tropical-resort frame."},
+      "E": {"D1": "Balanced light keeps the wood and greenery natural.", "D2": "The patio feels calm and clear.", "D3": "Wooden chairs and small lamps line the deck.", "D4": "A natural, candid travel photograph."}
+    },
+    "a2391-IMG_1296": {
+      "A": {"D1": "Cold contrast sharpens clouds and mountain edges.", "D2": "The alpine view feels crisp and imposing.", "D3": "Snow-lined peaks rise above a dark, still lake.", "D4": "A dramatic mountain-water landscape."},
+      "B": {"D1": "Cool light opens the water and cloud bank.", "D2": "The lake feels expansive and calm.", "D3": "Low clouds drift over a rugged island shore.", "D4": "A clear, natural alpine photograph."},
+      "C": {"D1": "Saturated blue brings color to sky and lake.", "D2": "The landscape feels vivid and fresh.", "D3": "Blue water mirrors snowy ridges beneath broken clouds.", "D4": "A bright, cool travel scene."},
+      "D": {"D1": "Muted light softens distant peaks and water.", "D2": "The scene feels quiet and slightly hazy.", "D3": "A low mountain silhouette divides clouded sky and lake.", "D4": "A subdued, atmospheric landscape."},
+      "E": {"D1": "Cool brightness pales the sky and reflections.", "D2": "The view feels airy and spacious.", "D3": "White clouds hang above a faint blue shoreline.", "D4": "A soft, high-key alpine image."}
+    },
+    "a4214-DSC_0267": {
+      "A": {"D1": "Warm contrast reveals gilded arches and windows.", "D2": "The interior feels grand and shadowed.", "D3": "Tall bright windows punctuate the ornate curved gallery.", "D4": "A dramatic architectural interior."},
+      "B": {"D1": "Amber warmth deepens the decorated ceiling.", "D2": "The dome feels solemn and richly aged.", "D3": "Gold lettering runs beneath the band of windows.", "D4": "A warm historic-building study."},
+      "C": {"D1": "Bright warmth lifts the windows and interior detail.", "D2": "The rotunda feels open and luminous.", "D3": "Blue-gray daylight falls across carved arches and inscription.", "D4": "A detailed heritage interior photograph."},
+      "D": {"D1": "Pale light softens the ornamental ceiling and walls.", "D2": "The hall feels calm and airy.", "D3": "Repeated windows arc above the dark decorative frieze.", "D4": "A gentle, high-key architectural view."},
+      "E": {"D1": "Warm contrast sharpens the carved upper gallery.", "D2": "The room feels rich and imposing.", "D3": "Gilded trim frames bright panes in the circular hall.", "D4": "A bold, historic interior portrait."}
+    },
+    "a3483-_DSC0023-1": {
+      "A": {"D1": "Neutral contrast defines the curved glass facade.", "D2": "The building feels crisp and monumental.", "D3": "Grid windows wrap around a pale stone tower.", "D4": "A clean modern-architecture photograph."},
+      "B": {"D1": "Warm light softens the stone and blue sky.", "D2": "The structure feels sunlit and approachable.", "D3": "Curved balconies project above the dark entry level.", "D4": "A warm urban travel frame."},
+      "C": {"D1": "Cool saturation deepens the sky and glass.", "D2": "The facade feels bold and contemporary.", "D3": "Cyan windows contrast with a vivid blue backdrop.", "D4": "A stylized architectural study."},
+      "D": {"D1": "Cool contrast brightens edges and deepens shadows.", "D2": "The tower looks sharp and geometric.", "D3": "Pale panels and teal glass meet at the rounded corner.", "D4": "A crisp, cool city image."},
+      "E": {"D1": "Bright warmth lifts the upper walls and sky.", "D2": "The building feels light and spacious.", "D3": "Sunlit stone rises above shaded windows and entry.", "D4": "A bright, polished urban photograph."}
+    },
+    "a2631-IMG_1312": {
+      "A": {"D1": "Cool contrast sharpens glacier, peaks, and water.", "D2": "The fjord feels crisp and imposing.", "D3": "A pale glacier fills the gap between dark mountains.", "D4": "A dramatic alpine-water landscape."},
+      "B": {"D1": "Cool light lifts clouds and distant shoreline.", "D2": "The scene feels open and quietly vast.", "D3": "Small birds gather on the water before the ice.", "D4": "A calm, natural fjord photograph."},
+      "C": {"D1": "Blue saturation deepens the mountains and lake.", "D2": "The landscape feels vivid and cold.", "D3": "Snowy ice meets dark slopes and a blue-gray bay.", "D4": "A bold, cool travel frame."},
+      "D": {"D1": "Warm brightness softens the glacier and water.", "D2": "The fjord feels gentle and slightly hazy.", "D3": "Cloud light spreads across the ice and still bay.", "D4": "A muted, atmospheric landscape."},
+      "E": {"D1": "Cool lift pales the clouds and lake reflections.", "D2": "The view feels airy and expansive.", "D3": "A line of birds crosses beneath the bright glacier.", "D4": "A soft, high-key alpine scene."}
+    },
+    "a2285-07-11-29-at-17h23m11s-_MG_8171": {
+      "A": {"D1": "Cool contrast defines the lit dome and facade.", "D2": "The night scene feels crisp and grand.", "D3": "Bright columns rise beneath a dark blue cupola.", "D4": "A dramatic nighttime city photograph."},
+      "B": {"D1": "Amber warmth fills the building and street.", "D2": "The plaza feels glowing and historic.", "D3": "Golden windows illuminate the domed roof and crowd.", "D4": "A warm evening travel frame."},
+      "C": {"D1": "Monochrome contrast brightens the columns and dome.", "D2": "The architecture feels formal and timeless.", "D3": "Pale stonework stands out against the black sky.", "D4": "A classic black-and-white city view."},
+      "D": {"D1": "Warm light deepens shadows around the facade.", "D2": "The square feels intimate and dramatic.", "D3": "Street lamps glow beside the illuminated entrance.", "D4": "A cinematic historic-night scene."},
+      "E": {"D1": "Cool shadows darken the roof and foreground.", "D2": "The building feels imposing and nocturnal.", "D3": "Blue-black sky frames the lit windows and dome.", "D4": "A moody architectural night study."}
+    },
+    "a4371-_DSC0125": {
+      "A": {"D1": "Warm contrast separates the animal from the water.", "D2": "The close-up feels quiet and earthy.", "D3": "A dark-and-white animal curls on mottled shallow water.", "D4": "A low-key nature detail."},
+      "B": {"D1": "Warm light brightens the fur and ripples.", "D2": "The small animal feels gentle and peaceful.", "D3": "White patches stand out against golden-brown fur.", "D4": "A warm wildlife close-up."},
+      "C": {"D1": "Vivid gold color enriches the surrounding water.", "D2": "The subject feels bright against a lush ground.", "D3": "A rounded furry shape rests among green-brown reflections.", "D4": "A saturated nature portrait."},
+      "D": {"D1": "Soft warmth lifts the animal's pale markings.", "D2": "The scene feels calm and softly lit.", "D3": "Small paws and white fur patches rest near the surface.", "D4": "A gentle, natural animal study."},
+      "E": {"D1": "Strong warmth and contrast deepen the water tones.", "D2": "The close crop feels rich and vivid.", "D3": "Bright fur markings contrast with amber ripples.", "D4": "A bold, warm wildlife frame."}
+    },
+    "a3568-IMG_4692": {
+      "A": {"D1": "Cool contrast defines the berries and leaves.", "D2": "The close-up feels dark and jewel-like.", "D3": "Black fruit clusters beneath a crossing twig.", "D4": "A moody botanical detail."},
+      "B": {"D1": "Warm light brightens the stems and fruit.", "D2": "The branch feels sunlit and gentle.", "D3": "Round berries hang against pale green bokeh.", "D4": "A warm, delicate nature photograph."},
+      "C": {"D1": "Soft contrast mutes the fruit and background.", "D2": "The image feels airy and restrained.", "D3": "A small berry cluster sits among blurred branches.", "D4": "A soft-focus botanical study."},
+      "D": {"D1": "Bright light softens the leaves and dark fruit.", "D2": "The branch feels pale and dreamlike.", "D3": "Dark berries punctuate a wash of green and white.", "D4": "A high-key garden close-up."},
+      "E": {"D1": "Cool color deepens blue shadows behind the berries.", "D2": "The fruit feels crisp and dimensional.", "D3": "A dark cluster hangs between bright green leaves.", "D4": "A vivid, cool botanical frame."}
+    },
+    "a1016-050716_115658__I2E4159": {
+      "A": {"D1": "Bright color defines the painted van and street.", "D2": "The vehicle feels playful and eye-catching.", "D3": "A red-and-blue van sits against gray stone.", "D4": "A crisp urban travel snapshot."},
+      "B": {"D1": "Warm light softens the vivid body panels.", "D2": "The street feels sunny and relaxed.", "D3": "Yellow wheels and a striped roof brighten the van.", "D4": "A warm city-street photograph."},
+      "C": {"D1": "Strong saturation sharpens the colors and chrome.", "D2": "The parked vehicle feels bold and graphic.", "D3": "Green, red, and blue panels divide the compact body.", "D4": "A punchy roadside portrait."},
+      "D": {"D1": "High brightness opens the van and cobblestones.", "D2": "The scene feels clear and energetic.", "D3": "A colorful vehicle stands beside a tall stone doorway.", "D4": "A bright, candid street image."},
+      "E": {"D1": "Warm contrast enriches the red and yellow paint.", "D2": "The van feels vivid and slightly nostalgic.", "D3": "Bright wheels and a striped roof catch the light.", "D4": "A saturated vintage-vehicle frame."}
+    },
+    "a0994-IMG_4703": {
+      "A": {"D1": "Clear contrast brings out the pine cone and needles.", "D2": "The close-up feels crisp and sunlit.", "D3": "A brown cone hangs among long green needles.", "D4": "A detailed woodland photograph."},
+      "B": {"D1": "Warm light gilds the branch and cone scales.", "D2": "The plant feels softly illuminated.", "D3": "Golden needles arc around a dark pine cone.", "D4": "A warm botanical close-up."},
+      "C": {"D1": "Bright warmth lifts the blurred background.", "D2": "The subject feels light and summery.", "D3": "A cluster of brown scales hangs beneath the branch.", "D4": "A gentle nature portrait."},
+      "D": {"D1": "Balanced brightness opens detail in the needles.", "D2": "The scene feels clear and natural.", "D3": "Blue sky peeks through the long green foliage.", "D4": "A clean outdoor detail study."},
+      "E": {"D1": "Cool saturation deepens the sky and leaves.", "D2": "The cone feels vivid against blue.", "D3": "Sharp needles frame the rounded brown cone.", "D4": "A crisp, cool woodland image."}
+    },
+    "a4816-_DSC0008": {
+      "A": {"D1": "Cool contrast darkens the clouds and wet sand.", "D2": "The beach feels stark and unsettled.", "D3": "Small figures stand beneath a heavy blue-gray sky.", "D4": "A moody coastal landscape."},
+      "B": {"D1": "A soft lift brightens the water and horizon.", "D2": "The shoreline feels pale and quiet.", "D3": "Thin waves cross a broad, reflective beach.", "D4": "A gentle overcast seaside photograph."},
+      "C": {"D1": "Warm light colors the clouds and shallow water.", "D2": "The beach feels calm and softly golden.", "D3": "A low tree line borders the bright wet sand.", "D4": "A muted late-day coastal frame."},
+      "D": {"D1": "Vivid contrast brightens the clouds and surf.", "D2": "The open shore feels crisp and lively.", "D3": "Foam and small waders mark the broad tidal flat.", "D4": "A clear, high-contrast beach scene."},
+      "E": {"D1": "Cool brightness opens the sky and reflective beach.", "D2": "The coast feels fresh and spacious.", "D3": "Pale clouds hang over shallow water and distant trees.", "D4": "A cool, airy shoreline photograph."}
+    },
+    "a1677-_DSC0031": {
+      "A": {"D1": "Bright cyan color lifts the harbor water.", "D2": "The boats feel crisp beneath open sky.", "D3": "A small sailboat passes a large white vessel.", "D4": "A vivid harbor travel image."},
+      "B": {"D1": "Muted cool tones soften the boats and water.", "D2": "The harbor feels quiet and distant.", "D3": "Gray sails sit before a low rocky shoreline.", "D4": "A subdued maritime study."},
+      "C": {"D1": "Warm light brightens the sail and larger boat.", "D2": "The waterfront feels relaxed and sunlit.", "D3": "White hulls and blue water divide the frame.", "D4": "A warm coastal snapshot."},
+      "D": {"D1": "Warm contrast deepens the boats against bright water.", "D2": "The scene feels clear and energetic.", "D3": "A triangular sail crosses in front of a cabin cruiser.", "D4": "A crisp sailing photograph."},
+      "E": {"D1": "Pale warmth lifts the sky and distant boats.", "D2": "The harbor feels hazy and unhurried.", "D3": "Masts and shoreline fade into light blue distance.", "D4": "A soft, high-key seaside view."}
+    },
+    "a2723-07-07-23-at-22h40m05s-_MG_2491": {
+      "A": {"D1": "Warm shadows keep the plated food low-key.", "D2": "The meal feels intimate and quietly rustic.", "D3": "Seafood and greens sit on a white plate.", "D4": "A moody restaurant still life."},
+      "B": {"D1": "Cool brightness opens the plate and tableware.", "D2": "The dish feels clear and gently lit.", "D3": "A curled seafood piece rests beside leafy garnish.", "D4": "A crisp dining-table close-up."},
+      "C": {"D1": "Strong golden color warms the food and table.", "D2": "The plate feels vivid and indulgent.", "D3": "Orange seafood and green herbs fill the center.", "D4": "A saturated food photograph."},
+      "D": {"D1": "Neutral light reveals the plate and wood grain.", "D2": "The dish feels simple and natural.", "D3": "White porcelain frames small seafood pieces and greens.", "D4": "A clean restaurant-table study."},
+      "E": {"D1": "Warm contrast enriches the food and tabletop.", "D2": "The close-up feels rich and polished.", "D3": "A bright plate holds browned seafood and garnish.", "D4": "A warm, editorial food image."}
+    },
+    "a4742-Duggan_090331_6517": {
+      "A": {"D1": "Cool contrast darkens the beach and clouds.", "D2": "The bay feels dramatic and windswept.", "D3": "A yellow sailboat rests near the wet shoreline.", "D4": "A moody tropical-coast photograph."},
+      "B": {"D1": "Warm light brightens the sand and cloud bank.", "D2": "The beach feels sunny and relaxed.", "D3": "Small figures dot the shallows beside a moored boat.", "D4": "A warm island travel frame."},
+      "C": {"D1": "Bright contrast clarifies the beach and distant hills.", "D2": "The bay feels open and vivid.", "D3": "Clouds lift above a yellow hull and calm water.", "D4": "A clear, high-contrast shoreline view."},
+      "D": {"D1": "Cool brightness opens the sky and tidal sand.", "D2": "The coast feels pale and spacious.", "D3": "A lone sailboat sits beneath a broken cloud ceiling.", "D4": "A crisp, cool beach scene."},
+      "E": {"D1": "Monochrome light softens the sea and beach.", "D2": "The shoreline feels quiet and timeless.", "D3": "A dark headland and scattered waders line the bay.", "D4": "A subdued black-and-white coastal study."}
+    },
+    "a4438-Duggan_090330_6313": {
+      "A": {"D1": "Warm contrast deepens the red display behind the necklace.", "D2": "The jewelry feels rich and intimate.", "D3": "A fine chain rests on a dark fabric bust.", "D4": "A warm boutique-window still life."},
+      "B": {"D1": "Cool light lifts the bust and red backdrop.", "D2": "The display feels bright and delicate.", "D3": "A small pendant catches light against pale fabric.", "D4": "A clean jewelry detail photograph."},
+      "C": {"D1": "Violet shadows tint the mannequin and display.", "D2": "The necklace feels dramatic and stylized.", "D3": "A thin chain crosses the dark chest-shaped form.", "D4": "A cool, graphic shop-window image."},
+      "D": {"D1": "Warm shadows keep the necklace low-key.", "D2": "The display feels subdued and softly lit.", "D3": "A delicate chain traces the brown velvet bust.", "D4": "A moody boutique photograph."},
+      "E": {"D1": "Cool brightness pales the fabric and tiled wall.", "D2": "The jewelry feels clear and understated.", "D3": "A small gold pendant hangs before red square tiles.", "D4": "A bright, minimal product portrait."}
+    },
+    "a0709-07-12-01-at-17h01m35s-_MG_8762": {
+      "A": {"D1": "Deep blue shadows frame the lit waterfront.", "D2": "The town feels quiet and nocturnal.", "D3": "A dark mountain rises above amber water reflections.", "D4": "A moody coastal-night scene."},
+      "B": {"D1": "Warm light brightens the town and water.", "D2": "The evening feels calm and inviting.", "D3": "Golden windows form a line along the dark shore.", "D4": "A warm harbor-at-dusk photograph."},
+      "C": {"D1": "Vivid warmth deepens the shoreline lights.", "D2": "The bay feels lively against the dark ridge.", "D3": "Pink sky fades above bright town lights and reflections.", "D4": "A saturated twilight travel frame."},
+      "D": {"D1": "Pale brightness lifts the village and waterline.", "D2": "The coast feels soft and hazy.", "D3": "A mountain silhouette overlooks a softly lit harbor.", "D4": "A muted evening landscape."},
+      "E": {"D1": "Green-blue color cools the mountain and bay.", "D2": "The waterfront feels crisp and atmospheric.", "D3": "Scattered lights shimmer below the dark hillside.", "D4": "A cool, cinematic night view."}
+    },
+    "a1471-07-07-15-at-23h51m48s-_MG_2179": {
+      "A": {"D1": "Deep contrast darkens the tower and rooftops.", "D2": "The skyline feels moody beneath the sunset.", "D3": "A glass high-rise frames a low band of orange sky.", "D4": "A dramatic city-at-dusk view."},
+      "B": {"D1": "A brighter lift opens the buildings and clouds.", "D2": "The city feels clear and softly lit.", "D3": "Rooftops recede toward a pale sunset horizon.", "D4": "A restrained urban panorama."},
+      "C": {"D1": "Vivid light brings color to the skyline and sky.", "D2": "The view feels warm and expansive.", "D3": "A tall glass facade overlooks scattered low buildings.", "D4": "A bright city-travel photograph."},
+      "D": {"D1": "Cool contrast sharpens the tower and horizon.", "D2": "The evening feels crisp and spacious.", "D3": "Blue sky fades to warm light above the rooftops.", "D4": "A cool, high-contrast skyline study."},
+      "E": {"D1": "Soft brightness mutes the building and sunset colors.", "D2": "The city feels hazy and quiet.", "D3": "Distant blocks sit beneath a pale open sky.", "D4": "A gentle, subdued urban frame."}
+    },
+    "a0236-060526_142240__MG_8129": {
+      "A": {"D1": "Bright contrast defines the cap and face.", "D2": "The close portrait feels alert and clear.", "D3": "Thin glasses sit beneath a soft blue cap.", "D4": "A crisp outdoor headshot."},
+      "B": {"D1": "A light lift opens the face and shirt.", "D2": "The portrait feels bright and approachable.", "D3": "A dark beard frames the teal collar and glasses.", "D4": "A natural candid portrait."},
+      "C": {"D1": "Soft contrast smooths the face and background.", "D2": "The crop feels gentle and slightly hazy.", "D3": "The blue cap stands out against a pale sky.", "D4": "A soft-focus travel portrait."},
+      "D": {"D1": "Warm light sharpens the face and cap.", "D2": "The expression feels direct and lively.", "D3": "A green shirt and blue hat fill the foreground.", "D4": "A warm, editorial close-up."},
+      "E": {"D1": "Warm brightness softens the cap and skin tones.", "D2": "The portrait feels open and easygoing.", "D3": "A pale shirt collar sits below the dark beard.", "D4": "A bright, relaxed headshot."}
+    },
+    "a4941-DSC_0299": {
+      "A": {"D1": "Warm shadows keep the audience and stage dark.", "D2": "The performance feels intimate and dramatic.", "D3": "A white-clad performer stands in a pool of light.", "D4": "A moody theater photograph."},
+      "B": {"D1": "Warm brightness opens the performer and crowd.", "D2": "The scene feels lively and communal.", "D3": "Seated spectators surround the brightly lit stage.", "D4": "A warm live-event snapshot."},
+      "C": {"D1": "Cool shadows contrast with the bright costume.", "D2": "The performance feels stark and focused.", "D3": "A pale figure stands before a dark audience.", "D4": "A high-contrast stage frame."},
+      "D": {"D1": "Cool light deepens the room around the performer.", "D2": "The moment feels subdued and theatrical.", "D3": "Rows of spectators frame the lit central figure.", "D4": "A low-key performance study."},
+      "E": {"D1": "Cool brightness reveals faces around the stage.", "D2": "The audience feels clear and attentive.", "D3": "A white costume glows above seated viewers.", "D4": "A crisp documentary event image."}
+    },
+    "a0111-IMG_4425": {
+      "A": {"D1": "Cool shadows deepen the vintage car and street.", "D2": "The car feels imposing and low-key.", "D3": "A black coupe sits beneath downtown buildings.", "D4": "A moody classic-car portrait."},
+      "B": {"D1": "A neutral lift opens the car and pavement.", "D2": "The street scene feels balanced and natural.", "D3": "Chrome lamps and a broad grille catch daylight.", "D4": "A clean automotive snapshot."},
+      "C": {"D1": "Bright contrast sharpens the body and city facades.", "D2": "The vehicle feels crisp and substantial.", "D3": "Large tires anchor the car between tall buildings.", "D4": "A bold urban-car photograph."},
+      "D": {"D1": "Strong color and contrast lift the background.", "D2": "The street feels vivid around the dark car.", "D3": "Blue sky and brick walls frame the hood.", "D4": "A punchy city automotive frame."},
+      "E": {"D1": "Warm light brightens the car and sidewalk.", "D2": "The scene feels sunny and polished.", "D3": "A dark body reflects the surrounding city blocks.", "D4": "A warm vintage-car study."}
+    },
+    "a1847-20051222_141305__MG_0341": {
+      "A": {"D1": "A mild lift opens the shaded timber patio.", "D2": "The covered space feels calm and sheltered.", "D3": "A thick wooden post divides deck and garden.", "D4": "A natural architectural-interior view."},
+      "B": {"D1": "Bright contrast defines the deck and roof beams.", "D2": "The patio feels clear and inviting.", "D3": "Sunlight reaches a wood platform beside leafy planting.", "D4": "A crisp outdoor-living photograph."},
+      "C": {"D1": "Vivid greens and wood tones brighten the scene.", "D2": "The garden terrace feels fresh and lively.", "D3": "A timber walkway leads toward glass doors and shrubs.", "D4": "A vivid garden-architecture study."},
+      "D": {"D1": "Strong contrast darkens the roof above the deck.", "D2": "The structure feels dramatic and secluded.", "D3": "Deep beams frame a bright opening onto greenery.", "D4": "A moody modern-patio frame."},
+      "E": {"D1": "Warm brightness softens the beams and plants.", "D2": "The sheltered deck feels relaxed and sunlit.", "D3": "A wooden post stands before a quiet garden room.", "D4": "A warm, quiet architectural photograph."}
+    },
+    "a4318-Duggan_090321_5920": {
+      "A": {"D1": "Cool light clarifies the stone bust and tabletop.", "D2": "The sculpture feels crisp and contemplative.", "D3": "A curly-haired bearded head rests on a square base.", "D4": "A cool, detailed still life."},
+      "B": {"D1": "Warm brightness brings out the carved features.", "D2": "The bust feels sunlit and approachable.", "D3": "Pale curls and beard catch light above the wooden counter.", "D4": "A warm sculptural portrait."},
+      "C": {"D1": "High exposure brightens the stone and wood grain.", "D2": "The statue feels vivid and tactile.", "D3": "A rough stone face leans above its carved plinth.", "D4": "A bold, high-clarity object study."},
+      "D": {"D1": "Warm color enriches the bust and background.", "D2": "The sculpture feels rich and softly lit.", "D3": "Textured curls and beard stand out against dark wood.", "D4": "A warm museum-detail photograph."},
+      "E": {"D1": "Bright contrast lifts the stone curls and face.", "D2": "The carved head feels clear and dimensional.", "D3": "A pale bust sits among shelves and timber surfaces.", "D4": "A crisp heritage-object image."}
+    },
+    "a1446-IMG_4236": {
+      "A": {"D1": "Clear contrast sharpens the metal fitting and braid.", "D2": "The detail feels precise and industrial.", "D3": "A curved connector meets a tightly woven steel hose.", "D4": "A crisp mechanical close-up."},
+      "B": {"D1": "A brighter lift opens the dark machinery.", "D2": "The fitting feels clean and clearly defined.", "D3": "Silver braid catches light beside the black joint.", "D4": "A polished product-detail image."},
+      "C": {"D1": "Vivid contrast deepens the shadows around the hose.", "D2": "The equipment feels bold and tactile.", "D3": "A reflective pipe bends beneath a braided metal line.", "D4": "A dramatic industrial-detail photograph."},
+      "D": {"D1": "Dark contrast emphasizes the fitting's edges.", "D2": "The crop feels stark and technical.", "D3": "A black coupling sits against a gray panel.", "D4": "A low-key engineering study."},
+      "E": {"D1": "Cool light brightens the steel weave and panel.", "D2": "The machinery feels crisp and cool-toned.", "D3": "A polished connector crosses the diagonal metal braid.", "D4": "A clean, cool product close-up."}
+    },
+    "a4856-_DSC0013": {
+      "A": {"D1": "Bright contrast separates branches from blue sky.", "D2": "The tree feels intricate and graphic.", "D3": "Thick limbs fork into a web of bare twigs.", "D4": "A crisp winter-tree study."},
+      "B": {"D1": "Cool light softens the trunk and sky.", "D2": "The branches feel quiet and delicate.", "D3": "Fine twigs overlap against a muted blue backdrop.", "D4": "A restrained seasonal photograph."},
+      "C": {"D1": "Vivid blue intensifies the sky between limbs.", "D2": "The canopy feels bold and sharply defined.", "D3": "Dark branches radiate from a broad central trunk.", "D4": "A saturated graphic tree portrait."},
+      "D": {"D1": "Warm color gives the bark a golden cast.", "D2": "The scene feels bright and gently sunlit.", "D3": "Sunlit bark crosses a clear field of blue.", "D4": "A warm, natural outdoor study."},
+      "E": {"D1": "Soft brightness lightens the trunk and branches.", "D2": "The tree feels open and calm.", "D3": "Pale bark and slender twigs fill the frame.", "D4": "A soft, high-key winter image."}
+    },
+    "a2242-JI2E5686": {
+      "A": {"D1": "Deep shadows keep the bird low-key.", "D2": "The perched bird feels watchful and still.", "D3": "A white-crowned dark bird stands behind a stone ledge.", "D4": "A moody wildlife portrait."},
+      "B": {"D1": "Warm light lifts the bird's crown and ledge.", "D2": "The close-up feels calm and sunlit.", "D3": "Layered dark feathers meet a pale head and beak.", "D4": "A warm nature close-up."},
+      "C": {"D1": "Saturated shadows deepen the bird and enclosure.", "D2": "The image feels vivid and dramatic.", "D3": "Blue-green wire grid recedes behind folded wings.", "D4": "A bold, cool wildlife frame."},
+      "D": {"D1": "High contrast darkens the enclosure around the bird.", "D2": "The pose feels stark and sculptural.", "D3": "Pale feathers crown a large dark body on stone.", "D4": "A dramatic animal study."},
+      "E": {"D1": "Warm color brightens the ledge and crown.", "D2": "The bird feels vivid against shadow.", "D3": "A pale head turns above long folded feathers.", "D4": "A warm, detailed wildlife photograph."}
+    },
+    "a4664-DSC_0208": {
+      "A": {"D1": "Cool contrast darkens the rocks and water.", "D2": "The shoreline feels stark and windswept.", "D3": "Two figures sit near waves beneath a clouded sky.", "D4": "A moody coastal documentary frame."},
+      "B": {"D1": "Warm light softens the sky and rocky shore.", "D2": "The beach feels quiet and reflective.", "D3": "A seated pair looks toward the pale water.", "D4": "A warm, contemplative seaside image."},
+      "C": {"D1": "Monochrome contrast defines the figures and surf.", "D2": "The scene feels restrained and timeless.", "D3": "Dark rock and white water frame the seated people.", "D4": "A classic black-and-white shore study."},
+      "D": {"D1": "Blue color deepens the sky and water.", "D2": "The coast feels cool and dramatic.", "D3": "A low rocky point separates two pale figures from the sea.", "D4": "A cool, cinematic beach photograph."},
+      "E": {"D1": "Bright light opens the surf and distant clouds.", "D2": "The beach feels airy and spacious.", "D3": "Two people sit beside a broad band of white foam.", "D4": "A soft, high-key seaside frame."}
+    },
+    "a3400-07-11-04-at-17h36m14s-_MG_4004": {
+      "A": {"D1": "Cool contrast separates the skyline from dark water.", "D2": "The city feels sharp and nocturnal.", "D3": "Blue-lit towers rise above scattered shore lights.", "D4": "A crisp nighttime cityscape."},
+      "B": {"D1": "Warm light brings out the glowing windows.", "D2": "The waterfront feels calm and inviting.", "D3": "A tall tower reflects above a dark tree line.", "D4": "A warm urban-night photograph."},
+      "C": {"D1": "Deep blue tones intensify the high-rise lights.", "D2": "The skyline feels vivid and dramatic.", "D3": "Bright windows form vertical stripes across the towers.", "D4": "A saturated city-at-night frame."},
+      "D": {"D1": "Bright contrast opens the buildings and reflections.", "D2": "The evening scene feels clear and spacious.", "D3": "The tallest tower stands against a pale night sky.", "D4": "A luminous, high-clarity skyline view."},
+      "E": {"D1": "Cool shadows mute the city and foreground.", "D2": "The view feels quiet and slightly hazy.", "D3": "Low buildings sit beneath a faint blue glow.", "D4": "A restrained, atmospheric nightscape."}
+    },
+    "a0615-IMG_4025": {
+      "A": {"D1": "Warm contrast lifts the faces from the room.", "D2": "The close portrait feels tender and quiet.", "D3": "An adult holds a child in a pale shirt.", "D4": "A warm, intimate family portrait."},
+      "B": {"D1": "A gentle lift softens the red background.", "D2": "The moment feels familiar and relaxed.", "D3": "The child's face rests near the adult's shoulder.", "D4": "A soft indoor snapshot."},
+      "C": {"D1": "Vivid warmth enriches skin and dark red walls.", "D2": "The embrace feels bright and affectionate.", "D3": "Pale clothing stands out against the shadowed room.", "D4": "A saturated family-album frame."},
+      "D": {"D1": "High brightness opens the faces and shirt.", "D2": "The portrait feels clear and cheerful.", "D3": "A child leans into the adult's white top.", "D4": "A bright candid family photograph."},
+      "E": {"D1": "Warm light softens the room and skin tones.", "D2": "The close crop feels gentle and personal.", "D3": "A small hand rests against the adult's shoulder.", "D4": "A soft, nostalgic home portrait."}
+    },
+    "a4926-DSC_0019": {
+      "A": {"D1": "Cool contrast defines the dark jacket and child.", "D2": "The encounter feels lively and intimate.", "D3": "An older woman smiles toward a child in white.", "D4": "A crisp family-room portrait."},
+      "B": {"D1": "Warm light opens the faces and wooden room.", "D2": "The exchange feels affectionate and relaxed.", "D3": "Short gray hair and a pale sweater fill the foreground.", "D4": "A warm candid home photograph."},
+      "C": {"D1": "Warm contrast brightens the woman and child.", "D2": "The moment feels animated and cheerful.", "D3": "An outstretched arm frames the child facing the woman.", "D4": "A vivid family snapshot."},
+      "D": {"D1": "Strong warmth and light lift the small room.", "D2": "The figures feel bright and expressive.", "D3": "Two figures meet amid pale clothing and warm wood.", "D4": "A lively, sunlit family portrait."},
+      "E": {"D1": "Warm brightness softens the room and faces.", "D2": "The interaction feels gentle and familiar.", "D3": "A child's white sweater catches the light.", "D4": "A bright, nostalgic indoor frame."}
+    },
+    "a3359-JI2E5640": {
+      "A": {"D1": "Cool contrast deepens the peacock's blue feathers.", "D2": "The bird feels vivid and watchful.", "D3": "A bright crest rises above the blue head.", "D4": "A crisp wildlife close-up."},
+      "B": {"D1": "Warm light gilds the green feather pattern.", "D2": "The close portrait feels rich and dramatic.", "D3": "Green and gold plumage curves behind the blue neck.", "D4": "A warm, detailed bird study."},
+      "C": {"D1": "Vivid contrast sharpens the blue and green plumage.", "D2": "The peacock feels bold against the dark background.", "D3": "A pale beak and bright eye stand out clearly.", "D4": "A saturated nature portrait."},
+      "D": {"D1": "Warm color brightens the bird's face and feathers.", "D2": "The image feels luminous and lively.", "D3": "Gold-green scales sweep behind a deep blue head.", "D4": "A vibrant avian close-up."},
+      "E": {"D1": "Soft warmth lifts the dark background and plumage.", "D2": "The bird feels calm and softly lit.", "D3": "Fine blue feathers and a dark crest fill the crop.", "D4": "A gentle, warm wildlife frame."}
+    },
+    "a0041-IMG_4972": {
+      "A": {"D1": "Vivid contrast sharpens the pink petals and leaves.", "D2": "The rose feels bold against the dark garden.", "D3": "Layered pink petals open among glossy green leaves.", "D4": "A dramatic floral close-up."},
+      "B": {"D1": "Bright contrast lifts the bloom and background.", "D2": "The flower feels vivid and sunlit.", "D3": "A pink rose stands above deep shadowed foliage.", "D4": "A crisp garden portrait."},
+      "C": {"D1": "Warm light brightens the petals and leaves.", "D2": "The bloom feels glowing and richly colored.", "D3": "A pale rose center opens against green leaves.", "D4": "A warm botanical photograph."},
+      "D": {"D1": "Strong warmth and contrast deepen the garden shadows.", "D2": "The rose feels luminous and dramatic.", "D3": "Pink petals catch light above dark ground cover.", "D4": "A saturated floral still life."},
+      "E": {"D1": "Warm vivid color brightens the rose and foliage.", "D2": "The flower feels polished and cheerful.", "D3": "A large pink bloom fills the center of the frame.", "D4": "A bright, colorful garden image."}
+    },
+    "a2350-_I2E7378": {
+      "A": {"D1": "Strong color defines the speckled bird and pavement.", "D2": "The small bird feels alert and focused.", "D3": "A spotted brown bird pecks at a crumb on wet ground.", "D4": "A vivid street-nature close-up."},
+      "B": {"D1": "Monochrome softens the bird and rough pavement.", "D2": "The moment feels quiet and understated.", "D3": "A speckled bird bends toward a small seed.", "D4": "A restrained black-and-white wildlife frame."},
+      "C": {"D1": "Vivid contrast sharpens blue feathers and gold spots.", "D2": "The bird feels bright against dark surroundings.", "D3": "Thin legs and a pointed beak stand on wet stone.", "D4": "A crisp urban-wildlife portrait."},
+      "D": {"D1": "Muted warmth softens the bird's dark plumage.", "D2": "The close-up feels calm and slightly hazy.", "D3": "A small bird faces left across mottled gray pavement.", "D4": "A warm, gentle nature detail."},
+      "E": {"D1": "Warm color lifts the wet ground and feathers.", "D2": "The subject feels clear and natural.", "D3": "Golden speckles mark the dark bird's folded wings.", "D4": "A clean, warm wildlife photograph."}
+    },
+    "a3929-IMG_0792": {
+      "A": {"D1": "Cool contrast defines the leaf against dark pavement.", "D2": "The fallen leaf feels delicate and solitary.", "D3": "A pale heart-shaped leaf rests on rough blue-gray ground.", "D4": "A moody autumn detail."},
+      "B": {"D1": "Warm light softens the veins and pavement.", "D2": "The leaf feels dry and gently aged.", "D3": "A small dark insect sits near the center vein.", "D4": "A warm natural-texture study."},
+      "C": {"D1": "Bright contrast lifts the leaf and its veins.", "D2": "The single leaf feels crisp and graphic.", "D3": "A thin stem runs through the broad pale surface.", "D4": "A high-clarity seasonal photograph."},
+      "D": {"D1": "Warm saturation deepens the ground around the leaf.", "D2": "The image feels rich and tactile.", "D3": "Brown edges and branching veins mark the leaf.", "D4": "A vivid autumn close-up."},
+      "E": {"D1": "Soft warmth brightens the leaf against gray stone.", "D2": "The scene feels calm and slightly nostalgic.", "D3": "A curled leaf and tiny dark insect fill the frame.", "D4": "A gentle, warm still life."}
+    },
+    "a4734-20090419_at_21h42m39__MG_2399": {
+      "A": {"D1": "Bright contrast opens the couple and tree-lined street.", "D2": "The pair feels lively and at ease.", "D3": "A woman in pink walks beside a man in coral.", "D4": "A crisp outdoor couple portrait."},
+      "B": {"D1": "Warm light brightens the people and background.", "D2": "The walk feels sunny and affectionate.", "D3": "The couple stands on pale pavement beneath green trees.", "D4": "A warm vacation snapshot."},
+      "C": {"D1": "Cool brightness adds blue to shadows and pavement.", "D2": "The scene feels clear and brisk.", "D3": "Pink clothing stands out against the cool-toned street.", "D4": "A fresh, candid travel photograph."},
+      "D": {"D1": "Warm contrast deepens the tree canopy and clothes.", "D2": "The couple feels framed by golden light.", "D3": "A coral shirt and pink top lead through the shade.", "D4": "A warm, cinematic street portrait."},
+      "E": {"D1": "Soft warmth lifts the road and distant foliage.", "D2": "The moment feels relaxed and natural.", "D3": "Two figures pause where sunlight reaches the road.", "D4": "A gentle family-album frame."}
+    },
+    "a4092-07-12-03-at-09h35m54s-_MG_9192": {
+      "A": {"D1": "Cool contrast darkens the harbor and hillside.", "D2": "The village feels moody beneath broken clouds.", "D3": "Small boats sit before colorful waterfront buildings.", "D4": "A subdued coastal-town photograph."},
+      "B": {"D1": "Brighter color opens the water and buildings.", "D2": "The harbor feels clear and lively.", "D3": "White houses climb the hill behind moored boats.", "D4": "A crisp seaside travel frame."},
+      "C": {"D1": "Warm saturation enriches the facades and boats.", "D2": "The waterfront feels vivid and welcoming.", "D3": "Red and yellow buildings line the sheltered bay.", "D4": "A colorful harbor postcard."},
+      "D": {"D1": "Warm brightness lifts the hillside and water.", "D2": "The village feels sunlit and open.", "D3": "Several small boats float below clustered homes.", "D4": "A bright coastal panorama."},
+      "E": {"D1": "Vivid contrast defines the shore and rooftops.", "D2": "The harbor feels crisp and energetic.", "D3": "Blue water and yellow boats lead toward town.", "D4": "A punchy Mediterranean-looking travel image."}
+    },
+    "a0569-IMG_0319": {
+      "A": {"D1": "Bright contrast sharpens the dome and surrounding towers.", "D2": "The civic building feels grand and clear.", "D3": "A stone rotunda stands among modern high-rises.", "D4": "A crisp urban-architecture photograph."},
+      "B": {"D1": "Warm light softens the stone and blue sky.", "D2": "The square feels sunny and inviting.", "D3": "Clouds frame the domed roof and columned entrance.", "D4": "A warm city-travel frame."},
+      "C": {"D1": "Vivid blue deepens the sky behind the dome.", "D2": "The architecture feels bold and polished.", "D3": "Bright clouds drift above the pale stone facade.", "D4": "A saturated civic-building portrait."},
+      "D": {"D1": "High brightness opens the lawn and building detail.", "D2": "The scene feels spacious and sunlit.", "D3": "A domed hall anchors a skyline of glass towers.", "D4": "A clear, high-key architectural study."},
+      "E": {"D1": "Warm light lifts the building against pale blue.", "D2": "The square feels calm and gently bright.", "D3": "Green lawn leads toward the columned rotunda.", "D4": "A natural outdoor-city photograph."}
+    },
+    "a3413-20041217_193556__E6B0485": {
+      "A": {"D1": "Warm contrast deepens the track and hillside.", "D2": "The railway feels dramatic and rugged.", "D3": "Twin rails curve past orange rock and scrub.", "D4": "A moody rail-travel image."},
+      "B": {"D1": "Cool light lifts the rails and open sky.", "D2": "The track feels clear and expansive.", "D3": "Steel lines run below a sunlit rocky ridge.", "D4": "A crisp landscape photograph."},
+      "C": {"D1": "Warm color enriches the hill and rusted rails.", "D2": "The railway feels vivid and sunlit.", "D3": "Orange brush follows the track toward the horizon.", "D4": "A warm, cinematic rail scene."},
+      "D": {"D1": "Cool brightness opens gravel and distant hillside.", "D2": "The view feels airy and sharply detailed.", "D3": "Parallel tracks cross dark stones beside golden brush.", "D4": "A clear, cool railway study."},
+      "E": {"D1": "High exposure brightens the sky and track bed.", "D2": "The scene feels bright and energetic.", "D3": "A vivid orange ridge rises above the converging rails.", "D4": "A bright, high-contrast travel frame."}
+    },
+    "a1732-07-11-11-at-12h06m55s-_MG_4594": {
+      "A": {"D1": "Cool brightness opens the kitchen and faces.", "D2": "The family moment feels gentle and attentive.", "D3": "A child in patterned blue clothing rests beside an adult.", "D4": "A clear, candid home portrait."},
+      "B": {"D1": "Cool contrast defines the cookware and patterned shirt.", "D2": "The scene feels crisp and quietly domestic.", "D3": "Metal pots sit below the child and adult's faces.", "D4": "A cool, documentary kitchen frame."},
+      "C": {"D1": "Vivid warmth brightens the child and room.", "D2": "The interaction feels lively and affectionate.", "D3": "Blue patterned sleeves stretch across the adult's arms.", "D4": "A bright family snapshot."},
+      "D": {"D1": "Bright light clarifies the counter and figures.", "D2": "The moment feels open and cheerful.", "D3": "The adult holds the child beside a row of cookware.", "D4": "A crisp indoor family photograph."},
+      "E": {"D1": "Warm light softens the kitchen and skin tones.", "D2": "The close scene feels calm and personal.", "D3": "A small child looks toward the camera from the adult's arms.", "D4": "A warm, intimate home portrait."}
+    },
+    "a1114-IMG_4045": {
+      "A": {"D1": "Warm contrast brightens the smile and knitted hat.", "D2": "The close portrait feels lively and sunny.", "D3": "A smiling woman wears glasses and a brown knit cap.", "D4": "A crisp outdoor headshot."},
+      "B": {"D1": "Warm light softens the sky and skin tones.", "D2": "The expression feels gentle and familiar.", "D3": "A woven hat shades the woman's forehead and glasses.", "D4": "A warm, natural portrait."},
+      "C": {"D1": "Cool color deepens shadows around the face.", "D2": "The portrait feels bright but slightly cool.", "D3": "Blue sky frames the textured cap and smiling face.", "D4": "A cool, candid travel image."},
+      "D": {"D1": "Bright warmth opens the portrait and blue sky.", "D2": "The smile feels vivid and welcoming.", "D3": "Sunlight catches her glasses and broad knitted brim.", "D4": "A bright family snapshot."},
+      "E": {"D1": "Cool vivid light adds cyan to the shadows.", "D2": "The face feels clear and gently luminous.", "D3": "Dark hair falls beneath a green-brown hat.", "D4": "A fresh, cool-toned close-up."}
+    },
+    "a4359-20060614_102352__E6B1561": {
+      "A": {"D1": "Cool contrast defines the blurred current and bank.", "D2": "The stream feels dark and forceful.", "D3": "White water curls beneath a low leafy branch.", "D4": "A moody long-exposure water study."},
+      "B": {"D1": "A bright lift opens the water and greenery.", "D2": "The current feels light and lively.", "D3": "Smooth blue-gray water sweeps past green leaves.", "D4": "A clear woodland-stream photograph."},
+      "C": {"D1": "Vivid color sharpens the foliage and moving water.", "D2": "The scene feels fresh and energetic.", "D3": "White ripples cross a dark pool under overhanging branches.", "D4": "A saturated nature frame."},
+      "D": {"D1": "Warm light softens the current and branches.", "D2": "The water feels calm and gently glowing.", "D3": "A pale cascade curves beneath brown-green leaves.", "D4": "A warm, tranquil stream image."},
+      "E": {"D1": "Bright contrast lifts the water and foliage detail.", "D2": "The current feels crisp and luminous.", "D3": "Bright foam traces the edge of a shaded pool.", "D4": "A high-clarity woodland-water photograph."}
+    },
+    "a2555-DSC_0045": {
+      "A": {"D1": "Warm contrast enriches leaves against blue water.", "D2": "The surface feels textured and autumnal.", "D3": "Brown leaves gather beneath ripples and reflections.", "D4": "A vivid water-and-foliage detail."},
+      "B": {"D1": "A soft lift reveals more water and leaves.", "D2": "The floating debris feels quiet and natural.", "D3": "Scattered leaves drift across muted blue-gray water.", "D4": "A gentle seasonal close-up."},
+      "C": {"D1": "Vivid blue and contrast sharpen the floating leaves.", "D2": "The water feels bright and dramatic.", "D3": "Golden leaf fragments cluster over rich blue reflections.", "D4": "A punchy abstract nature image."},
+      "D": {"D1": "Warm color turns the reflected water olive-brown.", "D2": "The surface feels subdued and earthy.", "D3": "Dark leaves overlap in a patch of still water.", "D4": "A muted autumn-water study."},
+      "E": {"D1": "Cool saturation separates leaves from the water.", "D2": "The pattern feels crisp and dimensional.", "D3": "Blue reflections surround a dense layer of fallen leaves.", "D4": "A cool, high-contrast nature detail."}
+    }
+  }
+}

@@ -120,7 +120,7 @@ def optimize_for_word(word, img_tensor, guards,
                       clip_model, clip_mean, clip_std,
                       num_iters=500, lr=0.03, reg_weight=0.003,
                       semantic_weight=SEMANTIC_WEIGHT, realism_weight=REALISM_WEIGHT,
-                      beauty_weight=BEAUTY_WEIGHT):
+                      beauty_weight=BEAUTY_WEIGHT, history=None, init_params=None):
     """Optimize ISP params using semantic VLM loss + two-directional quality losses.
 
     Loss = semantic_weight * -cos(VLM(processed), VLM("a {word} photo"))
@@ -132,6 +132,8 @@ def optimize_for_word(word, img_tensor, guards,
     The quality terms are negative when the image improves (rewarded) and positive
     when it degrades (penalized). word=None → autotune (no semantic term).
     Returns the params of the iterate with the lowest total loss.
+    Optional history receives pre-step component losses and exact parameter snapshots.
+    init_params (mapped values) sets both the starting point and the regularization anchor.
     """
     text_feat = None
     if word is not None:
@@ -140,6 +142,9 @@ def optimize_for_word(word, img_tensor, guards,
             text_feat = text_feat / text_feat.norm(dim=-1, keepdim=True)
 
     isp = DifferentiableEMOVIS(device=DEVICE)
+    if init_params is not None:
+        isp.set_params(init_params)
+        isp.raw_default.copy_(isp.raw_params.detach())
     optimizer = torch.optim.Adam(isp.parameters(), lr=lr)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_iters,
                                                             eta_min=lr * 0.1)
@@ -182,6 +187,16 @@ def optimize_for_word(word, img_tensor, guards,
             best_loss = total_loss.item()
             best_sim = sim_target.item()
             best_params = params_now
+
+        if history is not None:
+            values = torch.stack((L_semantic, L_realism, L_beauty, L_reg, total_loss)).detach().cpu().tolist()
+            history.append({
+                'iteration': it + 1,
+                **dict(zip(('semantic', 'realism', 'beauty', 'regularization', 'total'), values)),
+                'semantic_similarity': sim_target.item() if word is not None else None,
+                'params': params_now,
+                'raw_params': isp.raw_params.detach().cpu().tolist(),
+            })
 
         total_loss.backward()
         optimizer.step()

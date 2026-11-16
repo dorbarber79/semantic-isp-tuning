@@ -1,0 +1,89 @@
+{
+  "dataset_id": "fivek-ispva-105-v1",
+  "dataset_name": "FiveK ISP Visual Annotation Dataset (FiveK-ISPVA-105)",
+  "version": 1,
+  "snapshot_date": "2026-11-14",
+  "scope": "A 105-scene subset of MIT-Adobe FiveK default-ISP and photographer-fit renders; this is not the full FiveK dataset.",
+  "source_fit_run": {
+    "path": "/data/data1/FiveK/C_data/results/isp_match_105_v4",
+    "images": 105,
+    "photographer_fits_per_image": 5,
+    "completed_pairs": 525,
+    "iterations": 500,
+    "learning_rate": 0.03,
+    "optimization_short_side_px": 256,
+    "fit_objective": "sRGB-display smooth-L1 pixel loss + 0.25 low-frequency loss + 0.002 normalized-control L2 regularization; best of three palette starts"
+  },
+  "annotation_provenance": {
+    "annotator_surface": "GitHub Copilot Chat",
+    "underlying_model_identifier": "Not exposed in the original annotation session metadata.",
+    "user_reported_model_label": "GPT-5.6 Luna; visible in a user-provided screenshot labeling a report-verification execution, not independently confirmed for the original annotation turns.",
+    "annotation_mode": "Assistant-authored visual review; not human ground truth or consensus labels.",
+    "per_image_prompt": "No fixed per-image prompt was recorded. The stored guidance is reconstructed from the interaction instructions.",
+    "batch_vlm": "No batch vision-language model generated the committed fit descriptions. A Qwen2.5-VL-3B-Instruct pilot was rejected after reversing a known brightness difference and missing warmth."
+  },
+  "components": [
+    {
+      "component_id": "fit_render_descriptions",
+      "file": "fivek_fit_visual_descriptions.json",
+      "coverage_scenes": 105,
+      "coverage_fits": 525,
+      "groups_per_fit": ["D1", "D2", "D3", "D4"],
+      "text_fields": 2100,
+      "target": "Describe each fitted ISP render relative to Default ISP. Expert TIFF previews were visible as context, so this was not blinded."
+    },
+    {
+      "component_id": "assistant_authored_filter_style_names",
+      "files": ["fivek_visual_filter_names.json", "fivek_visual_filter_names_additional.json"],
+      "coverage_scenes": 11,
+      "coverage_fits": 55,
+      "method": "Short, assistant-authored style labels; not actual Instagram presets or verified filter equivalences."
+    },
+    {
+      "component_id": "approximate_app_style_references",
+      "file": "fivek_visual_enrichments.json",
+      "coverage_scenes": 11,
+      "coverage_fits": 55,
+      "reference_count": 110,
+      "references_by_app": {"Instagram Classic": 55, "VSCO": 50, "Snapseed": 5},
+      "method": "Image-specific visual resemblance estimates only; no named preset was applied or verified as an equivalent."
+    },
+    {
+      "component_id": "expert_vs_default_prompt_annotations",
+      "files": ["fivek_visual_annotations.json", "fivek_visual_annotations_additional.json"],
+      "coverage_scenes": 11,
+      "coverage_expert_fit_pairs": 55,
+      "target": "Separate assistant-authored annotations comparing Expert TIFF previews with Default ISP; these are not the fitted-render descriptions."
+    }
+  ],
+  "display_resolution": {
+    "fit_comparison_sheet_px": [1080, 1117],
+    "maximum_thumbnail_box_px": [352, 165],
+    "individual_saved_fit_render_height_px": 720,
+    "individual_fit_render_dimensions_px": {
+      "1080x720": 275,
+      "1082x720": 60,
+      "1075x720": 10,
+      "480x720": 120,
+      "478x720": 45,
+      "481x720": 15
+    },
+    "sharpness_caveat": "Annotations were authored from reduced comparison-sheet previews, not full-resolution crops; they do not provide a reliable sharpness assessment."
+  },
+  "validation": {
+    "reviewed_scenes": 105,
+    "reviewed_fits": 525,
+    "pending_scenes": 0,
+    "pending_fits": 0,
+    "test_suite": "experiments/semantic_parameter_learning/test_experiment.py"
+  },
+  "files_sha256": {
+    "fivek_fit_visual_descriptions.json": "d2cfeb08815495008dde8f08691b8e7d2f2cfc86e402f383eb52f25489314aa0",
+    "fivek_visual_filter_names.json": "e143047c6b9304d3aa3af582cebe36fb94b1d7dfc95e1c164f25e8d8674b5892",
+    "fivek_visual_filter_names_additional.json": "c0b0ff50c7025e74dcc198a4ddb612feea61f6b421b4472acd5b85b0a9195438",
+    "fivek_visual_enrichments.json": "da7cf2475d225f29c8a83aa685b8159f184a39ce67cd5b56ce2da729c3c03b1b",
+    "fivek_visual_annotations.json": "9066eacb310bb95bb9310ae91e0544c74b10cd4b3f4cc90bff34557d9f0ff46e",
+    "fivek_visual_annotations_additional.json": "223a8af4109d21b4787efb04b4f2c0227119a8135653cda4f067b32db5eda132"
+  },
+  "source_assets_note": "RAW/DNG files, photographer TIFFs, and fit renders remain outside this repository. Do not redistribute them without confirming applicable license and dataset terms."
+}

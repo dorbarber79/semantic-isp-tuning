@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "method": "Assistant-authored filter-style names based on existing visual observations; not Instagram filter names, presets, or verified equivalents.",
+  "names": {
+    "a0015-DSC_0081": {"A": "Quiet Shore", "B": "Gentle Daylight", "C": "Coastal Pop", "D": "Sunny Holiday", "E": "Golden Sand"},
+    "a0017-050710_031618__MG_3496": {"A": "Woodland Shade", "B": "Golden Grove", "C": "Cool Canopy", "D": "Sunlit Forest", "E": "Fresh Green"},
+    "a0865-20080515_075226__MG_9983": {"A": "Spring Bloom", "B": "Coral Glow", "C": "Botanical Pop", "D": "Soft Petals", "E": "Lush Garden"},
+    "a2456-IMG_1681": {"A": "Alpine Blue", "B": "Meadow Light", "C": "Valley Vivid", "D": "Quiet Valley", "E": "Fresh Alpine"},
+    "a3768-IMG_1641": {"A": "Cool Window", "B": "Window Light", "C": "Violet Portrait", "D": "Warm Portrait", "E": "Teal Serenity"}
+  }
+}

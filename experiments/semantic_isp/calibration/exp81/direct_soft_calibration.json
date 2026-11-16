@@ -1,0 +1,3159 @@
+{
+  "status": "Direct poles and centroids jointly selected from per-descriptor median autotune tails; unit-normalized CLIP text embeddings",
+  "descriptor_provenance": "/home/administrator/code/semantic-isp-tuning/experiments/isp_control_pole_descriptors.json",
+  "descriptor_table": {
+    "schema_version": 5,
+    "rationale": "Moran slides 9-10: short, varied visual descriptions with emotional/contextual associations. D1/D3 technical or visual, D2 perceptual, D4 cultural/associative. The v14 brightness banks retain high-response constructions and explicitly use very, much, and extreme intensity language for both near-white and near-black targets. Engineering-authored, not human-validated.",
+    "descriptor_revision": "moran_style_v14_extreme_brightness_4x4",
+    "strength_revision": "Both brightness poles emphasize very, much, and extreme overexposure or underexposure; other banks unchanged.",
+    "sentences_per_descriptor_type": 4,
+    "guideline_source": "docs/Semantic_ISP.pptx, slides 9 and 10",
+    "axes": {
+      "warmth": {
+        "positive_pole": "Extremely warmer white balance",
+        "negative_pole": "Extremely cooler white balance",
+        "positive": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Extreme warm white balance with a strong amber cast"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Very warm golden color cast across the entire scene"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Strong orange-red white balance pushed far from neutral"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Maximum warm tungsten coloration on neutral surfaces"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Overwhelmingly warm radiant glow across the photograph"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Intensely heated golden warmth in every light source"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Deep amber warmth transforming the full atmosphere"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Powerful sun-baked orange warmth"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Strong tungsten shift with orange highlights and warm midtones"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Heavy amber cast across shadows, midtones, and highlights"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Strong red-yellow bias in neutral and colored regions"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Severely warm incandescent balance under neutral light"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Extreme sunset-orange film grade"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Overheated golden-hour color wash"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Deep amber candlelit scene"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Intense orange warmth of a firelit interior"
+          }
+        ],
+        "negative": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Extreme cool white balance with a strong cyan-blue cast"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Very cold blue color shift across the entire scene"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Strong blue-cyan white balance pushed far from neutral"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Maximum icy blue coloration on neutral surfaces"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Overwhelmingly cold sterile fluorescent atmosphere"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Intensely chilled blue atmosphere throughout the photograph"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Severely wintry and detached coolness"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Harsh cyan chill replacing natural warmth"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Strong icy-blue shift in highlights and midtones"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Heavy blue cast across shadows, midtones, and highlights"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Strong cyan bias in neutral and colored regions"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Severely cool fluorescent balance under neutral light"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Extreme frozen-winter blue film grade"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Overcooled blue-hour color wash"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Icy moonlit snow with a heavy cyan cast"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Intensely sterile blue hospital lighting"
+          }
+        ]
+      },
+      "saturation": {
+        "positive_pole": "Extreme increased saturation",
+        "negative_pole": "Decreased saturation",
+        "positive": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Extreme hyper-saturation with intensely vivid primary colors"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Maximum chroma with electric red, green, and blue tones"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Severely oversaturated photographic colors pushed to the limit"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Color intensity driven to the strongest vivid level across the palette"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Overwhelmingly vivid, almost neon color everywhere"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Explosive vibrant colors with no muted tones"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Extremely rich, punchy color that leaps from the image"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Maximum chromatic intensity with dazzling vivid hues"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Very high chroma across shadows, midtones, and highlights"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "All colored surfaces rendered with intensely strong pigments"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Brilliant oversaturated hues across the entire photograph"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Extremely saturated midtones with vivid highlights"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Maximum-intensity carnival color photograph"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Explosive neon festival colors"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Hyper-saturated tropical postcard palette"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Extreme vividness of a heavily saturated print"
+          }
+        ],
+        "negative": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Low saturation with pale monochrome colors"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Low chroma monochrome photographic tones"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Weakly saturated restrained monochrome rendering"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Minimal color intensity across a monochrome palette"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Muted drained monochrome colors"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Subdued quiet monochrome softness"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Pale lifeless washed monochrome colors"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Gentle monochrome subdued atmosphere"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Bleached faded monochrome print with no color"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Desaturated surfaces rendered in monochrome tones"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Near monochrome tones with faint residual color"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Monochrome leaning midtones with faded hues"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Dusty nostalgic monochrome print palette"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Sun bleached vintage monochrome photograph"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Faded monochrome archival print"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Restrained monochrome art house atmosphere"
+          }
+        ]
+      },
+      "brightness": {
+        "positive_pole": "Extremely brighter tones",
+        "negative_pole": "Extremely darker tones",
+        "positive": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Extreme overexposure lifts shadows and midtones toward near-white"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "A much brighter photo with maximum white exposure"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Make the whole frame extremely bright, with nearly white shadows"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "A very overexposed photo with washed-out light shadows"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Extremely bright white light leaves almost no dark tones"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "A much brighter, nearly white photo with no deep shadows"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Intensely luminous and overwhelmingly bright appearance"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "A very bright glowing near-white scene"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Extreme overexposure lifts faces and surfaces toward near-white"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Much brighter shadows, midtones, and highlights across the frame"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Very bright midtones with highlights pushed to pure white"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Maximum exposure washes nearly every tonal region into white"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "An extremely bright high-key white studio photograph"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Blazing, severely overexposed summer daylight"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "A much brighter fashion portrait under white studio lights"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Extremely dazzling bright sunlight with almost no dark tones"
+          }
+        ],
+        "negative": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Maximum underexposure reduces the whole image to near-black"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Very low luminance with nearly invisible midtones"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Make the entire photo much darker, almost pure black"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "An extremely underexposed image with only faint detail"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "An extremely dark, almost pitch-black scene"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "A much darker photo with virtually no visible light"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Deep black from shadows through all midtones"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Near-complete darkness swallowing the entire image"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Extreme underexposure crushes shadows and midtones to black"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Very dark faces and surfaces reduced to barely visible shapes"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Extreme darkening clips nearly every detail into black"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Much lower luminance pushes midtones close to pure black"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "An extremely dark midnight photograph, almost total blackness"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Moonless blackout with only a single faint glimmer"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "A very underexposed night surveillance frame"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Total blackout beneath a lightless moonless sky"
+          }
+        ]
+      },
+      "contrast": {
+        "positive_pole": "Higher contrast",
+        "negative_pole": "Lower contrast",
+        "positive": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Extreme high contrast with crushed blacks and bright white highlights"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Very steep contrast curve from deep blacks to brilliant whites"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Maximum tonal separation with near-black shadows and near-white highlights"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Strongly increased contrast across dark midtones and bright highlights"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Punchy high-contrast photograph with deep black shadows and bright whites"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Stark dramatic contrast with crushed blacks and brilliant highlights"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Striking graphic contrast separating dark shadows from bright light"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Bold powerful high contrast with black shadows and luminous highlights"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Deep near-black shadows and brilliant near-white highlights"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Rich crushed blacks beside glaring luminous whites"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Extreme tonal differences with dark shadows and bright surfaces"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Dense black shadow values and bright white highlight edges"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Bold chiaroscuro film lighting with deep blacks and bright highlights"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Dramatic high-contrast noir with crushed shadows and brilliant whites"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Theatrical portrait lit with extreme dark and light separation"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Graphic silver gelatin drama with deep blacks and bright whites"
+          }
+        ],
+        "negative": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Soft low-contrast tonal rendering"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Low contrast between light and dark"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Gentle tonal separation through the midtones"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Narrow separation of shadow and highlight values"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Gentle hazy light and shadow"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Quiet flat tonal softness"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Subtle delicate light and dark differences"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Misty subdued tonal definition"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Compressed shadows and muted highlights"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Lifted shadow tones beside restrained whites"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Small tonal differences across image surfaces"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Flattened tonal range with gentle highlight transitions"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Faded overcast film atmosphere"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Soft foggy morning photographic mood"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Low contrast vintage matte print"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Gentle overcast art house film lighting"
+          }
+        ]
+      },
+      "sharpness": {
+        "positive_pole": "Sharpening",
+        "negative_pole": "Blur",
+        "positive": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Extreme sharpening with pronounced edge halos"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Aggressively sharpened fine photographic detail"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Ultra-sharp etched contours with bright edge definition"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Heavily enhanced high-frequency texture and crisp outlines"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Intensely crisp razor-sharp photographic detail"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Hard etched tactile texture with exaggerated definition"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Piercingly sharp hyper-detailed visual clarity"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Aggressive brittle crispness across every surface"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Razor-sharp outlines with ringing edge halos"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Hair and fabric rendered with exaggerated fine texture"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Strongly emphasized small details and abrupt edge transitions"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Oversharpened microtexture with conspicuous edge enhancement"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Hyperreal oversharpened digital photograph"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Ultra-crisp high-definition sports photography"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Aggressively detailed forensic photographic rendering"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Etched hyperreal macro photograph with sharp texture"
+          }
+        ],
+        "negative": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Heavy Gaussian blur across the entire photograph"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Severely defocused photograph with erased fine detail"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Strong optical blur with broad soft edges"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Fine texture obliterated by heavy image smoothing"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Deeply blurred indistinct dreamlike scene"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Very soft unfocused forms with no crisp detail"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Melted hazy shapes and deeply smeared texture"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Thick dreamy blur obscuring small structures"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Fine details erased by broad optical blur"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Hair and fabric smoothed into indistinct surfaces"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Strongly blurred contours with wide gradual transitions"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Severe defocus with large blurred edge transitions"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Severely defocused abstract photographic dream"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Heavily diffused dream-sequence cinematography"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Deep soft-focus photograph through frosted glass"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Out-of-focus experimental photograph with indistinct forms"
+          }
+        ]
+      },
+      "palette": {
+        "positive_pole": "Teal-Orange palette attraction",
+        "negative_pole": "Magenta-Green palette attraction",
+        "positive": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Teal shadows and warm orange highlights"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Teal-orange color grade across the photograph"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Cool teal shadows against warm orange tones"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Teal-orange color grading with clear color separation"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Warm orange subjects in a teal-toned scene"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Turquoise and amber hues in a balanced palette"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Stylized warm orange and ocean teal"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Warm skin tones against a teal background"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Complementary teal-orange color grading"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Photographic colors shifted toward teal and orange"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Cyan-green shadows paired with amber highlights"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Teal and orange tones while retaining other colors"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Cinematic teal-orange color grade"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Action-film teal-orange palette"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Stylized cinematic teal and amber"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Blockbuster-inspired teal and orange tones"
+          }
+        ],
+        "negative": [
+          {
+            "id": "D1_1",
+            "group": "D1",
+            "type": "technical",
+            "text": "Magenta shadows and green highlights"
+          },
+          {
+            "id": "D1_2",
+            "group": "D1",
+            "type": "technical",
+            "text": "Magenta-green complementary photographic tones"
+          },
+          {
+            "id": "D1_3",
+            "group": "D1",
+            "type": "technical",
+            "text": "Purple-magenta dark tones against green light"
+          },
+          {
+            "id": "D1_4",
+            "group": "D1",
+            "type": "technical",
+            "text": "Stylized magenta-green photographic palette"
+          },
+          {
+            "id": "D2_1",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Magenta-green color atmosphere"
+          },
+          {
+            "id": "D2_2",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Pink balanced by emerald green"
+          },
+          {
+            "id": "D2_3",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Fuchsia and emerald color harmony"
+          },
+          {
+            "id": "D2_4",
+            "group": "D2",
+            "type": "perceptual",
+            "text": "Magenta against a green atmosphere"
+          },
+          {
+            "id": "D3_1",
+            "group": "D3",
+            "type": "technical",
+            "text": "Complementary magenta-green photographic color grading"
+          },
+          {
+            "id": "D3_2",
+            "group": "D3",
+            "type": "technical",
+            "text": "Magenta and emerald green color opposition"
+          },
+          {
+            "id": "D3_3",
+            "group": "D3",
+            "type": "technical",
+            "text": "Green highlights paired with pink-magenta shadows"
+          },
+          {
+            "id": "D3_4",
+            "group": "D3",
+            "type": "technical",
+            "text": "Photographic hues shifted toward magenta and green"
+          },
+          {
+            "id": "D4_1",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Retro neon photographic colors"
+          },
+          {
+            "id": "D4_2",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Retro magenta and green film grade"
+          },
+          {
+            "id": "D4_3",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Eighties fuchsia and emerald photographic look"
+          },
+          {
+            "id": "D4_4",
+            "group": "D4",
+            "type": "cultural_associative",
+            "text": "Synthwave poster magenta-green palette"
+          }
+        ]
+      }
+    },
+    "revisions_by_axis": {
+      "warmth": "moran_style_v8_extreme_warmth_brightness_vivid_4x4",
+      "brightness": "moran_style_v14_extreme_brightness_4x4",
+      "saturation": "moran_style_v8_extreme_warmth_brightness_vivid_4x4",
+      "contrast": "moran_style_v14_extreme_brightness_4x4"
+    }
+  },
+  "model": "ViT-B-32",
+  "pretrained": "openai",
+  "alpha": 2.0,
+  "force_quick_gelu": true,
+  "coordinate_limit": 0.4,
+  "hue_method": "Soft palette-axis projection in linear YIQ; no hue CCM contribution",
+  "palette_projection": {
+    "rgb_to_yiq": [
+      [
+        0.29899999499320984,
+        0.5870000123977661,
+        0.11400000005960464
+      ],
+      [
+        0.5960000157356262,
+        -0.27399998903274536,
+        -0.32199999690055847
+      ],
+      [
+        0.210999995470047,
+        -0.5230000019073486,
+        0.31200000643730164
+      ]
+    ],
+    "yiq_to_rgb": [
+      [
+        1.0,
+        0.9561706781387329,
+        0.6214325428009033
+      ],
+      [
+        1.0000001192092896,
+        -0.2726885974407196,
+        -0.6468132138252258
+      ],
+      [
+        1.0,
+        -1.1037440299987793,
+        1.7006230354309082
+      ]
+    ],
+    "points": [
+      [
+        -0.10330767929553986,
+        -0.14740261435508728
+      ],
+      [
+        0.17896899580955505,
+        0.01923803798854351
+      ]
+    ],
+    "swatches": {
+      "retro": [
+        [
+          0.76,
+          0.12,
+          0.66
+        ],
+        [
+          0.15,
+          0.62,
+          0.24
+        ]
+      ],
+      "blockbuster": [
+        [
+          0.06,
+          0.5,
+          0.58
+        ],
+        [
+          0.92,
+          0.44,
+          0.13
+        ]
+      ]
+    },
+    "max_attraction": 0.45,
+    "shift_fraction": 0.12
+  },
+  "sharpening_rule": "Largest absolute weighted strength; signed blur extension to deck max rule",
+  "poles": {
+    "warmth": {
+      "negative": {
+        "texts": [
+          "Extreme cool white balance with a strong cyan-blue cast",
+          "Very cold blue color shift across the entire scene",
+          "Strong blue-cyan white balance pushed far from neutral",
+          "Maximum icy blue coloration on neutral surfaces",
+          "Overwhelmingly cold sterile fluorescent atmosphere",
+          "Intensely chilled blue atmosphere throughout the photograph",
+          "Severely wintry and detached coolness",
+          "Harsh cyan chill replacing natural warmth",
+          "Strong icy-blue shift in highlights and midtones",
+          "Heavy blue cast across shadows, midtones, and highlights",
+          "Strong cyan bias in neutral and colored regions",
+          "Severely cool fluorescent balance under neutral light",
+          "Extreme frozen-winter blue film grade",
+          "Overcooled blue-hour color wash",
+          "Icy moonlit snow with a heavy cyan cast",
+          "Intensely sterile blue hospital lighting"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      },
+      "positive": {
+        "texts": [
+          "Extreme warm white balance with a strong amber cast",
+          "Very warm golden color cast across the entire scene",
+          "Strong orange-red white balance pushed far from neutral",
+          "Maximum warm tungsten coloration on neutral surfaces",
+          "Overwhelmingly warm radiant glow across the photograph",
+          "Intensely heated golden warmth in every light source",
+          "Deep amber warmth transforming the full atmosphere",
+          "Powerful sun-baked orange warmth",
+          "Strong tungsten shift with orange highlights and warm midtones",
+          "Heavy amber cast across shadows, midtones, and highlights",
+          "Strong red-yellow bias in neutral and colored regions",
+          "Severely warm incandescent balance under neutral light",
+          "Extreme sunset-orange film grade",
+          "Overheated golden-hour color wash",
+          "Deep amber candlelit scene",
+          "Intense orange warmth of a firelit interior"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      }
+    },
+    "saturation": {
+      "negative": {
+        "texts": [
+          "Low saturation with pale monochrome colors",
+          "Low chroma monochrome photographic tones",
+          "Weakly saturated restrained monochrome rendering",
+          "Minimal color intensity across a monochrome palette",
+          "Muted drained monochrome colors",
+          "Subdued quiet monochrome softness",
+          "Pale lifeless washed monochrome colors",
+          "Gentle monochrome subdued atmosphere",
+          "Bleached faded monochrome print with no color",
+          "Desaturated surfaces rendered in monochrome tones",
+          "Near monochrome tones with faint residual color",
+          "Monochrome leaning midtones with faded hues",
+          "Dusty nostalgic monochrome print palette",
+          "Sun bleached vintage monochrome photograph",
+          "Faded monochrome archival print",
+          "Restrained monochrome art house atmosphere"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      },
+      "positive": {
+        "texts": [
+          "Extreme hyper-saturation with intensely vivid primary colors",
+          "Maximum chroma with electric red, green, and blue tones",
+          "Severely oversaturated photographic colors pushed to the limit",
+          "Color intensity driven to the strongest vivid level across the palette",
+          "Overwhelmingly vivid, almost neon color everywhere",
+          "Explosive vibrant colors with no muted tones",
+          "Extremely rich, punchy color that leaps from the image",
+          "Maximum chromatic intensity with dazzling vivid hues",
+          "Very high chroma across shadows, midtones, and highlights",
+          "All colored surfaces rendered with intensely strong pigments",
+          "Brilliant oversaturated hues across the entire photograph",
+          "Extremely saturated midtones with vivid highlights",
+          "Maximum-intensity carnival color photograph",
+          "Explosive neon festival colors",
+          "Hyper-saturated tropical postcard palette",
+          "Extreme vividness of a heavily saturated print"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      }
+    },
+    "brightness": {
+      "negative": {
+        "texts": [
+          "Maximum underexposure reduces the whole image to near-black",
+          "Very low luminance with nearly invisible midtones",
+          "Make the entire photo much darker, almost pure black",
+          "An extremely underexposed image with only faint detail",
+          "An extremely dark, almost pitch-black scene",
+          "A much darker photo with virtually no visible light",
+          "Deep black from shadows through all midtones",
+          "Near-complete darkness swallowing the entire image",
+          "Extreme underexposure crushes shadows and midtones to black",
+          "Very dark faces and surfaces reduced to barely visible shapes",
+          "Extreme darkening clips nearly every detail into black",
+          "Much lower luminance pushes midtones close to pure black",
+          "An extremely dark midnight photograph, almost total blackness",
+          "Moonless blackout with only a single faint glimmer",
+          "A very underexposed night surveillance frame",
+          "Total blackout beneath a lightless moonless sky"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      },
+      "positive": {
+        "texts": [
+          "Extreme overexposure lifts shadows and midtones toward near-white",
+          "A much brighter photo with maximum white exposure",
+          "Make the whole frame extremely bright, with nearly white shadows",
+          "A very overexposed photo with washed-out light shadows",
+          "Extremely bright white light leaves almost no dark tones",
+          "A much brighter, nearly white photo with no deep shadows",
+          "Intensely luminous and overwhelmingly bright appearance",
+          "A very bright glowing near-white scene",
+          "Extreme overexposure lifts faces and surfaces toward near-white",
+          "Much brighter shadows, midtones, and highlights across the frame",
+          "Very bright midtones with highlights pushed to pure white",
+          "Maximum exposure washes nearly every tonal region into white",
+          "An extremely bright high-key white studio photograph",
+          "Blazing, severely overexposed summer daylight",
+          "A much brighter fashion portrait under white studio lights",
+          "Extremely dazzling bright sunlight with almost no dark tones"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      }
+    },
+    "contrast": {
+      "negative": {
+        "texts": [
+          "Soft low-contrast tonal rendering",
+          "Low contrast between light and dark",
+          "Gentle tonal separation through the midtones",
+          "Narrow separation of shadow and highlight values",
+          "Gentle hazy light and shadow",
+          "Quiet flat tonal softness",
+          "Subtle delicate light and dark differences",
+          "Misty subdued tonal definition",
+          "Compressed shadows and muted highlights",
+          "Lifted shadow tones beside restrained whites",
+          "Small tonal differences across image surfaces",
+          "Flattened tonal range with gentle highlight transitions",
+          "Faded overcast film atmosphere",
+          "Soft foggy morning photographic mood",
+          "Low contrast vintage matte print",
+          "Gentle overcast art house film lighting"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      },
+      "positive": {
+        "texts": [
+          "Extreme high contrast with crushed blacks and bright white highlights",
+          "Very steep contrast curve from deep blacks to brilliant whites",
+          "Maximum tonal separation with near-black shadows and near-white highlights",
+          "Strongly increased contrast across dark midtones and bright highlights",
+          "Punchy high-contrast photograph with deep black shadows and bright whites",
+          "Stark dramatic contrast with crushed blacks and brilliant highlights",
+          "Striking graphic contrast separating dark shadows from bright light",
+          "Bold powerful high contrast with black shadows and luminous highlights",
+          "Deep near-black shadows and brilliant near-white highlights",
+          "Rich crushed blacks beside glaring luminous whites",
+          "Extreme tonal differences with dark shadows and bright surfaces",
+          "Dense black shadow values and bright white highlight edges",
+          "Bold chiaroscuro film lighting with deep blacks and bright highlights",
+          "Dramatic high-contrast noir with crushed shadows and brilliant whites",
+          "Theatrical portrait lit with extreme dark and light separation",
+          "Graphic silver gelatin drama with deep blacks and bright whites"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      }
+    },
+    "sharpness": {
+      "negative": {
+        "texts": [
+          "Heavy Gaussian blur across the entire photograph",
+          "Severely defocused photograph with erased fine detail",
+          "Strong optical blur with broad soft edges",
+          "Fine texture obliterated by heavy image smoothing",
+          "Deeply blurred indistinct dreamlike scene",
+          "Very soft unfocused forms with no crisp detail",
+          "Melted hazy shapes and deeply smeared texture",
+          "Thick dreamy blur obscuring small structures",
+          "Fine details erased by broad optical blur",
+          "Hair and fabric smoothed into indistinct surfaces",
+          "Strongly blurred contours with wide gradual transitions",
+          "Severe defocus with large blurred edge transitions",
+          "Severely defocused abstract photographic dream",
+          "Heavily diffused dream-sequence cinematography",
+          "Deep soft-focus photograph through frosted glass",
+          "Out-of-focus experimental photograph with indistinct forms"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      },
+      "positive": {
+        "texts": [
+          "Extreme sharpening with pronounced edge halos",
+          "Aggressively sharpened fine photographic detail",
+          "Ultra-sharp etched contours with bright edge definition",
+          "Heavily enhanced high-frequency texture and crisp outlines",
+          "Intensely crisp razor-sharp photographic detail",
+          "Hard etched tactile texture with exaggerated definition",
+          "Piercingly sharp hyper-detailed visual clarity",
+          "Aggressive brittle crispness across every surface",
+          "Razor-sharp outlines with ringing edge halos",
+          "Hair and fabric rendered with exaggerated fine texture",
+          "Strongly emphasized small details and abrupt edge transitions",
+          "Oversharpened microtexture with conspicuous edge enhancement",
+          "Hyperreal oversharpened digital photograph",
+          "Ultra-crisp high-definition sports photography",
+          "Aggressively detailed forensic photographic rendering",
+          "Etched hyperreal macro photograph with sharp texture"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      }
+    },
+    "palette": {
+      "negative": {
+        "texts": [
+          "Magenta shadows and green highlights",
+          "Magenta-green complementary photographic tones",
+          "Purple-magenta dark tones against green light",
+          "Stylized magenta-green photographic palette",
+          "Magenta-green color atmosphere",
+          "Pink balanced by emerald green",
+          "Fuchsia and emerald color harmony",
+          "Magenta against a green atmosphere",
+          "Complementary magenta-green photographic color grading",
+          "Magenta and emerald green color opposition",
+          "Green highlights paired with pink-magenta shadows",
+          "Photographic hues shifted toward magenta and green",
+          "Retro neon photographic colors",
+          "Retro magenta and green film grade",
+          "Eighties fuchsia and emerald photographic look",
+          "Synthwave poster magenta-green palette"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      },
+      "positive": {
+        "texts": [
+          "Teal shadows and warm orange highlights",
+          "Teal-orange color grade across the photograph",
+          "Cool teal shadows against warm orange tones",
+          "Teal-orange color grading with clear color separation",
+          "Warm orange subjects in a teal-toned scene",
+          "Turquoise and amber hues in a balanced palette",
+          "Stylized warm orange and ocean teal",
+          "Warm skin tones against a teal background",
+          "Complementary teal-orange color grading",
+          "Photographic colors shifted toward teal and orange",
+          "Cyan-green shadows paired with amber highlights",
+          "Teal and orange tones while retaining other colors",
+          "Cinematic teal-orange color grade",
+          "Action-film teal-orange palette",
+          "Stylized cinematic teal and amber",
+          "Blockbuster-inspired teal and orange tones"
+        ],
+        "wb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ccm_delta": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "tone_gain": 1.0,
+        "contrast": 1.0,
+        "sharpness": 0.0,
+        "radius": 2.0
+      }
+    }
+  },
+  "axes": [
+    "warmth",
+    "saturation",
+    "brightness",
+    "contrast",
+    "sharpness",
+    "palette"
+  ],
+  "autotune_policy": {
+    "axis_controls": {
+      "warmth": "warmth",
+      "saturation": "saturation",
+      "brightness": "tone_gain",
+      "contrast": "contrast",
+      "sharpness": "sharpness",
+      "palette": "palette"
+    },
+    "trainable_parameter_count": 1,
+    "inactive_controls": "Fixed at neutral for every iteration"
+  },
+  "learned_calibration": {
+    "score_origin": [
+      -0.1318645477294922,
+      0.010799765586853027,
+      -0.02311694622039795,
+      -0.09005177021026611,
+      -0.016881465911865234,
+      -0.047601521015167236
+    ],
+    "positive_scale": [
+      0.15463918447494507,
+      0.14654070138931274,
+      0.0765947476029396,
+      0.11929932236671448,
+      0.057761311531066895,
+      0.28317058086395264
+    ],
+    "negative_scale": [
+      0.08159337937831879,
+      0.11975626647472382,
+      0.060693465173244476,
+      0.048004865646362305,
+      0.08371889591217041,
+      0.24614234268665314
+    ],
+    "raw_neutral": [
+      0.0,
+      0.0,
+      -0.7187939882278442,
+      -0.458145409822464,
+      0.0,
+      0.0
+    ],
+    "pole_raw_deltas": [
+      [
+        1.176522510472246,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.3013085846392383,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.265294830026483,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.4029870207023856,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.126964330351576,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5182881453997883
+      ],
+      [
+        -1.3520003742959512,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.3527923764532828,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.7761627981418395,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -1.5491392734435108,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.4464548002135968,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5452629945294187
+      ]
+    ],
+    "feature_order": [
+      "warmth_positive",
+      "saturation_positive",
+      "brightness_positive",
+      "contrast_positive",
+      "sharpness_positive",
+      "palette_positive",
+      "warmth_negative",
+      "saturation_negative",
+      "brightness_negative",
+      "contrast_negative",
+      "sharpness_negative",
+      "palette_negative"
+    ],
+    "control_order": [
+      "warmth",
+      "saturation",
+      "tone_gain",
+      "contrast",
+      "sharpness",
+      "palette"
+    ],
+    "control_bounds": [
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        0.05,
+        5.0
+      ],
+      [
+        0.2,
+        3.0
+      ],
+      [
+        -0.9,
+        0.9
+      ],
+      [
+        -0.4,
+        0.4
+      ]
+    ],
+    "ridge": null,
+    "target": "Text-score calibration only; pole strengths not yet assigned",
+    "distance_transform": "Signed 90th-percentile scales relative to generic photo text",
+    "pole_centroid_texts": {
+      "warmth": {
+        "negative": [
+          "Overwhelmingly cold sterile fluorescent atmosphere",
+          "Strong icy-blue shift in highlights and midtones"
+        ],
+        "positive": [
+          "Extreme sunset-orange film grade",
+          "Overheated golden-hour color wash"
+        ]
+      },
+      "saturation": {
+        "negative": [
+          "Restrained monochrome art house atmosphere",
+          "Faded monochrome archival print"
+        ],
+        "positive": [
+          "Explosive neon festival colors",
+          "Brilliant oversaturated hues across the entire photograph"
+        ]
+      },
+      "brightness": {
+        "negative": [
+          "Near-complete darkness swallowing the entire image",
+          "An extremely dark, almost pitch-black scene"
+        ],
+        "positive": [
+          "Intensely luminous and overwhelmingly bright appearance",
+          "Blazing, severely overexposed summer daylight"
+        ]
+      },
+      "contrast": {
+        "negative": [
+          "Low contrast vintage matte print",
+          "Quiet flat tonal softness"
+        ],
+        "positive": [
+          "Dramatic high-contrast noir with crushed shadows and brilliant whites",
+          "Striking graphic contrast separating dark shadows from bright light"
+        ]
+      },
+      "sharpness": {
+        "negative": [
+          "Heavy Gaussian blur across the entire photograph",
+          "Deeply blurred indistinct dreamlike scene"
+        ],
+        "positive": [
+          "Hyperreal oversharpened digital photograph",
+          "Razor-sharp outlines with ringing edge halos"
+        ]
+      },
+      "palette": {
+        "negative": [
+          "Stylized magenta-green photographic palette",
+          "Complementary magenta-green photographic color grading"
+        ],
+        "positive": [
+          "Stylized warm orange and ocean teal",
+          "Cinematic teal-orange color grade"
+        ]
+      }
+    },
+    "pole_centroid_descriptor_ids": {
+      "warmth": {
+        "negative": [
+          "D2_1",
+          "D3_1"
+        ],
+        "positive": [
+          "D4_1",
+          "D4_2"
+        ]
+      },
+      "saturation": {
+        "negative": [
+          "D4_4",
+          "D4_3"
+        ],
+        "positive": [
+          "D4_2",
+          "D3_3"
+        ]
+      },
+      "brightness": {
+        "negative": [
+          "D2_4",
+          "D2_1"
+        ],
+        "positive": [
+          "D2_3",
+          "D4_2"
+        ]
+      },
+      "contrast": {
+        "negative": [
+          "D4_3",
+          "D2_2"
+        ],
+        "positive": [
+          "D4_2",
+          "D2_3"
+        ]
+      },
+      "sharpness": {
+        "negative": [
+          "D1_1",
+          "D2_1"
+        ],
+        "positive": [
+          "D4_1",
+          "D3_1"
+        ]
+      },
+      "palette": {
+        "negative": [
+          "D1_4",
+          "D3_1"
+        ],
+        "positive": [
+          "D2_3",
+          "D4_1"
+        ]
+      }
+    },
+    "pole_statistic": {
+      "method": "descriptor_median_directional_quantile",
+      "quantile": 0.9,
+      "pool": "One median physical tuning value per descriptor, computed across calibration images",
+      "centroid_selection": "Top ceil((1 - quantile) * descriptor_count) descriptors by direction-aligned median ISP tuning value",
+      "centroid_embedding": "L2-normalize each selected CLIP text embedding, average, then L2-normalize the centroid",
+      "autotune_controls": "Only the matching control is trainable; all other controls fixed at neutral",
+      "negative_poles": "Numerical 10th percentile; opposite-direction extremes fall back to neutral",
+      "strength_fitting": "Direct endpoint assignment from descriptor-level medians; no ridge shrinkage"
+    },
+    "constraints": {
+      "sign_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          -1.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -1.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -1.0
+        ]
+      ],
+      "warning": "Only the matching physical control is assigned for each semantic pole"
+    }
+  },
+  "training_split": {
+    "images": [
+      1,
+      28,
+      236,
+      194,
+      277,
+      263,
+      103
+    ],
+    "phrases": [
+      "Cold cyan blue light",
+      "Cool blue light across the scene",
+      "Cool cyan white balance",
+      "Pale blue illumination with icy tones",
+      "Clinical sterile fluorescent",
+      "Chilly distant blue atmosphere",
+      "Crisp wintry coolness",
+      "Quiet detached cyan glow",
+      "Icy detached moonlight",
+      "Bluish highlights and cool midtones",
+      "Cyan color cast in shaded daylight",
+      "Cool fluorescent illumination on neutral surfaces",
+      "Frozen winter blue tint",
+      "Blue hour winter evening",
+      "Moonlit snow with a cyan glow",
+      "Sterile blue hospital corridor",
+      "Warm golden sunlight",
+      "Golden yellow light across the scene",
+      "Warm amber white balance",
+      "Soft orange illumination with golden tones",
+      "Amber nostalgic glow",
+      "Cozy honey colored warmth",
+      "Gentle comforting golden light",
+      "Inviting sun warmed colors",
+      "Intimate candlelit warmth",
+      "Amber highlights and warm midtones",
+      "Reddish golden cast in daylight",
+      "Warm tungsten illumination on neutral surfaces",
+      "Sunset orange soft light",
+      "Golden hour summer evening",
+      "Nostalgic amber family photograph",
+      "Candlelit gathering in a warm room",
+      "Low saturation with pale colors",
+      "Low chroma nearly gray photographic tones",
+      "Weakly saturated restrained color rendering",
+      "Minimal color intensity across the palette",
+      "Muted drained colors",
+      "Subdued quiet color softness",
+      "Pale lifeless washed colors",
+      "Gentle colorless subdued atmosphere",
+      "Bleached faded print with restrained chroma",
+      "Desaturated surfaces with little visible pigment",
+      "Near monochrome tones with faint residual color",
+      "Grayscale leaning midtones with faded hues",
+      "Dusty nostalgic washed-out palette",
+      "Sun bleached vintage color photograph",
+      "Faded archival print with exhausted colors",
+      "Restrained monochromatic art house atmosphere",
+      "Strongly saturated colors with vivid primaries",
+      "High chroma red green and blue tones",
+      "Intensely saturated photographic colors",
+      "Full color intensity across the palette",
+      "Energetic colorful palette",
+      "Lush vibrant living colors",
+      "Bold juicy color richness",
+      "Lively exuberant chromatic intensity",
+      "Rich chroma with lively color contrast",
+      "Deeply colored surfaces with strong pigments",
+      "Brilliant saturated hues throughout the photograph",
+      "Intense colorful midtones with vivid highlights",
+      "Festive intense colors",
+      "Vibrant carnival color photograph",
+      "Lush tropical postcard colors",
+      "Richly colored fresh photographic print",
+      "Extremely underexposed photograph with near-black midtones",
+      "Very low luminance across the entire photograph",
+      "Severely dark exposure with barely visible subjects",
+      "Deep near-black photographic darkness",
+      "Almost pitch-black nocturnal scene",
+      "Oppressively dark barely illuminated atmosphere",
+      "Profound darkness with faint ghostly silhouettes",
+      "Heavy enveloping darkness across the image",
+      "Severely underexposed shadowed photograph",
+      "Faces and surfaces reduced to very dark tones",
+      "Deeply darkened midtones with minimal visible detail",
+      "Highlights subdued into a nearly black tonal range",
+      "Pitch-dark unlit midnight photograph",
+      "Near-black nocturnal portrait with faint silhouettes",
+      "Deeply underexposed night surveillance image",
+      "Blackout darkness on a moonless night",
+      "Bright high-key lighting",
+      "Luminous light midtones across the image",
+      "High overall photographic brightness",
+      "Bright exposure with readable light shadows",
+      "Airy transparent light",
+      "Radiant open luminous atmosphere",
+      "Light uplifting sunny appearance",
+      "Glowing cheerful overall lightness",
+      "Evenly exposed bright photograph",
+      "Elevated luminance in faces and surfaces",
+      "Lightened midtones with luminous image detail",
+      "Bright tonal placement with preserved highlights",
+      "Cheerful sunlit luminous scene",
+      "Airy daylight lifestyle photograph",
+      "Bright white studio portrait atmosphere",
+      "Luminous summer morning photograph",
+      "Soft low-contrast tonal rendering",
+      "Low contrast between light and dark",
+      "Gentle tonal separation through the midtones",
+      "Narrow separation of shadow and highlight values",
+      "Gentle hazy light and shadow",
+      "Quiet flat tonal softness",
+      "Subtle delicate light and dark differences",
+      "Misty subdued tonal definition",
+      "Compressed shadows and muted highlights",
+      "Lifted shadow tones beside restrained whites",
+      "Small tonal differences across image surfaces",
+      "Flattened tonal range with gentle highlight transitions",
+      "Faded overcast film atmosphere",
+      "Soft foggy morning photographic mood",
+      "Low contrast vintage matte print",
+      "Gentle overcast art house film lighting",
+      "Strong dramatic tonal contrast",
+      "High contrast between light and dark",
+      "Steep tonal separation through the midtones",
+      "Wide separation of shadow and highlight values",
+      "Punchy sculpted light and shadow",
+      "Bold dramatic tonal depth",
+      "Striking graphic dark and light shapes",
+      "Crisp powerful tonal definition",
+      "Deep shadows and brilliant highlights",
+      "Rich blacks beside luminous whites",
+      "Pronounced tonal differences across image surfaces",
+      "Dense shadow values and bright highlight edges",
+      "Bold chiaroscuro film lighting",
+      "Dramatic noir light and shadow",
+      "High contrast theatrical portrait lighting",
+      "Graphic silver gelatin photographic drama",
+      "Heavy Gaussian blur across the entire photograph",
+      "Severely defocused photograph with erased fine detail",
+      "Strong optical blur with broad soft edges",
+      "Fine texture obliterated by heavy image smoothing",
+      "Deeply blurred indistinct dreamlike scene",
+      "Very soft unfocused forms with no crisp detail",
+      "Melted hazy shapes and deeply smeared texture",
+      "Thick dreamy blur obscuring small structures",
+      "Fine details erased by broad optical blur",
+      "Hair and fabric smoothed into indistinct surfaces",
+      "Strongly blurred contours with wide gradual transitions",
+      "Severe defocus with large blurred edge transitions",
+      "Severely defocused abstract photographic dream",
+      "Heavily diffused dream-sequence cinematography",
+      "Deep soft-focus photograph through frosted glass",
+      "Out-of-focus experimental photograph with indistinct forms",
+      "Extreme sharpening with pronounced edge halos",
+      "Aggressively sharpened fine photographic detail",
+      "Ultra-sharp etched contours with bright edge definition",
+      "Heavily enhanced high-frequency texture and crisp outlines",
+      "Intensely crisp razor-sharp photographic detail",
+      "Hard etched tactile texture with exaggerated definition",
+      "Piercingly sharp hyper-detailed visual clarity",
+      "Aggressive brittle crispness across every surface",
+      "Razor-sharp outlines with ringing edge halos",
+      "Hair and fabric rendered with exaggerated fine texture",
+      "Strongly emphasized small details and abrupt edge transitions",
+      "Oversharpened microtexture with conspicuous edge enhancement",
+      "Hyperreal oversharpened digital photograph",
+      "Ultra-crisp high-definition sports photography",
+      "Aggressively detailed forensic photographic rendering",
+      "Etched hyperreal macro photograph with sharp texture",
+      "Pronounced magenta shadows and vivid green highlights",
+      "Strong magenta-green complementary photographic tones",
+      "Distinct purple-magenta dark tones against rich green light",
+      "Clearly stylized magenta-green two-color photographic palette",
+      "Bold synthetic magenta-green color atmosphere",
+      "Radiant pink balanced by luminous emerald green",
+      "Rich fuchsia and emerald color harmony",
+      "Prominent magenta glow against a vivid green atmosphere",
+      "Strong complementary magenta-green photographic color grading",
+      "Pronounced magenta and emerald green color opposition",
+      "Vivid green highlights paired with rich purple-pink shadows",
+      "Photographic hues visibly biased toward magenta and green",
+      "Vivid synthwave retro neon photographic colors",
+      "Bold retro magenta and green film grade",
+      "Luminous eighties fuchsia and emerald photographic look",
+      "Strong synthwave poster magenta-green color atmosphere",
+      "Extreme teal shadows and blazing orange highlights",
+      "Intense teal-orange duotone dominating the entire photograph",
+      "Deep cyan-teal dark tones against vivid fiery orange",
+      "Aggressive teal-orange color grade with unmistakable color separation",
+      "Blazing orange subjects in an intensely teal world",
+      "Overwhelming turquoise and fiery amber color harmony",
+      "Dramatically stylized orange and deep ocean teal",
+      "Strongly orange skin surrounded by dense teal atmosphere",
+      "Heavily exaggerated complementary teal-orange color grading",
+      "Most photograph colors concentrated into teal and orange",
+      "Strong cyan-green shadows paired with saturated amber highlights",
+      "Dominant teal and orange with other hues suppressed",
+      "Extreme Hollywood blockbuster teal-orange color grade",
+      "Aggressively teal-orange action movie poster photograph",
+      "Highly stylized cinematic teal and blazing amber",
+      "Intense blockbuster duotone with deep teal and orange"
+    ]
+  },
+  "relevance_gate": {
+    "feature_names": [
+      "mean_pole_cosine",
+      "max_pole_cosine",
+      "mean_vs_other_axis_max",
+      "perpendicular_line_distance",
+      "absolute_pole_difference"
+    ],
+    "feature_mean": [
+      [
+        0.7439415195002789,
+        0.7954544150611249,
+        -0.0761534035569284,
+        0.5872767534924717,
+        0.1030257943926788
+      ],
+      [
+        0.7660986946486845,
+        0.7951381470008594,
+        -0.05533613137355665,
+        0.5715393082397741,
+        0.058078903250577976
+      ],
+      [
+        0.7885694638258074,
+        0.8027126974448925,
+        -0.031955104048659165,
+        0.5613154933401724,
+        0.028286467419891822
+      ],
+      [
+        0.7873113940401775,
+        0.8129203850176276,
+        -0.031359620937486975,
+        0.565185641188447,
+        0.05121797668497737
+      ],
+      [
+        0.8056390573520485,
+        0.8170442025109035,
+        -0.0045911233599593,
+        0.5509901008591419,
+        0.02281029685968306
+      ],
+      [
+        0.5639435836091274,
+        0.6120833643689388,
+        -0.2552320782731219,
+        0.7803781210649304,
+        0.09627956079273689
+      ]
+    ],
+    "feature_scale": [
+      [
+        0.057993490729765666,
+        0.06644597005718406,
+        0.05138941514442946,
+        0.09468078335257207,
+        0.04530232912877367
+      ],
+      [
+        0.06401344768981955,
+        0.061854539003117756,
+        0.03960820975891327,
+        0.09748677772971133,
+        0.05610661695262428
+      ],
+      [
+        0.08016277008002753,
+        0.08481097692301508,
+        0.040858471848008615,
+        0.12899564763207313,
+        0.026572840894307018
+      ],
+      [
+        0.08051621421882318,
+        0.07968796795554756,
+        0.04341821260630517,
+        0.12547519609435728,
+        0.0314720316482883
+      ],
+      [
+        0.0810153329212183,
+        0.08414124599839139,
+        0.04644217282095277,
+        0.12898372720540993,
+        0.0253403531597557
+      ],
+      [
+        0.0642026421794873,
+        0.1015487332076261,
+        0.11713548029273814,
+        0.11825796624985013,
+        0.09585845742713951
+      ]
+    ],
+    "coefficients": [
+      [
+        0.22759041256045465,
+        0.2522866274516734,
+        1.8711684624240317,
+        -0.5287572247610467,
+        0.15737483387626242
+      ],
+      [
+        0.950865539333622,
+        1.6005360261140682,
+        0.8736139009108569,
+        -1.2644399158023034,
+        1.3592779357660916
+      ],
+      [
+        0.6942173864611401,
+        0.7017299508766638,
+        1.9024653475665843,
+        -0.9009254859631637,
+        0.2908078044319826
+      ],
+      [
+        0.29568413816820965,
+        0.3034186252086604,
+        1.861598003096391,
+        -0.7423437337966139,
+        0.023611052572455295
+      ],
+      [
+        0.46783924793870374,
+        0.6666662484102956,
+        2.614514579828247,
+        -0.6640154611023048,
+        1.4358162522892541
+      ],
+      [
+        0.4957015805272242,
+        0.7116876563060243,
+        2.2131370015869702,
+        -0.5779276195432211,
+        0.8438609513763183
+      ]
+    ],
+    "intercepts": [
+      -1.295985110715977,
+      -2.951821334405412,
+      -2.0740640855776893,
+      -1.4476024763045103,
+      -2.206504231364731,
+      -3.720773115743567
+    ],
+    "thresholds": [
+      0.15,
+      0.0,
+      0.2,
+      0.15,
+      0.4,
+      0.4
+    ],
+    "full_weight_at": [
+      0.2,
+      0.15,
+      0.3,
+      0.2,
+      0.5,
+      0.8
+    ],
+    "weight_rule": "smoothstep((score-lower)/(upper-lower)); calibrated upper allows full activation",
+    "selection": "Validation objective (2*mean_positive_weight + 1-mean_negative_weight)/3",
+    "caveat": "Weak axis-membership labels; D4 contributes to centroids; development calibration"
+  },
+  "detail_filter": {
+    "sigma_at_reference": 8.0,
+    "reference_short_side": 512.0,
+    "truncate": 3.0,
+    "implementation": "separable Gaussian luminance filter",
+    "scope": "Negative branch color processing changed; Gaussian geometry and positive sharpening preserved",
+    "blur_color_mode": "rgb",
+    "sharpen_sigma_at_reference": 3.0,
+    "sharpen_sigma_scope": "Positive detail signal only; negative RGB blur keeps the full configured blur sigma"
+  },
+  "detail_retuning": {
+    "base": "/data/data1/semantic_isp/results/exp79_extreme_brightness_v14/contrast",
+    "fresh_optimization_runs": 224,
+    "new_training_images": [
+      1,
+      28,
+      236,
+      194,
+      277,
+      263,
+      103
+    ],
+    "inherited_other_pole_records": 1120,
+    "updated_coefficient_rows": [
+      3,
+      9
+    ],
+    "preserved_coefficient_rows": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11
+    ],
+    "preservation_unit": "Physical ISP settings; raw tanh coefficients may change when configured bounds change",
+    "descriptor_revision": "moran_style_v14_extreme_brightness_4x4",
+    "retuned_descriptor_texts": [
+      "Soft low-contrast tonal rendering",
+      "Low contrast between light and dark",
+      "Gentle tonal separation through the midtones",
+      "Narrow separation of shadow and highlight values",
+      "Gentle hazy light and shadow",
+      "Quiet flat tonal softness",
+      "Subtle delicate light and dark differences",
+      "Misty subdued tonal definition",
+      "Compressed shadows and muted highlights",
+      "Lifted shadow tones beside restrained whites",
+      "Small tonal differences across image surfaces",
+      "Flattened tonal range with gentle highlight transitions",
+      "Faded overcast film atmosphere",
+      "Soft foggy morning photographic mood",
+      "Low contrast vintage matte print",
+      "Gentle overcast art house film lighting",
+      "Extreme high contrast with crushed blacks and bright white highlights",
+      "Very steep contrast curve from deep blacks to brilliant whites",
+      "Maximum tonal separation with near-black shadows and near-white highlights",
+      "Strongly increased contrast across dark midtones and bright highlights",
+      "Punchy high-contrast photograph with deep black shadows and bright whites",
+      "Stark dramatic contrast with crushed blacks and brilliant highlights",
+      "Striking graphic contrast separating dark shadows from bright light",
+      "Bold powerful high contrast with black shadows and luminous highlights",
+      "Deep near-black shadows and brilliant near-white highlights",
+      "Rich crushed blacks beside glaring luminous whites",
+      "Extreme tonal differences with dark shadows and bright surfaces",
+      "Dense black shadow values and bright white highlight edges",
+      "Bold chiaroscuro film lighting with deep blacks and bright highlights",
+      "Dramatic high-contrast noir with crushed shadows and brilliant whites",
+      "Theatrical portrait lit with extreme dark and light separation",
+      "Graphic silver gelatin drama with deep blacks and bright whites"
+    ],
+    "inherited_record_roots": [
+      "/data/data1/semantic_isp/results/exp79_extreme_brightness_v14/contrast",
+      "/data/data1/semantic_isp/results/exp79_extreme_brightness_v14/brightness",
+      "/data/data1/semantic_isp/results/exp78_peak_brightness_v13/brightness",
+      "/data/data1/semantic_isp/results/exp73_clip_extreme_descriptors/03_positive_saturation",
+      "/data/data1/semantic_isp/results/exp73_clip_extreme_descriptors/02_brightness",
+      "/data/data1/semantic_isp/results/exp73_clip_extreme_descriptors/01_warmth",
+      "/data/data1/semantic_isp/results/exp71_palette_only_protection/clip/03_palette_protected",
+      "/data/data1/semantic_isp/results/exp71_palette_only_protection/clip/02_saturation_positive_unprotected",
+      "/data/data1/semantic_isp/results/exp71_palette_only_protection/clip/01_warmth_unprotected",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_06_palette",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_05_sharpness",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_04_contrast",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_03_brightness",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_02_saturation",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_01_warmth",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/model_base",
+      "/data/data1/semantic_isp/results/exp69_color_protection_retune/gray_white_and_skin/02_saturation_positive",
+      "/data/data1/semantic_isp/results/exp69_color_protection_retune/gray_white_and_skin/01_warmth",
+      "/data/data1/semantic_isp/results/exp67_moderate_palette_q90_pm020",
+      "/data/data1/semantic_isp/results/exp64_moderate_palette_mean",
+      "/data/data1/semantic_isp/results/exp59_highpass_sharpen",
+      "/data/data1/semantic_isp/results/exp59_stronger_contrast",
+      "/data/data1/semantic_isp/results/exp58_monochrome_desaturation",
+      "/data/data1/semantic_isp/results/exp57_rgb_blur_fix",
+      "/data/data1/semantic_isp/results/exp56_stronger_positive_sharpen",
+      "/data/data1/semantic_isp/results/exp55_large_kernel_detail_retune",
+      "/data/data1/semantic_isp/results/exp53_strong_words_one_dof_q90"
+    ],
+    "rendering_note": "All pole outputs use the new filter; non-detail isolated poles have zero detail amount"
+  },
+  "positive_sharpening": {
+    "gain": 2.4,
+    "detail_limit": 0.06,
+    "scope": "Positive branch only; negative blur and spatial filter unchanged"
+  },
+  "control_bounds": [
+    [
+      -0.3,
+      0.3
+    ],
+    [
+      -1.0,
+      1.0
+    ],
+    [
+      0.05,
+      5.0
+    ],
+    [
+      0.2,
+      3.0
+    ],
+    [
+      -0.9,
+      0.9
+    ],
+    [
+      -0.4,
+      0.4
+    ]
+  ],
+  "descriptor_recalibration": {
+    "axis": "brightness",
+    "changed_sides": [
+      "negative",
+      "positive"
+    ],
+    "text_score_calibration": "Recomputed only this axis from its new descriptor bank",
+    "relevance_gate": "Recomputed only this axis; all non-target gate entries retained",
+    "gate_diagnostics": {
+      "axis": "brightness",
+      "lower": 0.3,
+      "full_weight_at": 0.4,
+      "validation_mean_relevant_weight": 1.0,
+      "validation_mean_irrelevant_weight": 0.0
+    }
+  },
+  "palette_split_tone": {
+    "coordinate_limit": 0.4,
+    "positive_mix": 0.85,
+    "negative_mix": 0.75,
+    "method": "nearest_swatch"
+  },
+  "palette_nearest_swatch": {
+    "softness_ratio": 0.18,
+    "classification": "softmax negative squared YIQ chroma distance to two swatches for selected pole"
+  },
+  "palette_tuning_objective": {
+    "clip_target": "exact pole sentence embedding",
+    "directional_strength_weight": 0.6,
+    "directional_strength_target_coordinate": 0.17,
+    "directional_strength_prior": "quadratic reward toward the requested palette coordinate magnitude",
+    "operator_strengths": {
+      "coordinate_limit": 0.4,
+      "positive_mix": 0.85,
+      "negative_mix": 0.75,
+      "method": "nearest_swatch"
+    }
+  },
+  "palette_moderation": {
+    "base": "/data/data1/semantic_isp/results/exp63_nearest_swatch_palette",
+    "source_record_roots": [
+      "/data/data1/semantic_isp/results/exp63_nearest_swatch_palette"
+    ],
+    "rule": "direction-aligned mean of saved physical palette settings, then moderation toward neutral",
+    "scale": 1.0,
+    "changed_coefficients": [
+      5,
+      11
+    ],
+    "frozen_coefficients": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "color_protection": {
+    "mode": "gray_white_and_skin",
+    "strength": 1.0,
+    "gray_sigma": 0.07,
+    "skin_sigma": 0.1,
+    "skin_reference_srgb": [
+      0.76,
+      0.57,
+      0.47
+    ],
+    "saturation_positive_only": true,
+    "operations": [
+      "palette"
+    ]
+  },
+  "image_mean": [
+    0.48145466,
+    0.4578275,
+    0.40821073
+  ],
+  "image_std": [
+    0.26862954,
+    0.26130258,
+    0.27577711
+  ],
+  "backbone_comparison": {
+    "model_key": "clip",
+    "model": "ViT-B-32",
+    "pretrained": "openai",
+    "image_mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "image_std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "text_score_calibration": "freshly recomputed for this model",
+    "relevance_gate": "freshly recomputed for this model",
+    "physical_endpoints": "all six axes are freshly retuned in later stages",
+    "gate_diagnostics": [
+      {
+        "axis": "warmth",
+        "lower": 0.4,
+        "full_weight_at": 0.65,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.016668030269704107
+      },
+      {
+        "axis": "saturation",
+        "lower": 0.3,
+        "full_weight_at": 0.4,
+        "validation_mean_relevant_weight": 0.9,
+        "validation_mean_irrelevant_weight": 0.016666666666666666
+      },
+      {
+        "axis": "brightness",
+        "lower": 0.4,
+        "full_weight_at": 0.5,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.0
+      },
+      {
+        "axis": "contrast",
+        "lower": 0.4,
+        "full_weight_at": 0.65,
+        "validation_mean_relevant_weight": 0.9,
+        "validation_mean_irrelevant_weight": 0.0
+      },
+      {
+        "axis": "sharpness",
+        "lower": 0.4,
+        "full_weight_at": 0.65,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.04885466685970098
+      },
+      {
+        "axis": "palette",
+        "lower": 0.0,
+        "full_weight_at": 0.15,
+        "validation_mean_relevant_weight": 0.9588335764448972,
+        "validation_mean_irrelevant_weight": 0.01846481881347364
+      }
+    ],
+    "all_axes_freshly_retuned": [
+      "warmth",
+      "saturation",
+      "brightness",
+      "contrast",
+      "sharpness",
+      "palette"
+    ],
+    "fresh_phrase_image_optimizations": 1344,
+    "protection_mode": "gray_white_and_skin",
+    "endpoint_rule": "direction-aligned q90; positive numerical q90, negative numerical q10"
+  },
+  "color_protection_policy": {
+    "protected_operations": [
+      "palette"
+    ],
+    "unprotected_color_operations": [
+      "warmth",
+      "saturation"
+    ],
+    "palette_modes": [
+      "gray_white_and_skin"
+    ],
+    "warmth_and_positive_saturation": "freshly autotuned without chromaticity protection"
+  },
+  "strength_retuning": {
+    "model": "OpenAI CLIP ViT-B/32",
+    "descriptor_revision": "moran_style_v8_extreme_warmth_brightness_vivid_4x4",
+    "freshly_retuned_poles": [
+      [
+        "brightness",
+        "negative"
+      ],
+      [
+        "brightness",
+        "positive"
+      ],
+      [
+        "saturation",
+        "positive"
+      ],
+      [
+        "warmth",
+        "negative"
+      ],
+      [
+        "warmth",
+        "positive"
+      ]
+    ],
+    "unprotected_color_operations": [
+      "warmth",
+      "saturation"
+    ],
+    "protected_operations": [
+      "palette"
+    ],
+    "endpoint_rule": "direction-aligned q90; positive numerical q90, negative numerical q10"
+  },
+  "mapping_recalibration": {
+    "text_score_calibration": "Recomputed using selected normalized pole centroids",
+    "relevance_gate": "Recomputed using selected normalized pole centroids",
+    "gate_diagnostics": [
+      {
+        "axis": "warmth",
+        "lower": 0.15,
+        "full_weight_at": 0.2,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.2828554222185981
+      },
+      {
+        "axis": "saturation",
+        "lower": 0.0,
+        "full_weight_at": 0.15,
+        "validation_mean_relevant_weight": 0.689304634299842,
+        "validation_mean_irrelevant_weight": 0.2482924244764041
+      },
+      {
+        "axis": "brightness",
+        "lower": 0.2,
+        "full_weight_at": 0.3,
+        "validation_mean_relevant_weight": 0.9,
+        "validation_mean_irrelevant_weight": 0.12156301455380855
+      },
+      {
+        "axis": "contrast",
+        "lower": 0.15,
+        "full_weight_at": 0.2,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.1833413834843526
+      },
+      {
+        "axis": "sharpness",
+        "lower": 0.4,
+        "full_weight_at": 0.5,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.1368084835302688
+      },
+      {
+        "axis": "palette",
+        "lower": 0.4,
+        "full_weight_at": 0.8,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.01668227702418986
+      }
+    ]
+  },
+  "centroid_calibration": {
+    "base_calibration": "/data/data1/semantic_isp/results/exp80_v14_additive_contrast/contrast/direct_soft_calibration.json",
+    "record_roots": [
+      "/data/data1/semantic_isp/results/exp80_v14_additive_contrast/contrast",
+      "/data/data1/semantic_isp/results/exp79_extreme_brightness_v14/contrast",
+      "/data/data1/semantic_isp/results/exp79_extreme_brightness_v14/brightness",
+      "/data/data1/semantic_isp/results/exp78_peak_brightness_v13/brightness",
+      "/data/data1/semantic_isp/results/exp73_clip_extreme_descriptors/03_positive_saturation",
+      "/data/data1/semantic_isp/results/exp73_clip_extreme_descriptors/02_brightness",
+      "/data/data1/semantic_isp/results/exp73_clip_extreme_descriptors/01_warmth",
+      "/data/data1/semantic_isp/results/exp71_palette_only_protection/clip/03_palette_protected",
+      "/data/data1/semantic_isp/results/exp71_palette_only_protection/clip/02_saturation_positive_unprotected",
+      "/data/data1/semantic_isp/results/exp71_palette_only_protection/clip/01_warmth_unprotected",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_06_palette",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_05_sharpness",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_04_contrast",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_03_brightness",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_02_saturation",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/axis_01_warmth",
+      "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/clip/model_base",
+      "/data/data1/semantic_isp/results/exp69_color_protection_retune/gray_white_and_skin/02_saturation_positive",
+      "/data/data1/semantic_isp/results/exp69_color_protection_retune/gray_white_and_skin/01_warmth",
+      "/data/data1/semantic_isp/results/exp67_moderate_palette_q90_pm020",
+      "/data/data1/semantic_isp/results/exp64_moderate_palette_mean",
+      "/data/data1/semantic_isp/results/exp59_highpass_sharpen",
+      "/data/data1/semantic_isp/results/exp59_stronger_contrast",
+      "/data/data1/semantic_isp/results/exp58_monochrome_desaturation",
+      "/data/data1/semantic_isp/results/exp57_rgb_blur_fix",
+      "/data/data1/semantic_isp/results/exp56_stronger_positive_sharpen",
+      "/data/data1/semantic_isp/results/exp55_large_kernel_detail_retune",
+      "/data/data1/semantic_isp/results/exp53_strong_words_one_dof_q90"
+    ],
+    "training_images": [
+      1,
+      28,
+      236,
+      194,
+      277,
+      263,
+      103
+    ],
+    "tuning_records_reused": 1344,
+    "score_calibration": "Recomputed using selected unit-normalized descriptor-tail centroids",
+    "relevance_gate": "Recomputed using selected unit-normalized descriptor-tail centroids",
+    "gate_diagnostics": [
+      {
+        "axis": "warmth",
+        "lower": 0.15,
+        "full_weight_at": 0.2,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.2828554222185981
+      },
+      {
+        "axis": "saturation",
+        "lower": 0.0,
+        "full_weight_at": 0.15,
+        "validation_mean_relevant_weight": 0.689304634299842,
+        "validation_mean_irrelevant_weight": 0.2482924244764041
+      },
+      {
+        "axis": "brightness",
+        "lower": 0.2,
+        "full_weight_at": 0.3,
+        "validation_mean_relevant_weight": 0.9,
+        "validation_mean_irrelevant_weight": 0.12156301455380855
+      },
+      {
+        "axis": "contrast",
+        "lower": 0.15,
+        "full_weight_at": 0.2,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.1833413834843526
+      },
+      {
+        "axis": "sharpness",
+        "lower": 0.4,
+        "full_weight_at": 0.5,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.1368084835302688
+      },
+      {
+        "axis": "palette",
+        "lower": 0.4,
+        "full_weight_at": 0.8,
+        "validation_mean_relevant_weight": 1.0,
+        "validation_mean_irrelevant_weight": 0.01668227702418986
+      }
+    ]
+  }
+}

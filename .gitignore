@@ -1,8 +1,14 @@
 # Local research documents, reference material, and previous work
 /reference_papers/
 /previous_iteration/
-/docs/
+/docs/*
+!/docs/SEMANTIC_ISP_RESEARCH.md
+!/docs/REPRODUCING.md
+!/docs/LANGUAGE_TO_ISP_REVIEW.md
 /SUMMARY.md
+*.pdf
+*.pptx
+*.xlsx
 
 # Local Python environments and generated caches
 .venv/

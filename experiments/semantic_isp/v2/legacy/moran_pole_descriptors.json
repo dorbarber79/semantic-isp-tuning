@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "rationale": "Four varied natural-language descriptions per pole. D1 and D3 are technical/visual, D2 is perceptual, and D4 is cultural/associative, following Moran slide 10.",
+  "axes": {
+    "thermal": {
+      "positive_pole": "Golden",
+      "negative_pole": "Cyan",
+      "positive": [
+        {"id": "D1", "type": "technical", "text": "Warm golden sunlight"},
+        {"id": "D2", "type": "perceptual", "text": "Amber nostalgic glow"},
+        {"id": "D3", "type": "technical", "text": "Intimate candlelit warmth"},
+        {"id": "D4", "type": "cultural_associative", "text": "Sunset orange soft light"}
+      ],
+      "negative": [
+        {"id": "D1", "type": "technical", "text": "Cold cyan blue light"},
+        {"id": "D2", "type": "perceptual", "text": "Clinical sterile fluorescent"},
+        {"id": "D3", "type": "technical", "text": "Icy detached moonlight"},
+        {"id": "D4", "type": "cultural_associative", "text": "Frozen winter blue tint"}
+      ]
+    },
+    "fidelity": {
+      "positive_pole": "Documentary",
+      "negative_pole": "Ethereal",
+      "positive": [
+        {"id": "D1", "type": "technical", "text": "Sharp crisp documentary"},
+        {"id": "D2", "type": "perceptual", "text": "Raw detailed photojournalism"},
+        {"id": "D3", "type": "technical", "text": "High-definition reality"},
+        {"id": "D4", "type": "cultural_associative", "text": "Gritty textured film grain"}
+      ],
+      "negative": [
+        {"id": "D1", "type": "technical", "text": "Soft dreamy ethereal glow"},
+        {"id": "D2", "type": "perceptual", "text": "Hazy romantic bloom"},
+        {"id": "D3", "type": "technical", "text": "Blurry subconscious vision"},
+        {"id": "D4", "type": "cultural_associative", "text": "Gentle halation soft focus"}
+      ]
+    },
+    "moral": {
+      "positive_pole": "High key",
+      "negative_pole": "Chiaroscuro",
+      "positive": [
+        {"id": "D1", "type": "technical", "text": "Bright high-key lighting with open shadows"},
+        {"id": "D2", "type": "perceptual", "text": "Airy transparent light"},
+        {"id": "D3", "type": "technical", "text": "Evenly exposed bright photograph"},
+        {"id": "D4", "type": "cultural_associative", "text": "Cheerful sunlit scene with luminous highlights"}
+      ],
+      "negative": [
+        {"id": "D1", "type": "technical", "text": "Low-key lighting with deep shadows"},
+        {"id": "D2", "type": "perceptual", "text": "Dark dramatic contrast with visible shadow detail"},
+        {"id": "D3", "type": "technical", "text": "Dim scene with a narrow pool of light"},
+        {"id": "D4", "type": "cultural_associative", "text": "Mysterious noir atmosphere with shadowed faces"}
+      ]
+    },
+    "vitality": {
+      "positive_pole": "Vivid",
+      "negative_pole": "Bleached",
+      "positive": [
+        {"id": "D1", "type": "technical", "text": "Strongly saturated colors with vivid primaries"},
+        {"id": "D2", "type": "perceptual", "text": "Energetic colorful palette"},
+        {"id": "D3", "type": "technical", "text": "Rich chroma with lively color contrast"},
+        {"id": "D4", "type": "cultural_associative", "text": "Festive intense colors"}
+      ],
+      "negative": [
+        {"id": "D1", "type": "technical", "text": "Low saturation with pale colors"},
+        {"id": "D2", "type": "perceptual", "text": "Muted drained colors"},
+        {"id": "D3", "type": "technical", "text": "Bleached faded print with restrained chroma"},
+        {"id": "D4", "type": "cultural_associative", "text": "Dusty nostalgic washed-out palette"}
+      ]
+    },
+    "hue_shift": {
+      "positive_pole": "Teal-Orange (blockbuster)",
+      "negative_pole": "Magenta-Green (synthwave / retro)",
+      "positive": [
+        {"id": "D1", "type": "technical", "text": "Teal shadows and orange highlights"},
+        {"id": "D2", "type": "perceptual", "text": "Warm orange subject against cool teal background"},
+        {"id": "D3", "type": "technical", "text": "Complementary teal-orange color grading"},
+        {"id": "D4", "type": "cultural_associative", "text": "Blockbuster action-movie color palette"}
+      ],
+      "negative": [
+        {"id": "D1", "type": "technical", "text": "Magenta shadows and green highlights"},
+        {"id": "D2", "type": "perceptual", "text": "Synthetic magenta-green palette"},
+        {"id": "D3", "type": "technical", "text": "Complementary magenta-green color grading"},
+        {"id": "D4", "type": "cultural_associative", "text": "Synthwave retro neon colors"}
+      ]
+    }
+  }
+}

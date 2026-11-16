@@ -178,10 +178,10 @@ class PipelineGamutTests(unittest.TestCase):
         with_grad = isp(image)
         torch.testing.assert_close(with_grad, no_grad, rtol=0, atol=1e-6)
 
-    def test_defaults_are_unchanged(self):
+    def test_defaults(self):
         isp = DifferentiableEMOVIS("cpu")
-        expected = {"wb_warmth": 0.0, "saturation": 0.0, "brightness": 0.0,
-                    "sharpness": 0.0, "contrast": 0.4}
+        expected = {"wb_warmth": 0.022, "saturation": 0.205, "brightness": 0.116,
+                    "sharpness": -0.055, "contrast": 0.273}
         for name, value in expected.items():
             self.assertAlmostEqual(isp.get_params()[name], value, places=6)
 

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "method": "Image-specific comparative notes and editorial references to familiar filter looks; each comparison was authored from the reviewed image set rather than filled from a phrase template.",
+  "reference_note": "Instagram and app preset names are approximate style references, not verified equivalents or exact simulations.",
+  "comparisons": {
+    "a0015-DSC_0081": {
+      "A": {"relative_comparison": "Darker and cooler than the default and B; far less saturated and sunlit than C-E, especially the golden E edit.", "filter_references": [{"app": "Instagram Classic", "name": "Gingham"}, {"app": "VSCO", "name": "A4"}]},
+      "B": {"relative_comparison": "A gentle lift over the default: more open than A, but much less colorful than C and less golden than D or E.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "S2"}]},
+      "C": {"relative_comparison": "The strongest blue-green color of the set; unlike D and E, it adds vividness without their strong golden warmth.", "filter_references": [{"app": "Instagram Classic", "name": "Lo-Fi"}, {"app": "VSCO", "name": "C1"}]},
+      "D": {"relative_comparison": "Warmer and brighter than A-C, with the sea still blue; E pushes the sand and skin farther toward gold.", "filter_references": [{"app": "Instagram Classic", "name": "Juno"}, {"app": "VSCO", "name": "A6"}]},
+      "E": {"relative_comparison": "The warmest, most golden treatment, stronger than D on the child's skin and sand; C keeps much cooler color separation.", "filter_references": [{"app": "Instagram Classic", "name": "Valencia"}, {"app": "Snapseed", "name": "Vintage"}]}
+    },
+    "a0017-050710_031618__MG_3496": {
+      "A": {"relative_comparison": "Closest to the default: the shelter is more defined, but B and D push the forest much warmer and brighter.", "filter_references": [{"app": "Instagram Classic", "name": "Ludwig"}, {"app": "VSCO", "name": "HB2"}]},
+      "B": {"relative_comparison": "A golden yellow-green shift over the default; D is more strongly lit, while E turns greener and cooler.", "filter_references": [{"app": "Instagram Classic", "name": "Valencia"}, {"app": "VSCO", "name": "A6"}]},
+      "C": {"relative_comparison": "The coolest, dimmest forest in the group, set apart from B and D's golden light and E's brighter green foliage.", "filter_references": [{"app": "Instagram Classic", "name": "Hudson"}, {"app": "VSCO", "name": "HB2"}]},
+      "D": {"relative_comparison": "The brightest and most saturated golden forest; B is warmer but quieter, and E favors cooler, greener detail.", "filter_references": [{"app": "Instagram Classic", "name": "Juno"}, {"app": "VSCO", "name": "C1"}]},
+      "E": {"relative_comparison": "Greener, cooler, and crisper than D's golden wash; brighter than A and C without D's heavy saturation.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "C1"}]}
+    },
+    "a0865-20080515_075226__MG_9983": {
+      "A": {"relative_comparison": "Brighter and more separated than the default, but less warm than B and less darkly dramatic than C or E.", "filter_references": [{"app": "Instagram Classic", "name": "Clarendon"}, {"app": "VSCO", "name": "C1"}]},
+      "B": {"relative_comparison": "The warmest, most saturated flower treatment; C is darker and more contrasty, while D keeps the petals pale.", "filter_references": [{"app": "Instagram Classic", "name": "Juno"}, {"app": "VSCO", "name": "A6"}]},
+      "C": {"relative_comparison": "Deeper and more contrasty than B, with saturated pink against dark green; D reverses that mood with lighter petals.", "filter_references": [{"app": "Instagram Classic", "name": "Lo-Fi"}, {"app": "VSCO", "name": "HB2"}]},
+      "D": {"relative_comparison": "The softest, lightest petal treatment; C and E make the greens darker and the pinks more forceful.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "S2"}]},
+      "E": {"relative_comparison": "Richer and darker in the foliage than D, with more warmth than A and a less coral cast than B.", "filter_references": [{"app": "Instagram Classic", "name": "X-Pro II"}, {"app": "VSCO", "name": "HB2"}]}
+    },
+    "a2456-IMG_1681": {
+      "A": {"relative_comparison": "Cooler and more subdued than B, C, and E; it holds the mountain shadows deeper than the brighter meadow edits.", "filter_references": [{"app": "Instagram Classic", "name": "Hudson"}, {"app": "VSCO", "name": "HB2"}]},
+      "B": {"relative_comparison": "Lifts the clouds and field beyond A, but C is more colorful and E opens the whole landscape still further.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "S2"}]},
+      "C": {"relative_comparison": "The most vivid gold-and-blue palette; E is brighter overall, while D stays markedly more restrained in color.", "filter_references": [{"app": "Instagram Classic", "name": "Clarendon"}, {"app": "VSCO", "name": "C1"}]},
+      "D": {"relative_comparison": "The quietest, least saturated interpretation; it avoids C's vivid color and E's strong brightening while lifting the default slightly.", "filter_references": [{"app": "Instagram Classic", "name": "Gingham"}, {"app": "VSCO", "name": "A4"}]},
+      "E": {"relative_comparison": "The brightest and most open valley, with cool blue-violet mountains; C is more saturated and A keeps deeper shadows.", "filter_references": [{"app": "Instagram Classic", "name": "Perpetua"}, {"app": "VSCO", "name": "S2"}]}
+    },
+    "a3768-IMG_1641": {
+      "A": {"relative_comparison": "Cooler and dimmer than B and D, with a bluer face and window; C intensifies the violet chair and facial contrast.", "filter_references": [{"app": "Instagram Classic", "name": "Hudson"}, {"app": "VSCO", "name": "HB2"}]},
+      "B": {"relative_comparison": "Opens the face and room compared with A, but stays gentler and less saturated than C or D.", "filter_references": [{"app": "Instagram Classic", "name": "Rise"}, {"app": "VSCO", "name": "S2"}]},
+      "C": {"relative_comparison": "More violet and contrasty than B, with defined hair and features; D trades the cool window for warmer skin and chair color.", "filter_references": [{"app": "Instagram Classic", "name": "X-Pro II"}, {"app": "VSCO", "name": "HB2"}]},
+      "D": {"relative_comparison": "The warmest, richest portrait, unlike A's cool cast and E's teal-green window; it also brings more definition to the face and hair.", "filter_references": [{"app": "Instagram Classic", "name": "Juno"}, {"app": "VSCO", "name": "A6"}]},
+      "E": {"relative_comparison": "A quieter teal-green alternative to D's warm red chair; B is brighter and more neutral, while C is more violet and contrasty.", "filter_references": [{"app": "Instagram Classic", "name": "Perpetua"}, {"app": "VSCO", "name": "HB2"}]}
+    },
+    "a1924-IMG_0226": {
+      "A": {"relative_comparison": "Darkens the shelter against the default; D pushes the person closer to silhouette, while B and C open the interior.", "filter_references": [{"app": "Instagram Classic", "name": "Lo-Fi"}, {"app": "VSCO", "name": "HB2"}]},
+      "B": {"relative_comparison": "The most restrained lift of the shadowed interior; C is brighter and more colorful, whereas D goes much darker.", "filter_references": [{"app": "Instagram Classic", "name": "Gingham"}, {"app": "Snapseed", "name": "Glamour Glow"}]},
+      "C": {"relative_comparison": "The brightest interior, with vivid green, yellow, and blue; D keeps the window but turns the person and roof into silhouettes.", "filter_references": [{"app": "Instagram Classic", "name": "Clarendon"}, {"app": "VSCO", "name": "C1"}]},
+      "D": {"relative_comparison": "The darkest and most saturated shelter, more silhouette-heavy than A; B and C reveal far more of the roof and person.", "filter_references": [{"app": "Instagram Classic", "name": "X-Pro II"}, {"app": "Snapseed", "name": "Drama"}]},
+      "E": {"relative_comparison": "Keeps the face more visible than A and D while adding richer blue-green color; C is brighter, B remains subtler.", "filter_references": [{"app": "Instagram Classic", "name": "Juno"}, {"app": "VSCO", "name": "A6"}]}
+    },
+    "a0235-DSC_0193": {
+      "A": {"relative_comparison": "The coolest rendering, with clear blue sea and sky; B warms and mutes them, while C deepens the blues and rocks.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "A4"}]},
+      "B": {"relative_comparison": "The warmest horizon and most muted water, unlike A's cool blue; D and E lift the subject and shoreline more.", "filter_references": [{"app": "Instagram Classic", "name": "Gingham"}, {"app": "VSCO", "name": "M5"}]},
+      "C": {"relative_comparison": "Darker and more contrasty than D or E, with deeper blue water and warmer rocks; A is cooler and less colorful.", "filter_references": [{"app": "Instagram Classic", "name": "Lo-Fi"}, {"app": "VSCO", "name": "HB2"}]},
+      "D": {"relative_comparison": "Lifts the person and rocks into a softer, paler look; E adds more warmth, while C keeps much deeper shadows.", "filter_references": [{"app": "Instagram Classic", "name": "Rise"}, {"app": "VSCO", "name": "S2"}]},
+      "E": {"relative_comparison": "Brighter and warmer in the foreground than D, while retaining a pale cool sky; C is darker and more sharply defined.", "filter_references": [{"app": "Instagram Classic", "name": "Juno"}, {"app": "VSCO", "name": "A6"}]}
+    },
+    "a0137-IMG_4565": {
+      "A": {"relative_comparison": "The closest to the default, with a little more definition and color; B, D, and E add much stronger warmth.", "filter_references": [{"app": "Instagram Classic", "name": "Clarendon"}, {"app": "VSCO", "name": "C1"}]},
+      "B": {"relative_comparison": "Warmer and more golden than A, with less color punch than D; C and E open the square more brightly.", "filter_references": [{"app": "Instagram Classic", "name": "Valencia"}, {"app": "VSCO", "name": "A6"}]},
+      "C": {"relative_comparison": "The brightest, softest crowd treatment; D reaches a similarly bright level with much warmer, more saturated foliage and clothing.", "filter_references": [{"app": "Instagram Classic", "name": "Slumber"}, {"app": "VSCO", "name": "S2"}]},
+      "D": {"relative_comparison": "The strongest golden color and vivid red accents; E is similarly bright but gentler, while C softens detail more.", "filter_references": [{"app": "Instagram Classic", "name": "Juno"}, {"app": "VSCO", "name": "C1"}]},
+      "E": {"relative_comparison": "Bright and golden like D but less saturated; compared with C, it keeps clearer people and a more natural canopy.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "S2"}]}
+    },
+    "a0186-IMG_4587": {
+      "A": {"relative_comparison": "The strongest blue and saturation in the set; B mutes the harbor, while C-E brighten it with gentler color.", "filter_references": [{"app": "Instagram Classic", "name": "Clarendon"}, {"app": "VSCO", "name": "C1"}]},
+      "B": {"relative_comparison": "Warmer and more subdued than A, with less blue saturation; C and D open the scene much more brightly.", "filter_references": [{"app": "Instagram Classic", "name": "Gingham"}, {"app": "VSCO", "name": "M5"}]},
+      "C": {"relative_comparison": "The brightest and warmest of the softer marina edits; A is far bluer, while D and E mute the palette more.", "filter_references": [{"app": "Instagram Classic", "name": "Rise"}, {"app": "VSCO", "name": "S2"}]},
+      "D": {"relative_comparison": "A pale, lifted harbor, less colorful than A and C; E keeps more cool clarity, while B adds more warmth.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "A4"}]},
+      "E": {"relative_comparison": "Clear and brighter than the default without A's vivid blue; it stays cooler than B and less hazy than D.", "filter_references": [{"app": "Instagram Classic", "name": "Perpetua"}, {"app": "VSCO", "name": "C1"}]}
+    },
+    "a0367-IMG_0338": {
+      "A": {"relative_comparison": "The darkest, most dramatic skyline, with deeper water than the default; D is brighter and bluer, E more balanced.", "filter_references": [{"app": "Instagram Classic", "name": "X-Pro II"}, {"app": "VSCO", "name": "HB2"}]},
+      "B": {"relative_comparison": "Warmer and softer than A, with golden tower light; C and D push stronger blue and color into the sky and reflections.", "filter_references": [{"app": "Instagram Classic", "name": "Valencia"}, {"app": "VSCO", "name": "A6"}]},
+      "C": {"relative_comparison": "More colorful and contrasty than B, but less forceful than D's vivid blue; E keeps a more balanced city palette.", "filter_references": [{"app": "Instagram Classic", "name": "Clarendon"}, {"app": "VSCO", "name": "C1"}]},
+      "D": {"relative_comparison": "The boldest blue-and-white city look, brighter than A and more vivid than B; E is calmer and less contrasty.", "filter_references": [{"app": "Instagram Classic", "name": "Lo-Fi"}, {"app": "Snapseed", "name": "Drama"}]},
+      "E": {"relative_comparison": "Brighter and clearer than A without D's punchy blue; B is warmer, while C has stronger color separation.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "S2"}]}
+    },
+    "a0551-DSC_0008": {
+      "A": {"relative_comparison": "The most defined woodland treatment, close to the default in brightness; B darkens it, while C brings stronger color.", "filter_references": [{"app": "Instagram Classic", "name": "Clarendon"}, {"app": "VSCO", "name": "HB2"}]},
+      "B": {"relative_comparison": "Darker and earthier than the others, with more warmth than A; C is brighter and substantially more colorful.", "filter_references": [{"app": "Instagram Classic", "name": "Gingham"}, {"app": "VSCO", "name": "M5"}]},
+      "C": {"relative_comparison": "The most colorful and bright woodland edit; D is warmer but gentler, while E stays much closer to natural color.", "filter_references": [{"app": "Instagram Classic", "name": "X-Pro II"}, {"app": "Snapseed", "name": "Retrolux"}]},
+      "D": {"relative_comparison": "A restrained golden warmth against C's vivid color; B is darker and earthier, E softer and less warm.", "filter_references": [{"app": "Instagram Classic", "name": "Valencia"}, {"app": "VSCO", "name": "A6"}]},
+      "E": {"relative_comparison": "The gentlest change from the default, slightly warmer and brighter than A; C is more vivid and B notably darker.", "filter_references": [{"app": "Instagram Classic", "name": "Lark"}, {"app": "VSCO", "name": "S2"}]}
+    }
+  }
+}

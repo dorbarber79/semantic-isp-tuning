@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "method_id": "direct_semantic_poles_clip_v2",
+  "status": "active; CLIP-only; descriptor v14 extreme brightness; joint descriptor-tail endpoints and centroids; palette-only gray/skin protection",
+  "default_protection_mode": "gray_white_and_skin",
+  "default_note": "OpenAI CLIP ViT-B/32 is the selected inference and autotune model. Warmth and saturation are unprotected; palette alone has gray/skin protection.",
+  "runtime": {
+    "renderer": "moran_semantic_isp.render_linear",
+    "text_projection": "moran_semantic_isp.SemanticProjection",
+    "parameter_composition": "moran_semantic_isp.compose_parameters",
+    "isp_operators": "axis_isp.py",
+    "calibration_root": "calibration/exp81",
+    "calibration_file": "calibration/exp81/direct_soft_calibration.json",
+    "calibration_sha256": "c06a7b6112634fdc63ef66be365335cac4f733fec01230fc68c76342b854ea6b"
+  },
+  "descriptors": {
+    "active_file": "isp_control_pole_descriptors.json",
+    "active_revision": "moran_style_v14_extreme_brightness_4x4",
+    "axes": 6,
+    "phrases_per_pole": 16,
+    "legacy_seed_file": "legacy/moran_pole_descriptors.json"
+  },
+  "autotune": {
+    "entry_point": "exp55_large_kernel_detail_retune.py",
+    "model": "OpenAI CLIP ViT-B/32",
+    "fresh_axes": ["brightness_negative", "brightness_positive", "contrast_negative", "contrast_positive"],
+    "optimizer": "Adam",
+    "learning_rate": 0.03,
+    "updates": 100,
+    "endpoint_rule": "direction-aligned 90th percentile; positive q90, negative q10",
+    "fresh_runs": 448,
+    "fresh_runs_total": 448,
+    "tone_gain_bounds": [0.05, 5.0],
+    "selected_brightness_endpoints": {"negative_tone_gain": 0.0834631920, "positive_tone_gain": 3.7572853565},
+    "pole_endpoint_selection": "Per-descriptor median physical setting over seven images; direction-aligned q90 across the 16 descriptor medians",
+    "inherited_axes": ["warmth", "negative_saturation", "positive_saturation", "sharpness", "palette"],
+    "historical_alternative_model": "SigLIP; retained only in legacy comparison records"
+  },
+  "centroid_policy": {
+    "selected_descriptors_per_pole": 2,
+    "selection": "Top ceil(10% of 16) descriptors by the same direction-aligned median ISP setting used for endpoint selection",
+    "embedding": "L2-normalize each selected CLIP descriptor embedding, average, then L2-normalize the centroid",
+    "mapping_query": "L2-normalize CLIP query embedding before projection",
+    "score_scales_and_relevance_gate": "Recomputed using selected descriptor-tail centroids"
+  },
+  "protection": {
+    "metric": "Euclidean distance between normalized linear-RGB chromaticities; no luminance term",
+    "gray_white_reference": [0.3333333333, 0.3333333333, 0.3333333333],
+    "skin_reference_srgb": [0.76, 0.57, 0.47],
+    "gray_sigma": 0.07,
+    "skin_sigma": 0.1,
+    "strength": 1.0,
+    "operations": ["palette"],
+    "saturation_positive_only": true,
+    "palette_both_directions": true,
+    "skin_reference_status": "provisional comparison reference; not validated segmentation"
+  },
+  "contrast_rendering": {
+    "luminance_domain": "sRGB-encoded RGB",
+    "mapping": "add the target-minus-input luminance shift equally to RGB channels",
+    "gamut_compression_domain": "sRGB before inverse transfer, with gamut compression preserving luma and reducing chroma as needed",
+    "shadow_chroma_gain": "no multiplicative gain; measured p95 ratio <= 1.06 on images 2, 33, and 384",
+    "calibrated_endpoints": {"negative_contrast": 0.2496458888, "positive_contrast": 2.6324143409}
+  },
+  "latest_results": {
+    "current_summary": "/data/data1/semantic_isp/results/exp81_joint_descriptor_tail_final/experiment.json",
+    "current_index": "/data/data1/semantic_isp/results/exp81_joint_descriptor_tail_final/pole_results/index.html",
+    "current_endpoints": "/data/data1/semantic_isp/results/exp81_joint_descriptor_tail_final/pole_quantile_statistics.csv",
+    "historical_backbone_comparison": "/data/data1/semantic_isp/results/exp70_clip_vs_siglip_all_axes/index.html",
+    "historical_easy_hard_inference": "/data/data1/semantic_isp/results/exp72_backbone_inference_easy_hard/index.html"
+  }
+}

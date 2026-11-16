@@ -1,0 +1,23 @@
+{
+  "description": "Pilot visual-style sentences with moderate intensity and combinations of controls; engineering-authored and not human validated.",
+  "sentences": [
+    {"id": "train_warm", "split": "train", "text": "A photograph with gently warm golden colors"},
+    {"id": "train_cool", "split": "train", "text": "A photograph with a subtle cool blue color cast"},
+    {"id": "train_bright", "split": "train", "text": "A photo with slightly brighter midtones"},
+    {"id": "train_dim", "split": "train", "text": "A softly lit photograph with darker tones"},
+    {"id": "train_vivid", "split": "train", "text": "A colorful photo with moderately vivid colors"},
+    {"id": "train_muted", "split": "train", "text": "A photograph with muted and restrained colors"},
+    {"id": "train_contrast", "split": "train", "text": "A photo with clear but natural contrast"},
+    {"id": "train_flat", "split": "train", "text": "A photo with gentle low contrast tones"},
+    {"id": "train_sharp", "split": "train", "text": "A crisp photograph with clearly defined details"},
+    {"id": "train_soft", "split": "train", "text": "A photograph with soft and slightly blurred details"},
+    {"id": "train_warm_vivid", "split": "train", "text": "A warm and colorful photograph in afternoon light"},
+    {"id": "train_cool_soft", "split": "train", "text": "A cool and softly rendered photograph"},
+    {"id": "val_warm_subtle", "split": "validation", "text": "A photo with a mild amber tint"},
+    {"id": "val_soft_light", "split": "validation", "text": "A bright photograph with soft shadows"},
+    {"id": "val_low_color", "split": "validation", "text": "A subdued image with gently desaturated colors"},
+    {"id": "test_crisp_cool", "split": "test", "text": "A crisp image with cool bluish tones"},
+    {"id": "test_warm_lowcontrast", "split": "test", "text": "A warm photograph with soft low contrast"},
+    {"id": "test_bright_vivid", "split": "test", "text": "A bright and lively color photograph"}
+  ]
+}
