@@ -43,7 +43,7 @@ make the licensed RAW files available at the paths expected by the renderer and
 ensure OpenAI CLIP weights can be loaded by `open_clip`:
 
 ```bash
-python experiments/semantic_isp/moran_semantic_isp.py \
+python experiments/semantic_isp/semantic_isp.py \
   --config experiments/semantic_isp/calibration/exp81/direct_soft_calibration.json \
   --out /path/to/new/exp81_render --images 2 33 384
 ```

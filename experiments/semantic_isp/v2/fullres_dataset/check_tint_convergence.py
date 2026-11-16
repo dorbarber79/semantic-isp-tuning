@@ -15,7 +15,7 @@ for path in (V2_ROOT, FULLRES_ROOT):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from moran_semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
 from process_fullres import (CONFIG_PATH, calibration_endpoints,
                              display_quality_metrics, fit_controls)
 from fit_tint_ablation import load_linear_rgb16

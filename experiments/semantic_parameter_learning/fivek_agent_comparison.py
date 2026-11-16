@@ -12,7 +12,7 @@ import torch
 
 from autotune import CONTROL_NAMES
 from fivek_preview import load_linear_png, write_render
-from moran_semantic_isp import parameters_from_controls, render_linear
+from semantic_isp import parameters_from_controls, render_linear
 from pole_normalization import normalized_to_physical, pole_endpoints, physical_to_normalized
 
 

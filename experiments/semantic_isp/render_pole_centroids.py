@@ -12,7 +12,7 @@ import torch
 import open_clip
 
 from differentiable_isp import load_and_preprocess_raw
-from moran_semantic_isp import (
+from semantic_isp import (
     SemanticProjection, compose_parameters, render_linear, linear_to_srgb8,
 )
 

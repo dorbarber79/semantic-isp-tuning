@@ -18,7 +18,7 @@ import torch.nn.functional as F
 from autotune import BEAUTY_PROMPTS, REALISM_PROMPTS, CONTROL_NAMES, optimize
 from fivek_preview import DEFAULT_CONFIG, DEFAULT_DATA, DEFAULT_SENTENCES, load_linear_png, resize_short_side, write_render
 from fivek_portraits import CRITERIA
-from moran_semantic_isp import linear_to_srgb, parameters_from_controls, render_linear
+from semantic_isp import linear_to_srgb, parameters_from_controls, render_linear
 from pole_normalization import normalized_to_physical, pole_endpoints
 
 

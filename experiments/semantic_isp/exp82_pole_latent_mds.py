@@ -17,7 +17,7 @@ import torch.nn.functional as F
 from sklearn.manifold import MDS
 from sklearn.metrics import pairwise_distances
 
-from moran_semantic_isp import SemanticProjection
+from semantic_isp import SemanticProjection
 
 DEFAULT_CONFIG = Path(
     "/data/data1/semantic_isp/results/exp81_joint_descriptor_tail_final/direct_soft_calibration.json")

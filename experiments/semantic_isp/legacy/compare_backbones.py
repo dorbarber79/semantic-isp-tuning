@@ -18,7 +18,7 @@ from exp38_learn_poles import fit_score_calibration, save_json
 from exp42_phrase_pole_calibration import descriptor_rows
 from exp49_direct_isp_comparison import direct_quantile_calibration, fit_soft_gate
 from exp55_large_kernel_detail_retune import run as retune_axis
-from moran_semantic_isp import SemanticProjection
+from semantic_isp import SemanticProjection
 
 
 MODEL_SPECS = {

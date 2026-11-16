@@ -13,7 +13,7 @@ import torch
 import torch.nn.functional as F
 
 from autotune import BEAUTY_PROMPTS, REALISM_PROMPTS, optimize
-from moran_semantic_isp import CONTROL_NAMES, linear_to_srgb8, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NAMES, linear_to_srgb8, parameters_from_controls, render_linear
 
 
 DEFAULT_DATA = Path("/data/data1/FiveK/default_isp_linear_720p")

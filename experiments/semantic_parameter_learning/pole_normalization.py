@@ -9,7 +9,7 @@ SEMANTIC_ISP_DIR = Path(__file__).resolve().parents[1] / "semantic_isp"
 if str(SEMANTIC_ISP_DIR) not in sys.path:
     sys.path.insert(0, str(SEMANTIC_ISP_DIR))
 
-from moran_semantic_isp import CONTROL_BOUNDS, CONTROL_NAMES, CONTROL_NEUTRAL, bounded_controls
+from semantic_isp import CONTROL_BOUNDS, CONTROL_NAMES, CONTROL_NEUTRAL, bounded_controls
 
 
 def pole_endpoints(config):

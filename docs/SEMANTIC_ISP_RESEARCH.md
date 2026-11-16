@@ -335,7 +335,7 @@ The current distinction is a signed multi-pole text representation, one-to-one s
 - Machine-readable current method and mode selection: [`experiments/semantic_isp/CURRENT_METHOD.json`](../experiments/semantic_isp/CURRENT_METHOD.json)
 - Active pipeline index: [`experiments/semantic_isp/README.md`](../experiments/semantic_isp/README.md)
 - Active descriptor table: [`experiments/semantic_isp/isp_control_pole_descriptors.json`](../experiments/semantic_isp/isp_control_pole_descriptors.json)
-- Text projection and inference: [`experiments/semantic_isp/moran_semantic_isp.py`](../experiments/semantic_isp/moran_semantic_isp.py)
+- Text projection and inference: [`experiments/semantic_isp/semantic_isp.py`](../experiments/semantic_isp/semantic_isp.py)
 - Differentiable ISP operators: [`experiments/semantic_isp/axis_isp.py`](../experiments/semantic_isp/axis_isp.py)
 - Phrase-level optimizer: [`experiments/semantic_isp/exp38_learn_poles.py`](../experiments/semantic_isp/exp38_learn_poles.py)
 - Direct pole calibration and q90 aggregation: [`experiments/semantic_isp/exp49_direct_isp_comparison.py`](../experiments/semantic_isp/exp49_direct_isp_comparison.py)
@@ -346,7 +346,7 @@ The current distinction is a signed multi-pole text representation, one-to-one s
 - Four-mode protection autotuner: [`experiments/semantic_isp/autotune.py`](../experiments/semantic_isp/autotune.py)
 - Autotune coordinator implementation: [`experiments/semantic_isp/exp69_protection_retune.py`](../experiments/semantic_isp/exp69_protection_retune.py)
 - Easy/hard CLIP/SigLIP inference comparison: [`experiments/semantic_isp/compare_backbone_inference.py`](../experiments/semantic_isp/compare_backbone_inference.py)
-- Focused tests: `experiments/semantic_isp/test_exp49_direct_isp_comparison.py`, `experiments/semantic_isp/test_moran_semantic_isp.py`, and `experiments/semantic_isp/test_axis_isp.py`
+- Focused tests: `experiments/semantic_isp/test_exp49_direct_isp_comparison.py`, `experiments/semantic_isp/test_semantic_isp.py`, and `experiments/semantic_isp/test_axis_isp.py`
 - Current manuscript: [`papers/semantic_isp_tip.tex`](../papers/semantic_isp_tip.tex)
 
 Historical Exp69 four-mode autotune command:

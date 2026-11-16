@@ -4,7 +4,7 @@ import numpy as np
 import torch
 
 from exp47_relevance_calibration import constrained_coefficients, constraint_signs, select_threshold
-from moran_semantic_isp import compose_parameters, seed_config, neutral_raw_controls
+from semantic_isp import compose_parameters, seed_config, neutral_raw_controls
 
 
 class RelevanceCalibrationTests(unittest.TestCase):

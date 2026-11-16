@@ -19,7 +19,7 @@ if str(V2_ROOT) not in sys.path:
     sys.path.insert(0, str(V2_ROOT))
 
 from axis_isp import linear_to_srgb8
-from moran_semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
 from process_fullres import (CONFIG_PATH, calibration_endpoints, objective,
                              physical_controls)
 from rank_hard_fits import read_latest_records, safe_relative_path, score_pair

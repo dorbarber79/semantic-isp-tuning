@@ -29,7 +29,7 @@ python -m unittest discover -s . -p 'test_*.py'
 Render the registered images with the copied calibration:
 
 ```bash
-python experiments/semantic_isp/v2/moran_semantic_isp.py \
+python experiments/semantic_isp/v2/semantic_isp.py \
   --config experiments/semantic_isp/v2/calibration/exp81/direct_soft_calibration.json \
   --out /path/to/new/v2_baseline_render --images 1 2 33 --device cuda:0
 ```

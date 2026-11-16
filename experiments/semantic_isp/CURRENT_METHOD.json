@@ -5,9 +5,9 @@
   "default_protection_mode": "gray_white_and_skin",
   "default_note": "OpenAI CLIP ViT-B/32 is the selected inference and autotune model. Warmth and saturation are unprotected; palette alone has gray/skin protection.",
   "runtime": {
-    "renderer": "moran_semantic_isp.render_linear",
-    "text_projection": "moran_semantic_isp.SemanticProjection",
-    "parameter_composition": "moran_semantic_isp.compose_parameters",
+    "renderer": "semantic_isp.render_linear",
+    "text_projection": "semantic_isp.SemanticProjection",
+    "parameter_composition": "semantic_isp.compose_parameters",
     "isp_operators": "axis_isp.py",
     "calibration_root": "calibration/exp81",
     "calibration_file": "calibration/exp81/direct_soft_calibration.json",

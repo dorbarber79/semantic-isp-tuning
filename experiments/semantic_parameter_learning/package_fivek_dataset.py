@@ -19,7 +19,7 @@ import numpy as np
 from PIL import Image
 
 from fivek_clip_svr import write_json
-from moran_semantic_isp import CONTROL_NAMES, CONTROL_NEUTRAL
+from semantic_isp import CONTROL_NAMES, CONTROL_NEUTRAL
 
 
 WORKSPACE = Path(__file__).resolve().parents[2]

@@ -20,7 +20,7 @@ from sklearn.preprocessing import StandardScaler
 from differentiable_isp import load_and_preprocess_raw
 from exp38_learn_poles import encode_image, make_pair_sheet, save_csv, save_json, save_render
 from exp42_phrase_pole_calibration import descriptor_rows
-from moran_semantic_isp import (
+from semantic_isp import (
     AXES, CONTROL_NAMES, SemanticProjection, bounded_controls, compose_parameters,
     neutral_raw_controls, relevance_features, render_linear,
 )

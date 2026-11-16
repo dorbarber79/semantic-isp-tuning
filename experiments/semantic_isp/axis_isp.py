@@ -141,7 +141,7 @@ def apply_nearest_swatch_palette(image, amount, rgb_to_yiq, yiq_to_rgb, swatches
     return image + mix * (target_rgb - image)
 
 
-class MoranAxisISP(nn.Module):
+class SemanticAxisISP(nn.Module):
     """Linear-RGB ISP with five bounded bipolar axis controls.
 
     Positive poles are Golden, Documentary, High key, Vivid, and Teal-Orange.

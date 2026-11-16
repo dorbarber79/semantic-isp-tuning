@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from differentiable_isp import load_and_preprocess_raw
 from exp42_phrase_pole_calibration import TRAIN_IMAGES
-from moran_semantic_isp import (
+from semantic_isp import (
     CONTROL_NAMES, SemanticProjection, compose_parameters, linear_to_srgb8, render_linear,
 )
 

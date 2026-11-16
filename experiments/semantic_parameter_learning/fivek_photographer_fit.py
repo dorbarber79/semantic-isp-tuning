@@ -21,7 +21,7 @@ SEMANTIC_ISP_DIR = EXPERIMENT_DIR.parent / "semantic_isp"
 if str(SEMANTIC_ISP_DIR) not in sys.path:
     sys.path.insert(0, str(SEMANTIC_ISP_DIR))
 
-from moran_semantic_isp import (CONTROL_NAMES, linear_to_srgb, parameters_from_controls,
+from semantic_isp import (CONTROL_NAMES, linear_to_srgb, parameters_from_controls,
                                 render_linear)
 from pole_normalization import normalized_to_physical, physical_to_normalized, pole_endpoints
 from fivek_preview import load_linear_png, write_render

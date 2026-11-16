@@ -17,7 +17,7 @@ from fivek_clip_svr import write_json
 from fivek_preview import load_linear_png, write_render
 from fivek_screen_comparisons import draw_comparison, load_fit_visual_descriptions
 from fivek_semantic_descriptions import sha256
-from moran_semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
 from pole_normalization import normalized_to_physical, pole_endpoints
 
 

@@ -23,7 +23,7 @@ if str(V2_ROOT) not in sys.path:
     sys.path.insert(0, str(V2_ROOT))
 
 from axis_isp import linear_to_srgb8
-from moran_semantic_isp import (CONTROL_NAMES, apply_green_magenta_tint,
+from semantic_isp import (CONTROL_NAMES, apply_green_magenta_tint,
                                  parameters_from_controls, render_linear)
 
 DEFAULT_ROOT = Path("/data/data1/FiveK/C_data/datasets/FiveK-FullRes-v1")

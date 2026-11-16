@@ -1,4 +1,4 @@
-"""Moran deck: text pole centroids -> axis coordinates -> composed linear ISP."""
+"""Semantic ISP: text pole centroids -> axis coordinates -> composed linear ISP."""
 
 import argparse
 import copy
@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw
 import torch
 import torch.nn.functional as F
 
-from axis_isp import (MoranAxisISP, apply_palette_projection, apply_nearest_swatch_palette,
+from axis_isp import (SemanticAxisISP, apply_palette_projection, apply_nearest_swatch_palette,
                       apply_split_palette_projection, color_protection_factor, linear_to_srgb8)
 from differentiable_isp import _compress_gamut, _luminance, load_and_preprocess_raw
 
@@ -89,7 +89,7 @@ def seed_config():
         poles["vitality"][sign]["ccm_delta"] = (
             np.array(saturation_matrix(multiplier)) - np.eye(3)
         ).tolist()
-    palette = MoranAxisISP("cpu")
+    palette = SemanticAxisISP("cpu")
     return {
         "status": "Engineering seed calibration, not professional colorist validation",
         "descriptor_provenance": "legacy/moran_pole_descriptors.json; five-axis cinematic seed only",
@@ -405,7 +405,7 @@ def write_gallery(root, report):
     axes = tuple(report["config"].get("axes", AXES))
     labels = ["neutral", *[entry["prompt"] for entry in report["prompts"]]]
     files = ["neutral", *[f"prompt_{index:02d}" for index in range(len(report["prompts"]))]]
-    document = ["<!doctype html><meta charset='utf-8'><title>Moran semantic ISP</title>",
+    document = ["<!doctype html><meta charset='utf-8'><title>Semantic ISP</title>",
                 "<h1>Text-to-ISP prototype</h1>",
                 "<p>Engineering seed calibration. Coordinates are computed from text, not a word lookup table. "
                 "Linear processing through sharpening; final 8-bit sRGB export.</p>",

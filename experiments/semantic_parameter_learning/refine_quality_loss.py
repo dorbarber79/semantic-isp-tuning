@@ -14,7 +14,7 @@ from autotune import BEAUTY_PROMPTS, REALISM_PROMPTS, CONTROL_NAMES, optimize
 from fivek_portraits import CRITERIA
 from fivek_preview import load_linear_png, resize_short_side, write_render
 from loss_weight_study import ESTIMATE_KEYS, LOSS_NAMES, component_stability, plot_comparison, plot_convergence, save_json
-from moran_semantic_isp import linear_to_srgb, parameters_from_controls, render_linear
+from semantic_isp import linear_to_srgb, parameters_from_controls, render_linear
 
 
 DEFAULT_BASE = Path("/data/data1/semantic_isp/results/semantic_parameter_learning/fivek_brightness_loss_study")

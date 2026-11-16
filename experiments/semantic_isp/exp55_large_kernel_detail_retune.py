@@ -15,7 +15,7 @@ from differentiable_isp import load_and_preprocess_raw
 from exp38_learn_poles import optimize_controls, save_csv, save_json
 from exp42_phrase_pole_calibration import TRAIN_IMAGES, TEST_IMAGES, descriptor_rows, save_descriptor_stats
 from exp49_direct_isp_comparison import direct_quantile_calibration, recalibrate_semantic_mapping
-from moran_semantic_isp import CONTROL_BOUNDS, bounded_controls, neutral_raw_controls
+from semantic_isp import CONTROL_BOUNDS, bounded_controls, neutral_raw_controls
 from render_pole_centroids import run as render_poles
 
 
@@ -136,7 +136,7 @@ def run(args):
         raise ValueError("Expected sixteen descriptions per selected sharpness pole")
     training_images = TRAIN_IMAGES[:1] if args.smoke else TRAIN_IMAGES
     output_images = TEST_IMAGES[:1] if args.smoke else TEST_IMAGES
-    sources = (Path(__file__), Path(__file__).with_name("moran_semantic_isp.py"),
+    sources = (Path(__file__), Path(__file__).with_name("semantic_isp.py"),
                Path(__file__).with_name("exp38_learn_poles.py"), Path(__file__).with_name("exp49_direct_isp_comparison.py"),
                Path(__file__).with_name("axis_isp.py"), descriptor_table_path)
     manifest = {"base": str(args.base), "base_config_sha256": hashlib.sha256(base_path.read_bytes()).hexdigest(),

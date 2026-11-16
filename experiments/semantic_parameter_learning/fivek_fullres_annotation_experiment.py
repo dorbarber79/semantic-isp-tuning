@@ -20,7 +20,7 @@ if str(SEMANTIC_ISP_V2) not in sys.path:
 
 from axis_isp import linear_to_srgb8
 from differentiable_isp import load_and_preprocess_raw
-from moran_semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
 from pole_normalization import normalized_to_physical, pole_endpoints
 from fivek_photographer_fit import fit_controls, image_statistics, prophoto_tiff_to_linear_srgb
 

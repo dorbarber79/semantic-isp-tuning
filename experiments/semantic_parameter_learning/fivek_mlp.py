@@ -23,7 +23,7 @@ from fivek_clip_svr import fused_features, select_experts, scene_folds, write_js
 from fivek_preview import load_linear_png, write_render
 from fivek_screen_comparisons import draw_comparison
 from fivek_semantic_descriptions import sha256
-from moran_semantic_isp import CONTROL_NAMES, linear_to_srgb, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NAMES, linear_to_srgb, parameters_from_controls, render_linear
 from pole_normalization import normalized_to_physical, pole_endpoints
 
 

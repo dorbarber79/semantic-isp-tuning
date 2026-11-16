@@ -11,7 +11,7 @@ if str(SEMANTIC_ISP_DIR) not in sys.path:
     sys.path.insert(0, str(SEMANTIC_ISP_DIR))
 
 from exp38_learn_poles import encode_image
-from moran_semantic_isp import (
+from semantic_isp import (
     CONTROL_BOUNDS, CONTROL_NAMES, bounded_controls, neutral_raw_controls,
     parameters_from_controls, render_linear,
 )

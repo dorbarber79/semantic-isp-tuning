@@ -8,7 +8,7 @@
   "calibration_sha256": "c06a7b6112634fdc63ef66be365335cac4f733fec01230fc68c76342b854ea6b",
   "descriptor_revision": "moran_style_v14_extreme_brightness_4x4",
   "v1_source_sha256": {
-    "moran_semantic_isp.py": "486fae15d3b11ee412212d0cf46f27bd89b34fbf5305e435006510ee08978c04",
+    "semantic_isp.py": "486fae15d3b11ee412212d0cf46f27bd89b34fbf5305e435006510ee08978c04",
     "axis_isp.py": "a18b4afb4e7edde17ad354e973e0329fae7f4bb5a69798af80ebb2db32ec54b9",
     "differentiable_isp.py": "e25f64e13aff89444a80346b9a52220f1c0dbd635d7f462c8fd6933422c807d9",
     "isp_control_pole_descriptors.json": "bba7a1e4dff8634057c5d0d63e77405beb7c4e2d2e38df547f293bfc05eb6718",
@@ -16,7 +16,7 @@
     "legacy/moran_pole_descriptors.json": "52132f720ea542f57847f7e70370cf4145c82029abeb4e9e0c9c2ab211f8405f",
     "calibration/exp81/direct_soft_calibration.json": "c06a7b6112634fdc63ef66be365335cac4f733fec01230fc68c76342b854ea6b",
     "test_axis_isp.py": "5aeb9bb2076947e3b4ef2750e8607719faecdc183a8c8109eebe7419d97ce30a",
-    "test_moran_semantic_isp.py": "e93106df776e7dd32c5949f7a3f897870b276e45ef2b7e7380a0581a6bbb0d18",
+    "test_semantic_isp.py": "e93106df776e7dd32c5949f7a3f897870b276e45ef2b7e7380a0581a6bbb0d18",
     "exp38_learn_poles.py": "1f345d38254e56e77f7cf607c3e9de32a3e432a132bcb784050ea443dd81b403"
   },
   "copy_validation": {
@@ -39,7 +39,7 @@
     "Recursively serialize tensor and non-tensor parameter metadata in results.json; V1 CLI currently fails on dict-valued color_protection metadata before rendering."
   ],
   "v2_current_delta_sha256": {
-    "moran_semantic_isp.py": "3409e802481b588d0f829397bc4107cbdb1f9887945f2ad33f6f0df959489c49",
-    "test_moran_semantic_isp.py": "e46a7391954cbee28ce0c84ae6a445ab3d7ceaaa95aedbc0893675969ca49133"
+    "semantic_isp.py": "3409e802481b588d0f829397bc4107cbdb1f9887945f2ad33f6f0df959489c49",
+    "test_semantic_isp.py": "e46a7391954cbee28ce0c84ae6a445ab3d7ceaaa95aedbc0893675969ca49133"
   }
 }

@@ -128,7 +128,7 @@ def rebuild(base, output, render_images, device):
         "source_sha256": {
             path.name: hashlib.sha256(path.read_bytes()).hexdigest()
             for path in (Path(__file__), Path(__file__).with_name("exp49_direct_isp_comparison.py"),
-                         Path(__file__).with_name("moran_semantic_isp.py"))},
+                         Path(__file__).with_name("semantic_isp.py"))},
     }
     save_json(output / "experiment.json", manifest)
     del model

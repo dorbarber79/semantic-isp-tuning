@@ -1,4 +1,4 @@
-"""Moran deck: text pole centroids -> axis coordinates -> composed linear ISP."""
+"""Semantic ISP: text pole centroids -> axis coordinates -> composed linear ISP."""
 
 import argparse
 import copy
@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw
 import torch
 import torch.nn.functional as F
 
-from axis_isp import (MoranAxisISP, apply_palette_projection, apply_nearest_swatch_palette,
+from axis_isp import (SemanticAxisISP, apply_palette_projection, apply_nearest_swatch_palette,
                       apply_split_palette_projection, color_protection_factor, linear_to_srgb8)
 from differentiable_isp import _compress_gamut, _luminance, load_and_preprocess_raw
 
@@ -27,12 +27,14 @@ CONTROL_NEUTRAL = (0.0048, 0.2637, 0.9755, 1.2032, 0.0391, -0.0097)
 TINT_DEFAULT = 0.0041
 EXTENDED_CONTROL_NAMES = ("warmth", "saturation", "shadow_gain", "highlight_gain",
                           "contrast", "sharpness", "palette", "tint", "vibrance",
-                          "local_tone_strength", "split_tint")
+                          "local_tone_strength", "split_tint",
+                          "warm_hue_shift", "cool_hue_shift")
 EXTENDED_BOUNDS = ((-0.3, 0.3), (-1.0, 1.0), (0.05, 5.0), (0.05, 5.0),
                    (0.2, 3.0), (-0.9, 0.9), (-0.4, 0.4), (-0.5, 0.5),
-                   (-0.5, 0.5), (0.0, 0.8), (-0.5, 0.5))
+                   (-0.5, 0.5), (0.0, 0.8), (-0.5, 0.5),
+                   (-1.5, 1.5), (-1.5, 1.5))
 EXTENDED_NEUTRAL = (0.0048, 0.2637, 0.9755, 0.9755, 1.2032, 0.0391, -0.0097,
-                    0.0041, 0.0, 0.0, 0.0)
+                    0.0041, 0.0, 0.0, 0.0, 0.0, 0.0)
 SEMANTIC_ENDPOINTS = {
     "warmth":    {"default": 0.0048, "neg": -0.3000, "pos": 0.3000, "scale": "linear"},
     "saturation":{"default": 0.2637, "neg": -0.7337, "pos": 1.0000, "scale": "linear"},
@@ -76,6 +78,29 @@ def apply_split_tint(image, amount):
     shift = shadow_shift * (1 - weight) + highlight_shift * weight
     shift = shift - _luminance(shift)
     return image + shift
+
+
+def apply_hue_selective_shift(image, warm_shift, cool_shift):
+    """Per-hue color adjustment: shift warm-hued and cool-hued pixels independently.
+
+    Classifies pixels by their warm-cool balance (R-B relative to luminance).
+    warm_shift > 0: warm pixels get more saturated/warmer
+    cool_shift > 0: cool pixels get more saturated/cooler
+    Luma-preserving: only chroma is modified.
+    """
+    luma = _luminance(image)
+    chroma = image - luma
+    r, g, b = image[:, 0:1], image[:, 1:2], image[:, 2:3]
+    intensity = (r + g + b).clamp_min(1e-6) / 3
+    warm_cool = (r - b) / (3 * intensity)
+    warmness = warm_cool.clamp(0, 1)
+    warmness = warmness.square()
+    coolness = (-warm_cool).clamp(0, 1)
+    coolness = coolness.square()
+    warm_boost = warm_shift * warmness
+    cool_boost = cool_shift * coolness
+    boosted_chroma = chroma * (1 + warm_boost + cool_boost)
+    return luma + boosted_chroma
 
 
 def apply_vibrance(image, amount):
@@ -129,7 +154,7 @@ def seed_config():
         poles["vitality"][sign]["ccm_delta"] = (
             np.array(saturation_matrix(multiplier)) - np.eye(3)
         ).tolist()
-    palette = MoranAxisISP("cpu")
+    palette = SemanticAxisISP("cpu")
     return {
         "status": "Engineering seed calibration, not professional colorist validation",
         "descriptor_provenance": "legacy/moran_pole_descriptors.json; five-axis cinematic seed only",
@@ -298,14 +323,15 @@ def parameters_from_controls(controls, config):
 
 
 def parameters_from_extended_controls(controls, config):
-    """Map 11-DOF extended control vector to ISP parameter dict.
+    """Map 13-DOF extended control vector to ISP parameter dict.
 
     Order: warmth, saturation, shadow_gain, highlight_gain, contrast,
-           sharpness, palette, tint, vibrance, local_tone_strength, split_tint
+           sharpness, palette, tint, vibrance, local_tone_strength, split_tint,
+           warm_hue_shift, cool_hue_shift
     """
     (warmth, saturation, shadow_gain, highlight_gain, contrast,
      sharpness, palette, tint, vibrance, local_tone_strength,
-     split_tint) = controls.unbind(dim=0)
+     split_tint, warm_hue_shift, cool_hue_shift) = controls.unbind(dim=0)
     weights = controls.new_tensor([0.299, 0.587, 0.114]).expand(3, -1)
     identity = torch.eye(3, device=controls.device, dtype=controls.dtype)
     wb = torch.stack((1 + warmth, torch.ones_like(warmth), 1 - warmth))
@@ -316,6 +342,7 @@ def parameters_from_extended_controls(controls, config):
         "contrast": contrast, "sharpness": sharpness,
         "tint": tint, "vibrance": vibrance,
         "local_tone_strength": local_tone_strength, "split_tint": split_tint,
+        "warm_hue_shift": warm_hue_shift, "cool_hue_shift": cool_hue_shift,
         "radius": controls.new_tensor(config.get("detail_filter", {}).get("sigma_at_reference", 2.0)),
         "palette_coordinate": palette,
         "color_protection": config.get("color_protection"),
@@ -493,6 +520,15 @@ def render_linear(image, parameters):
         saturated = post_luma + post_chroma * ceiling_scale
     image = _compress_gamut(saturated, image)
 
+    # --- Stage 3b: Hue-selective color shift ---
+    warm_hue = parameters.get("warm_hue_shift")
+    cool_hue = parameters.get("cool_hue_shift")
+    if warm_hue is not None and cool_hue is not None:
+        needs_grad = (hasattr(warm_hue, 'requires_grad') and warm_hue.requires_grad) or \
+                     (hasattr(cool_hue, 'requires_grad') and cool_hue.requires_grad)
+        if needs_grad or float(warm_hue.detach()) != 0 or float(cool_hue.detach()) != 0:
+            image = _compress_gamut(apply_hue_selective_shift(image, warm_hue, cool_hue), image)
+
     # --- Stage 4: Vibrance (selective chroma boost for muted colors) ---
     vibrance_amount = parameters.get("vibrance")
     if vibrance_amount is not None:
@@ -555,7 +591,7 @@ def write_gallery(root, report):
     axes = tuple(report["config"].get("axes", AXES))
     labels = ["neutral", *[entry["prompt"] for entry in report["prompts"]]]
     files = ["neutral", *[f"prompt_{index:02d}" for index in range(len(report["prompts"]))]]
-    document = ["<!doctype html><meta charset='utf-8'><title>Moran semantic ISP</title>",
+    document = ["<!doctype html><meta charset='utf-8'><title>Semantic ISP</title>",
                 "<h1>Text-to-ISP prototype</h1>",
                 "<p>Engineering seed calibration. Coordinates are computed from text, not a word lookup table. "
                 "Linear processing through sharpening; final 8-bit sRGB export.</p>",

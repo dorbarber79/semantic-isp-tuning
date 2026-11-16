@@ -24,7 +24,7 @@ from exp42_phrase_pole_calibration import descriptor_rows, save_descriptor_stats
 from exp47_relevance_calibration import (
     TRAIN_UNRELATED, VALIDATION_UNRELATED, TEST_UNRELATED, FEATURE_NAMES, constraint_signs,
 )
-from moran_semantic_isp import (
+from semantic_isp import (
     AXES, CONTROL_NAMES, CONTROL_BOUNDS, CONTROL_NEUTRAL, SemanticProjection, bounded_controls,
     neutral_raw_controls, compose_parameters, relevance_features, render_linear, seed_config,
 )
@@ -347,7 +347,7 @@ def run(args):
                 "smoke": args.smoke, "pole_statistic": args.pole_statistic,
                 "loss": "Negative CLIP cosine only, exact descriptor phrase; only the axis-matching control optimized",
                 "source_sha256": {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-                                  for name in (Path(__file__).name, "moran_semantic_isp.py", "exp38_learn_poles.py")}}
+                                  for name in (Path(__file__).name, "semantic_isp.py", "exp38_learn_poles.py")}}
     args.out.mkdir(parents=True, exist_ok=True)
     manifest_path = args.out / "experiment.json"
     normalized_manifest = json.loads(json.dumps(manifest))

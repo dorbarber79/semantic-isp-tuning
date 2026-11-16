@@ -15,7 +15,7 @@ from fivek_brightness_svr import training_search, trend_metrics
 from fivek_clip_svr import write_json
 from fivek_screen_comparisons import FIT_VISUAL_DESCRIPTIONS, load_fit_visual_descriptions
 from fivek_semantic_descriptions import GROUPS, sha256
-from moran_semantic_isp import CONTROL_NAMES
+from semantic_isp import CONTROL_NAMES
 
 
 DEFAULT_REPORT = Path('/data/data1/FiveK/C_data/results/isp_match_105_screen_d1_text_linear_v1')

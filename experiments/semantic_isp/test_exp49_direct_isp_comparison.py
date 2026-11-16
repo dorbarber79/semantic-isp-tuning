@@ -8,7 +8,7 @@ import torch
 from exp49_direct_isp_comparison import direct_config, direct_quantile_calibration, directional_mean_endpoint, fit_signed, fit_soft_gate, select_soft_band
 from exp42_phrase_pole_calibration import descriptor_rows
 from exp38_learn_poles import optimize_controls
-from moran_semantic_isp import CONTROL_BOUNDS, CONTROL_NAMES, CONTROL_NEUTRAL, compose_parameters, neutral_raw_controls
+from semantic_isp import CONTROL_BOUNDS, CONTROL_NAMES, CONTROL_NEUTRAL, compose_parameters, neutral_raw_controls
 
 
 class DirectControlComparisonTests(unittest.TestCase):
@@ -191,7 +191,7 @@ class DirectControlComparisonTests(unittest.TestCase):
 
     def test_contrast_quantiles_respect_widened_per_configuration_bounds(self):
         config = direct_config()
-        bounds = [list(pair) for pair in __import__("moran_semantic_isp").CONTROL_BOUNDS]
+        bounds = [list(pair) for pair in __import__("semantic_isp").CONTROL_BOUNDS]
         bounds[3] = [.2, 3.]
         config["control_bounds"] = bounds
         config["learned_calibration"] = {"raw_neutral": neutral_raw_controls(bounds=bounds).tolist()}

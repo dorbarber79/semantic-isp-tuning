@@ -16,7 +16,7 @@ import torch.nn.functional as F
 
 from differentiable_isp import load_and_preprocess_raw
 from exp38_learn_poles import encode_image, save_csv, save_json, save_render, srgb
-from moran_semantic_isp import CONTROL_NEUTRAL, CONTROL_NAMES, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NEUTRAL, CONTROL_NAMES, parameters_from_controls, render_linear
 
 
 def slug(value):

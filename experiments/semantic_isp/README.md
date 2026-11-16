@@ -2,7 +2,7 @@
 
 ## Start Here
 
-**Current renderer:** `moran_semantic_isp.render_linear` with `compose_parameters`. This is the six-axis direct-control ISP. Do not use `axis_isp.MoranAxisISP` as the active ISP; that class is the retained five-axis cinematic seed implementation.
+**Current renderer:** `semantic_isp.render_linear` with `compose_parameters`. This is the six-axis direct-control ISP. Do not use `axis_isp.MoranAxisISP` as the active ISP; that class is the retained five-axis cinematic seed implementation.
 
 **Current descriptors:** `isp_control_pole_descriptors.json`, revision `moran_style_v14_extreme_brightness_4x4` (16 phrases per pole). The brightness phrases explicitly target very, much, and extreme dark/bright appearances. The old five-axis seed table and SigLIP comparison tools are under [`legacy/`](legacy/README.md).
 
@@ -24,7 +24,7 @@ Older numbered experiments remain in `../` for provenance; the superseded Exp64 
 
 ## Active Files
 
-- `moran_semantic_isp.py`: text centroids, projection, control composition, and current renderer.
+- `semantic_isp.py`: text centroids, projection, control composition, and current renderer.
 - `axis_isp.py`: low-level color, detail, and gamut operators used by the renderer.
 - `isp_control_pole_descriptors.json`: active direct-control descriptor table.
 - `exp38_learn_poles.py`, `exp42_phrase_pole_calibration.py`, `exp47_relevance_calibration.py`, `exp49_direct_isp_comparison.py`: optimizer, phrase statistics, q90 aggregation and relevance gate.
@@ -85,7 +85,7 @@ Images 2, 33, and 384 are the registered held-out split. Images 4 and 6 were not
 Historical Exp73 render example:
 
 ```bash
-python experiments/semantic_isp/moran_semantic_isp.py \
+python experiments/semantic_isp/semantic_isp.py \
   --config /data/data1/semantic_isp/results/exp73_clip_extreme_descriptors/03_positive_saturation/direct_soft_calibration.json \
   --out /path/to/new/render --images 2 33 384
 ```

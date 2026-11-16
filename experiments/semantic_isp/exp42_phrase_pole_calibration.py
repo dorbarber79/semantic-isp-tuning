@@ -15,7 +15,7 @@ import torch.nn.functional as F
 from differentiable_isp import load_and_preprocess_raw
 from exp38_learn_poles import (encode_image, fit_calibration, make_pair_sheet,
                                optimize_controls, save_csv, save_json)
-from moran_semantic_isp import (
+from semantic_isp import (
     AXES, CONTROL_NAMES, SemanticProjection, bounded_controls, compose_parameters,
     neutral_raw_controls, parameters_from_controls, render_linear, seed_config,
     linear_to_srgb8,

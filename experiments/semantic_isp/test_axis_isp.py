@@ -2,25 +2,25 @@ import unittest
 
 import torch
 
-from axis_isp import MoranAxisISP, linear_to_srgb8
+from axis_isp import SemanticAxisISP, linear_to_srgb8
 from differentiable_isp import DifferentiableEMOVIS
 
 
-class MoranAxisISPTests(unittest.TestCase):
+class SemanticAxisISPTests(unittest.TestCase):
     def setUp(self):
         torch.manual_seed(41)
         self.image = 0.05 + 0.8 * torch.rand(1, 3, 24, 24)
-        self.isp = MoranAxisISP("cpu")
+        self.isp = SemanticAxisISP("cpu")
 
     def test_sweep_range_is_plus_minus_0_4(self):
-        self.assertAlmostEqual(MoranAxisISP.AXIS_STEPS[0], -0.4)
-        self.assertAlmostEqual(MoranAxisISP.AXIS_STEPS[-1], 0.4)
-        self.assertEqual(MoranAxisISP.AXIS_STEPS[3], 0.0)
+        self.assertAlmostEqual(SemanticAxisISP.AXIS_STEPS[0], -0.4)
+        self.assertAlmostEqual(SemanticAxisISP.AXIS_STEPS[-1], 0.4)
+        self.assertEqual(SemanticAxisISP.AXIS_STEPS[3], 0.0)
 
     def test_explicit_defaults_are_used_as_neutral_axis_anchor(self):
         defaults = {name: 0.0 for name in DifferentiableEMOVIS.PARAM_NAMES}
         defaults["contrast"] = 0.4
-        isp = MoranAxisISP("cpu", defaults=defaults)
+        isp = SemanticAxisISP("cpu", defaults=defaults)
         controls = isp.mapped_controls()
         for name, value in defaults.items():
             self.assertAlmostEqual(controls[name].item(), value, places=6)
@@ -87,14 +87,14 @@ class MoranAxisISPTests(unittest.TestCase):
         self.assertAlmostEqual(high_key, 0.236, places=5)
         self.isp.set_axes({"moral": -0.4})
         dark = self.isp.mapped_controls()["brightness"].item()
-        self.assertAlmostEqual(dark, MoranAxisISP.MORAL_DARKNESS_ENDPOINT, places=5)
+        self.assertAlmostEqual(dark, SemanticAxisISP.MORAL_DARKNESS_ENDPOINT, places=5)
 
     def test_single_axis_sweep_is_bounded_and_other_axes_stay_zero(self):
-        for axis in MoranAxisISP.AXES:
-            for coordinate in MoranAxisISP.AXIS_STEPS:
+        for axis in SemanticAxisISP.AXES:
+            for coordinate in SemanticAxisISP.AXIS_STEPS:
                 self.isp.set_axes({axis: coordinate})
                 values = self.isp.axis_values().detach()
-                for index, name in enumerate(MoranAxisISP.AXES):
+                for index, name in enumerate(SemanticAxisISP.AXES):
                     if name != axis:
                         self.assertAlmostEqual(values[index].item(), 0.0, places=6)
                 output = self.isp(self.image)

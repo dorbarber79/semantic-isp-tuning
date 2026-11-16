@@ -13,7 +13,7 @@ import torch
 import torch.nn.functional as F
 
 from differentiable_isp import load_and_preprocess_raw
-from moran_semantic_isp import (
+from semantic_isp import (
     AXES, CONTROL_NAMES, CONTROL_BOUNDS, CONTROL_NEUTRAL, SemanticProjection, bounded_controls,
     compose_parameters, neutral_raw_controls, parameters_from_controls,
     render_linear, seed_config, linear_to_srgb8,

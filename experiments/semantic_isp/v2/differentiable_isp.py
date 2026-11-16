@@ -63,18 +63,12 @@ def load_and_preprocess_raw(dng_path, target_size: int | None = 512):
             highlight_mode=rawpy.HighlightMode.Clip,
         )
 
-    # Normalize: scale so 99th percentile = 0.9 (use full dynamic range)
-    # This compensates for no_auto_bright=True which can leave the image very dark
-    # on sensors with low white_level or underexposed scenes.
     img_float = rgb_16bit.astype(np.float32) / 65535.0
-    p99 = np.percentile(img_float, 99)
-    if p99 > 0.01:
-        norm_gain = 0.9 / p99
-        norm_gain = np.clip(norm_gain, 1.0, 10.0)  # only brighten, never darken; cap at 10x
-        img_float = np.clip(img_float * norm_gain, 0, 1)
 
     # Denoise (bilateral filter, same as EMOVIS)
     denoised = cv2.bilateralFilter(img_float, 5, 0.05, 35)
+    black_mask = img_float < 1e-5
+    denoised[black_mask] = 0.0
     rgb_16bit = (denoised * 65535.0).astype(np.uint16)
 
     cropped = rgb_16bit

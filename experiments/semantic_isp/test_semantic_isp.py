@@ -4,10 +4,10 @@ import torch
 import torch.nn.functional as F
 
 from differentiable_isp import _luminance
-from moran_semantic_isp import (AXES, CONTROL_BOUNDS,
+from semantic_isp import (AXES, CONTROL_BOUNDS,
                                 SemanticProjection, compose_parameters, detail_gaussian,
                                 linear_to_srgb, render_linear, seed_config)
-from moran_semantic_isp import (
+from semantic_isp import (
     bounded_controls, neutral_raw_controls, parameters_from_controls, CONTROL_NAMES,
     CONTROL_NEUTRAL,
 )
@@ -15,7 +15,7 @@ from axis_isp import (apply_nearest_swatch_palette, apply_split_palette_projecti
                       chromaticity_proximity, color_protection_factor)
 
 
-class MoranSemanticTests(unittest.TestCase):
+class SemanticISPTests(unittest.TestCase):
     def test_chromaticity_protection_is_luma_independent_and_operation_scoped(self):
         skin = torch.tensor([.76, .57, .47])
         skin_linear = torch.where(skin <= .04045, skin / 12.92,
@@ -158,7 +158,7 @@ class MoranSemanticTests(unittest.TestCase):
         from math import atanh
         config = seed_config()
         config["axes"] = ["warmth", "saturation", "brightness", "contrast", "sharpness", "palette"]
-        config["control_bounds"] = [list(bounds) for bounds in __import__("moran_semantic_isp").CONTROL_BOUNDS]
+        config["control_bounds"] = [list(bounds) for bounds in __import__("semantic_isp").CONTROL_BOUNDS]
         config["control_bounds"][3] = [.2, 3.]
         neutral = neutral_raw_controls(bounds=config["control_bounds"])
         config["learned_calibration"] = {"raw_neutral": neutral.tolist(),

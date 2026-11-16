@@ -15,7 +15,7 @@ from PIL import Image
 
 from fivek_clip_svr import write_json
 from fivek_semantic_descriptions import sha256
-from moran_semantic_isp import CONTROL_NAMES
+from semantic_isp import CONTROL_NAMES
 from package_fivek_dataset import control_statistics
 
 

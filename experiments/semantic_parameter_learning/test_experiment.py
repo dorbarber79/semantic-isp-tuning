@@ -18,7 +18,7 @@ from fivek_preview import load_linear_png, resize_short_side
 from fivek_semantic_descriptions import AXES, DEFAULT_WORDS, descriptions, read_word_bank, style_candidates
 from fivek_screen_comparisons import fit_descriptor_record, load_fit_visual_descriptions, screen_fit_record
 from fivek_visual_report import ANNOTATIONS, FILTER_NAMES
-from moran_semantic_isp import CONTROL_BOUNDS, neutral_raw_controls
+from semantic_isp import CONTROL_BOUNDS, neutral_raw_controls
 from pole_normalization import normalized_to_physical, physical_to_normalized, pole_endpoints
 from fivek_clip_svr import comparison_rows, descriptor_inputs, fused_features, make_regressor, scene_folds, select_experts
 from fivek_mlp import choose_experts as choose_mlp_experts, fusion_features as mlp_fusion_features

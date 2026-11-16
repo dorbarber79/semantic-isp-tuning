@@ -21,7 +21,7 @@ from fivek_screen_comparisons import (
     load_fit_references, load_fit_visual_descriptions,
 )
 from fivek_semantic_descriptions import GROUPS, sha256
-from moran_semantic_isp import CONTROL_NAMES, linear_to_srgb, parameters_from_controls, render_linear
+from semantic_isp import CONTROL_NAMES, linear_to_srgb, parameters_from_controls, render_linear
 from pole_normalization import normalized_to_physical, pole_endpoints
 
 

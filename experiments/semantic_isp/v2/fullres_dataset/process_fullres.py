@@ -34,7 +34,9 @@ for path in (V2_ROOT,):
         sys.path.insert(0, str(path))
 
 from differentiable_isp import load_and_preprocess_raw
-from moran_semantic_isp import CONTROL_NAMES, parameters_from_controls, render_linear
+from semantic_isp import (CONTROL_NAMES, EXTENDED_CONTROL_NAMES, EXTENDED_BOUNDS,
+                          parameters_from_controls, parameters_from_extended_controls,
+                          render_linear)
 from axis_isp import linear_to_srgb8
 from crop_alignment import align_expert_crop, oriented_default_crop_rect
 
@@ -531,6 +533,90 @@ def fit_controls(neutral, target, config, endpoints, iterations, learning_rate,
     return best
 
 
+def fit_extended_controls(neutral, target, config, iterations, learning_rate):
+    """13-DOF extended ISP fitting."""
+    ext_bounds = torch.tensor([list(b) for b in EXTENDED_BOUNDS],
+                               device=neutral.device, dtype=neutral.dtype)
+    height, width = neutral.shape[-2:]
+    scale = 256 / min(height, width)
+    fit_size = (max(1, round(height * scale)), max(1, round(width * scale)))
+    fit_image = F.interpolate(neutral, size=fit_size, mode="area")
+    fit_target = F.interpolate(target, size=fit_size, mode="area")
+    palette_index = list(EXTENDED_CONTROL_NAMES).index("palette")
+    best = None
+    restarts = []
+    for restart_index, palette_seed in enumerate((0.0, -0.12, 0.12)):
+        raw = torch.nn.Parameter(fit_image.new_zeros(len(EXTENDED_CONTROL_NAMES)))
+        with torch.no_grad():
+            raw[palette_index] = palette_seed
+        optimizer = torch.optim.Adam([raw], lr=learning_rate)
+        local_best = float("inf")
+        local_result = None
+        losses = []
+        trace = []
+        for iteration in range(iterations + 1):
+            normalized = torch.tanh(raw)
+            controls = ext_bounds.mean(dim=1) + normalized * (ext_bounds[:, 1] - ext_bounds[:, 0]) / 2
+            parameters = parameters_from_extended_controls(controls, config)
+            rendered = render_linear(fit_image, parameters)
+            loss = objective(rendered, fit_target, normalized)
+            value = float(loss.detach())
+            losses.append(value)
+            if iteration % 10 == 0 or iteration == iterations:
+                trace.append({"iteration": iteration, "loss": value})
+            if value < local_best:
+                local_best = value
+                local_result = {
+                    "loss": value, "iteration": iteration,
+                    "physical_controls": dict(zip(EXTENDED_CONTROL_NAMES,
+                                                   controls.detach().cpu().tolist())),
+                    "normalized_controls": dict(zip(EXTENDED_CONTROL_NAMES,
+                                                     normalized.detach().cpu().tolist())),
+                }
+            if best is None or value < best["loss"]:
+                best = {**local_result, "palette_seed": palette_seed,
+                        "restart_index": restart_index}
+            if iteration < iterations:
+                optimizer.zero_grad(set_to_none=True)
+                loss.backward()
+                optimizer.step()
+        best_iteration = int(np.argmin(losses))
+        tail_start = max(0, iterations - 50)
+        tail_base = losses[tail_start]
+        tail_min = min(losses[tail_start:])
+        final_loss = losses[-1]
+        relative_tail_improvement = (tail_base - tail_min) / max(abs(tail_base), 1e-12)
+        final_to_best_gap = max(0.0, (final_loss - local_best) / max(abs(local_best), 1e-12))
+        restarts.append({
+            "restart_index": restart_index, "palette_seed_raw": palette_seed,
+            "optimizer_steps": iterations,
+            "evaluations_including_initial": len(losses),
+            "best_loss": local_best, "best_iteration": best_iteration,
+            "final_loss": final_loss,
+            "relative_improvement_last_50_steps": relative_tail_improvement,
+            "final_to_best_relative_gap": final_to_best_gap,
+            "converged_by_0_5_percent_tail_rule": (
+                relative_tail_improvement < .005 and final_to_best_gap < .005
+                and best_iteration < iterations - 5),
+            "loss_trace_every_10_steps": trace,
+        })
+    best["restarts"] = restarts
+    best["convergence"] = {
+        "iteration_budget_per_restart": iterations,
+        "optimizer_steps_per_restart": iterations,
+        "total_optimizer_steps": iterations * len(restarts),
+        "early_stopping": False,
+        "diagnostic_tail_steps": min(50, iterations),
+        "convergence_rule": "Tail loss improvement and final-to-best gap both <0.5%",
+        "restart_diagnostics": restarts,
+    }
+    best["parameterization"] = "tanh-normalized [-1,1] mapped to full physical bounds"
+    best["control_names"] = list(EXTENDED_CONTROL_NAMES)
+    best["n_dofs"] = len(EXTENDED_CONTROL_NAMES)
+    best["optimization_dimensions_wh"] = [fit_size[1], fit_size[0]]
+    return best
+
+
 def image_statistics(image):
     display = linear_to_srgb_float(image)
     return {"mean_display_rgb": display.mean(dim=(0, 2, 3)).detach().cpu().tolist(),
@@ -578,7 +664,7 @@ def write_png(path, image, bit_depth):
 def software_hashes(config_path):
     return {
         "processor_sha256": sha256_file(SCRIPT_PATH),
-        "v2_renderer_sha256": sha256_file(V2_ROOT / "moran_semantic_isp.py"),
+        "v2_renderer_sha256": sha256_file(V2_ROOT / "semantic_isp.py"),
         "v2_low_level_isp_sha256": sha256_file(V2_ROOT / "axis_isp.py"),
         "v2_raw_preprocessor_sha256": sha256_file(V2_ROOT / "differentiable_isp.py"),
         "v2_config_sha256": sha256_file(config_path),
@@ -622,7 +708,7 @@ def process_scene(root, scene_id, acquisition, acquisition_line, acquisition_has
             return "skipped_error"
     base = {"scene_id": scene_id, "acquisition_manifest_line": acquisition_line,
             "acquisition_record_sha256": acquisition_hash, "source_signature": source_signature,
-            "software_hashes": hashes, "processor_version": "fullres_v2_crop_tint_fullbounds_v1",
+            "software_hashes": hashes, "processor_version": "fullres_v3_semantic_isp_13dof_v1",
             "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
     if not is_complete_record(acquisition):
         return "not_complete"
@@ -687,12 +773,10 @@ def process_scene(root, scene_id, acquisition, acquisition_line, acquisition_has
                     device=device, dtype=neutral.dtype)
                 if baseline_crop.shape != target.shape:
                     raise ValueError(f"Crop registration produced unequal tensor sizes for expert {expert}")
-                fit = fit_controls(baseline_crop, target, config, endpoints, args.iterations, args.learning_rate,
-                                   bounds=bounds)
-                physical = torch.tensor([fit["physical_controls"][name] for name in CONTROL_NAMES],
+                fit = fit_extended_controls(baseline_crop, target, config, args.iterations, args.learning_rate)
+                physical = torch.tensor([fit["physical_controls"][name] for name in EXTENDED_CONTROL_NAMES],
                                         device=device, dtype=neutral.dtype)
-                fit_parameters = parameters_from_controls(physical, config)
-                fit_parameters["tint"] = baseline_crop.new_tensor(fit["tint"])
+                fit_parameters = parameters_from_extended_controls(physical, config)
                 with torch.no_grad():
                     aligned_fit = render_linear(baseline_crop, fit_parameters)
                 fit["quality_metrics"] = display_quality_metrics(target, aligned_fit)
@@ -729,16 +813,16 @@ def process_scene(root, scene_id, acquisition, acquisition_line, acquisition_has
                     "camera_white_balance": True, "demosaic": "AHD", "gamma": [1, 1],
                     "no_auto_bright": True, "output_color": "linear sRGB primaries",
                     "rawpy_output_bits_per_channel": 16, "denoise": "OpenCV bilateralFilter d=5, sigmaColor=.05, sigmaSpace=35",
-                    "p99_gain": "scale all RGB samples to p99=.9; gain clipped to [1,10]",
+                    "normalization": "none (removed p99 gain; rawpy handles black/white levels)",
                     "native_size_processing": True,
                 },
                 "fit_protocol": {
                     "objective": "smooth-L1 in sRGB display space + 0.25 * pooled smooth-L1 + 0.002 * normalized-control L2 mean",
-                    "fitted_dofs": [*CONTROL_NAMES, "tint"],
-                    "tint_stage": f"Green/magenta white-balance tint in the warmth stage; bound [-{TINT_LIMIT}, {TINT_LIMIT}].",
-                    "control_parameterization": "tanh-normalized mapped to full physical bounds (not pole endpoints)",
-                    "control_bounds": bounds.tolist(),
-                    "tint_limit": TINT_LIMIT,
+                    "fitted_dofs": list(EXTENDED_CONTROL_NAMES),
+                    "n_dofs": len(EXTENDED_CONTROL_NAMES),
+                    "isp": "semantic_isp v3 — 13-DOF with shadow/highlight TM, vibrance, local TM, hue-selective shift, adaptive sat ceiling, dark-pixel sharp protection",
+                    "control_parameterization": "tanh-normalized mapped to full physical bounds",
+                    "control_bounds": [list(b) for b in EXTENDED_BOUNDS],
                     "optimization_short_side_px": 256,
                     "alignment": "Per-expert DNG default-crop prior; image-feature translation/orientation verification; integer crop only; scale/warp forbidden",
                     "optimization_resize": "area downsample of already crop-aligned GT/input pair to 256px short side; same geometry on both",

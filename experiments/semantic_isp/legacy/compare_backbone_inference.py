@@ -15,7 +15,7 @@ import torch
 
 from differentiable_isp import load_and_preprocess_raw
 from exp38_learn_poles import save_json
-from moran_semantic_isp import (CONTROL_NAMES, SemanticProjection, compose_parameters,
+from semantic_isp import (CONTROL_NAMES, SemanticProjection, compose_parameters,
                                 linear_to_srgb8, render_linear)
 
 

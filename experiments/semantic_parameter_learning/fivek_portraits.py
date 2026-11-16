@@ -13,7 +13,7 @@ import torch.nn.functional as F
 
 from autotune import BEAUTY_PROMPTS, REALISM_PROMPTS, CONTROL_NAMES, optimize
 from fivek_preview import DEFAULT_CONFIG, DEFAULT_DATA, DEFAULT_SENTENCES, load_linear_png, resize_short_side, write_render, write_sheet
-from moran_semantic_isp import parameters_from_controls, render_linear
+from semantic_isp import parameters_from_controls, render_linear
 from pole_normalization import pole_endpoints
 
 

@@ -15,7 +15,7 @@ import torch
 
 from differentiable_isp import load_and_preprocess_raw
 from axis_isp import chromaticity_proximity, linear_to_srgb8
-from moran_semantic_isp import CONTROL_NAMES, compose_parameters, render_linear
+from semantic_isp import CONTROL_NAMES, compose_parameters, render_linear
 
 
 PROTECTION_MODES = (

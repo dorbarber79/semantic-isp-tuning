@@ -13,7 +13,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 
 from autotune import CONTROL_NAMES
-from moran_semantic_isp import CONTROL_BOUNDS, CONTROL_NEUTRAL
+from semantic_isp import CONTROL_BOUNDS, CONTROL_NEUTRAL
 
 DEFAULT_DATASET = Path("/data/data1/semantic_isp/results/semantic_parameter_learning/pilot_multistart_8steps")
 
