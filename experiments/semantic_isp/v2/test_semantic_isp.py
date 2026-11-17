@@ -485,10 +485,10 @@ class SemanticISPTests(unittest.TestCase):
         self.assertTrue((coordinates.grad.abs() > 1e-8).all(), coordinates.grad)
 
     def test_tone_gain_bounds_produce_strong_monotone_brightness_endpoints(self):
-        self.assertEqual(CONTROL_BOUNDS[2], (.05, 5.0))
+        self.assertEqual(CONTROL_BOUNDS[2], (.05, 8.0))
         ramp = torch.linspace(.01, .35, 128).view(1, 1, 1, 128).expand(1, 3, 32, 128)
         dark_controls = torch.tensor([0., 0., .05, 1., 0., 0.])
-        bright_controls = torch.tensor([0., 0., 5., 1., 0., 0.])
+        bright_controls = torch.tensor([0., 0., 8., 1., 0., 0.])
         dark = render_linear(ramp, parameters_from_controls(dark_controls, seed_config()))
         bright = render_linear(ramp, parameters_from_controls(bright_controls, seed_config()))
         dark_median = _luminance(dark).flatten().median()

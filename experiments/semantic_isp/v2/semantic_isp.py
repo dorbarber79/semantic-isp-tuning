@@ -21,25 +21,25 @@ from differentiable_isp import _compress_gamut, _luminance, load_and_preprocess_
 AXES = ("thermal", "fidelity", "moral", "vitality", "hue_shift")
 POLE_DESCRIPTOR_PATH = Path(__file__).with_name("legacy") / "moran_pole_descriptors.json"
 CONTROL_NAMES = ("warmth", "saturation", "tone_gain", "contrast", "sharpness", "palette")
-CONTROL_BOUNDS = ((-0.3, 0.3), (-1.0, 1.0), (0.05, 5.0),
-                  (0.2, 3.0), (-0.9, 0.9), (-0.4, 0.4))
+CONTROL_BOUNDS = ((-0.5, 0.5), (-1.0, 1.5), (0.05, 8.0),
+                  (0.2, 4.0), (-0.9, 0.9), (-0.4, 0.4))
 CONTROL_NEUTRAL = (0.0048, 0.2637, 0.9755, 1.2032, 0.0391, -0.0097)
 TINT_DEFAULT = 0.0041
 EXTENDED_CONTROL_NAMES = ("warmth", "saturation", "shadow_gain", "highlight_gain",
                           "contrast", "sharpness", "palette", "tint", "vibrance",
                           "local_tone_strength", "split_tint",
-                          "warm_hue_shift", "cool_hue_shift")
-EXTENDED_BOUNDS = ((-0.3, 0.3), (-1.0, 1.0), (0.05, 5.0), (0.05, 5.0),
-                   (0.2, 3.0), (-0.9, 0.9), (-0.4, 0.4), (-0.5, 0.5),
+                          "red_shift", "green_shift", "blue_shift", "magenta_shift")
+EXTENDED_BOUNDS = ((-0.5, 0.5), (-1.0, 1.5), (0.05, 8.0), (0.05, 8.0),
+                   (0.2, 4.0), (-0.9, 0.9), (-0.4, 0.4), (-0.5, 0.5),
                    (-0.5, 0.5), (0.0, 0.8), (-0.5, 0.5),
-                   (-1.5, 1.5), (-1.5, 1.5))
+                   (-1.5, 1.5), (-1.5, 1.5), (-1.5, 1.5), (-1.5, 1.5))
 EXTENDED_NEUTRAL = (0.0048, 0.2637, 0.9755, 0.9755, 1.2032, 0.0391, -0.0097,
-                    0.0041, 0.0, 0.0, 0.0, 0.0, 0.0)
+                    0.0041, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 SEMANTIC_ENDPOINTS = {
-    "warmth":    {"default": 0.0048, "neg": -0.3000, "pos": 0.3000, "scale": "linear"},
-    "saturation":{"default": 0.2637, "neg": -0.7337, "pos": 1.0000, "scale": "linear"},
-    "tone_gain": {"default": 0.9755, "neg": 0.0500,  "pos": 5.0000, "scale": "log"},
-    "contrast":  {"default": 1.2032, "neg": 0.6795,  "pos": 2.1967, "scale": "linear"},
+    "warmth":    {"default": 0.0048, "neg": -0.5000, "pos": 0.5000, "scale": "linear"},
+    "saturation":{"default": 0.2637, "neg": -1.0000, "pos": 1.5000, "scale": "linear"},
+    "tone_gain": {"default": 0.9755, "neg": 0.0500,  "pos": 8.0000, "scale": "log"},
+    "contrast":  {"default": 1.2032, "neg": 0.2000,  "pos": 4.0000, "scale": "linear"},
     "sharpness": {"default": 0.0391, "neg": -0.0991, "pos": 0.4111, "scale": "linear"},
     "palette":   {"default": 0.0000, "neg": -0.2090, "pos": 0.0921, "scale": "linear"},
     "tint":      {"default": 0.0000, "neg": -0.0981, "pos": 0.1278, "scale": "linear"},
@@ -81,25 +81,51 @@ def apply_split_tint(image, amount):
 
 
 def apply_hue_selective_shift(image, warm_shift, cool_shift):
-    """Per-hue color adjustment: shift warm-hued and cool-hued pixels independently.
+    """Legacy 2-way hue shift. Use apply_hue_selective_shift_4way for 4-region control."""
+    luma = _luminance(image)
+    chroma = image - luma
+    r, g, b = image[:, 0:1], image[:, 1:2], image[:, 2:3]
+    intensity = (r + g + b).clamp_min(1e-6) / 3
+    warm_cool = (r - b) / (3 * intensity)
+    warmness = warm_cool.clamp(0, 1).square()
+    coolness = (-warm_cool).clamp(0, 1).square()
+    boosted_chroma = chroma * (1 + warm_shift * warmness + cool_shift * coolness)
+    return luma + boosted_chroma
 
-    Classifies pixels by their warm-cool balance (R-B relative to luminance).
-    warm_shift > 0: warm pixels get more saturated/warmer
-    cool_shift > 0: cool pixels get more saturated/cooler
+
+def apply_hue_selective_shift_4way(image, red_shift, green_shift, blue_shift, magenta_shift):
+    """4-region hue-selective chroma adjustment.
+
+    Splits the hue circle into 4 regions by dominant channel:
+      RED-ORANGE:     R dominant (R > G and R > B)
+      YELLOW-GREEN:   G dominant (G > R and G > B)
+      CYAN-BLUE:      B dominant (B > R and B > G)
+      PURPLE-MAGENTA: magenta axis (R+B dominant, neither R nor G nor B alone wins)
+
+    Soft classification via softmax over channel dominance — no hard boundaries.
     Luma-preserving: only chroma is modified.
     """
     luma = _luminance(image)
     chroma = image - luma
     r, g, b = image[:, 0:1], image[:, 1:2], image[:, 2:3]
     intensity = (r + g + b).clamp_min(1e-6) / 3
-    warm_cool = (r - b) / (3 * intensity)
-    warmness = warm_cool.clamp(0, 1)
-    warmness = warmness.square()
-    coolness = (-warm_cool).clamp(0, 1)
-    coolness = coolness.square()
-    warm_boost = warm_shift * warmness
-    cool_boost = cool_shift * coolness
-    boosted_chroma = chroma * (1 + warm_boost + cool_boost)
+    # Normalized channel strengths
+    rn = r / (3 * intensity)
+    gn = g / (3 * intensity)
+    bn = b / (3 * intensity)
+    # Magenta signal: both R and B above G
+    mn = ((rn + bn) / 2 - gn).clamp_min(0)
+    # Softmax-style weights with temperature for smooth transitions
+    temp = 4.0
+    logits = torch.cat([rn * temp, gn * temp, bn * temp, mn * temp], dim=1)
+    weights = torch.softmax(logits, dim=1)
+    w_red = weights[:, 0:1]
+    w_green = weights[:, 1:2]
+    w_blue = weights[:, 2:3]
+    w_magenta = weights[:, 3:4]
+    boost = (red_shift * w_red + green_shift * w_green +
+             blue_shift * w_blue + magenta_shift * w_magenta)
+    boosted_chroma = chroma * (1 + boost)
     return luma + boosted_chroma
 
 
@@ -323,15 +349,15 @@ def parameters_from_controls(controls, config):
 
 
 def parameters_from_extended_controls(controls, config):
-    """Map 13-DOF extended control vector to ISP parameter dict.
+    """Map 15-DOF extended control vector to ISP parameter dict.
 
     Order: warmth, saturation, shadow_gain, highlight_gain, contrast,
            sharpness, palette, tint, vibrance, local_tone_strength, split_tint,
-           warm_hue_shift, cool_hue_shift
+           red_shift, green_shift, blue_shift, magenta_shift
     """
     (warmth, saturation, shadow_gain, highlight_gain, contrast,
      sharpness, palette, tint, vibrance, local_tone_strength,
-     split_tint, warm_hue_shift, cool_hue_shift) = controls.unbind(dim=0)
+     split_tint, red_shift, green_shift, blue_shift, magenta_shift) = controls.unbind(dim=0)
     weights = controls.new_tensor([0.299, 0.587, 0.114]).expand(3, -1)
     identity = torch.eye(3, device=controls.device, dtype=controls.dtype)
     wb = torch.stack((1 + warmth, torch.ones_like(warmth), 1 - warmth))
@@ -342,7 +368,8 @@ def parameters_from_extended_controls(controls, config):
         "contrast": contrast, "sharpness": sharpness,
         "tint": tint, "vibrance": vibrance,
         "local_tone_strength": local_tone_strength, "split_tint": split_tint,
-        "warm_hue_shift": warm_hue_shift, "cool_hue_shift": cool_hue_shift,
+        "red_shift": red_shift, "green_shift": green_shift,
+        "blue_shift": blue_shift, "magenta_shift": magenta_shift,
         "radius": controls.new_tensor(config.get("detail_filter", {}).get("sigma_at_reference", 2.0)),
         "palette_coordinate": palette,
         "color_protection": config.get("color_protection"),
@@ -520,14 +547,27 @@ def render_linear(image, parameters):
         saturated = post_luma + post_chroma * ceiling_scale
     image = _compress_gamut(saturated, image)
 
-    # --- Stage 3b: Hue-selective color shift ---
-    warm_hue = parameters.get("warm_hue_shift")
-    cool_hue = parameters.get("cool_hue_shift")
-    if warm_hue is not None and cool_hue is not None:
-        needs_grad = (hasattr(warm_hue, 'requires_grad') and warm_hue.requires_grad) or \
-                     (hasattr(cool_hue, 'requires_grad') and cool_hue.requires_grad)
-        if needs_grad or float(warm_hue.detach()) != 0 or float(cool_hue.detach()) != 0:
-            image = _compress_gamut(apply_hue_selective_shift(image, warm_hue, cool_hue), image)
+    # --- Stage 3b: Hue-selective color shift (4-way) ---
+    red_hue = parameters.get("red_shift")
+    green_hue = parameters.get("green_shift")
+    blue_hue = parameters.get("blue_shift")
+    magenta_hue = parameters.get("magenta_shift")
+    if red_hue is not None and green_hue is not None and blue_hue is not None and magenta_hue is not None:
+        any_grad = any(hasattr(s, 'requires_grad') and s.requires_grad
+                       for s in (red_hue, green_hue, blue_hue, magenta_hue))
+        any_nonzero = any(float(s.detach()) != 0
+                          for s in (red_hue, green_hue, blue_hue, magenta_hue))
+        if any_grad or any_nonzero:
+            image = _compress_gamut(
+                apply_hue_selective_shift_4way(image, red_hue, green_hue, blue_hue, magenta_hue), image)
+    else:
+        warm_hue = parameters.get("warm_hue_shift")
+        cool_hue = parameters.get("cool_hue_shift")
+        if warm_hue is not None and cool_hue is not None:
+            needs_grad = (hasattr(warm_hue, 'requires_grad') and warm_hue.requires_grad) or \
+                         (hasattr(cool_hue, 'requires_grad') and cool_hue.requires_grad)
+            if needs_grad or float(warm_hue.detach()) != 0 or float(cool_hue.detach()) != 0:
+                image = _compress_gamut(apply_hue_selective_shift(image, warm_hue, cool_hue), image)
 
     # --- Stage 4: Vibrance (selective chroma boost for muted colors) ---
     vibrance_amount = parameters.get("vibrance")

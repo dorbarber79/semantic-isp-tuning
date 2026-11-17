@@ -534,14 +534,19 @@ def fit_controls(neutral, target, config, endpoints, iterations, learning_rate,
 
 
 def fit_extended_controls(neutral, target, config, iterations, learning_rate):
-    """13-DOF extended ISP fitting."""
+    """15-DOF extended ISP fitting at max 1920px long side."""
     ext_bounds = torch.tensor([list(b) for b in EXTENDED_BOUNDS],
                                device=neutral.device, dtype=neutral.dtype)
     height, width = neutral.shape[-2:]
-    scale = 256 / min(height, width)
-    fit_size = (max(1, round(height * scale)), max(1, round(width * scale)))
-    fit_image = F.interpolate(neutral, size=fit_size, mode="area")
-    fit_target = F.interpolate(target, size=fit_size, mode="area")
+    fit_max_long = 1920
+    if max(height, width) > fit_max_long:
+        scale = fit_max_long / max(height, width)
+        fit_size = (max(1, round(height * scale)), max(1, round(width * scale)))
+        fit_image = F.interpolate(neutral, size=fit_size, mode="area")
+        fit_target = F.interpolate(target, size=fit_size, mode="area")
+    else:
+        fit_image = neutral
+        fit_target = target
     palette_index = list(EXTENDED_CONTROL_NAMES).index("palette")
     best = None
     restarts = []
@@ -613,7 +618,7 @@ def fit_extended_controls(neutral, target, config, iterations, learning_rate):
     best["parameterization"] = "tanh-normalized [-1,1] mapped to full physical bounds"
     best["control_names"] = list(EXTENDED_CONTROL_NAMES)
     best["n_dofs"] = len(EXTENDED_CONTROL_NAMES)
-    best["optimization_dimensions_wh"] = [fit_size[1], fit_size[0]]
+    best["optimization_dimensions_wh"] = [fit_image.shape[-1], fit_image.shape[-2]]
     return best
 
 
@@ -708,7 +713,7 @@ def process_scene(root, scene_id, acquisition, acquisition_line, acquisition_has
             return "skipped_error"
     base = {"scene_id": scene_id, "acquisition_manifest_line": acquisition_line,
             "acquisition_record_sha256": acquisition_hash, "source_signature": source_signature,
-            "software_hashes": hashes, "processor_version": "fullres_v3_semantic_isp_13dof_v1",
+            "software_hashes": hashes, "processor_version": "fullres_v6_semantic_isp_15dof_fullres_fit",
             "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
     if not is_complete_record(acquisition):
         return "not_complete"
